@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +11,16 @@
         padding: 0;
         box-sizing: border-box;
         font-family: "Poppins", sans-serif;
+    }
+
+    #themeBtn {
+        background:none;
+        color:white;
+        font-size: 25px;
+        border:none;
+        cursor:pointer;
+        text-align: center;
+        align-items: center;
     }
 
     #progress-bar {
@@ -52,19 +61,19 @@
     }
 
     body.dark nav {
-        background: #1b1b1b;
+        //background: #1b1b1b;
     }
 
     body.dark .top6,
     body.dark .top9 {
-        background: #222;
-        color: #fff;
-        border-color: #555;
+        //background: #222;
+        //color: #fff;
+        //border-color: #555;
     }
 
     body.dark footer {
-        background: #1b1b1b;
-        color: #fff;
+        //background: #1b1b1b;
+        //color: #fff;
     }
 
     nav {
@@ -86,7 +95,7 @@
         display: none;
         background: none;
         border: none;
-        font-size: 20px;
+        font-size:30px;
         color: black;
         cursor: pointer;
     }
@@ -324,6 +333,11 @@
 
     @media (max-width: 767px) {
 
+
+       #btn{
+        display:block;
+       }
+
         nav {
             padding: 15px 20px;
         }
@@ -465,7 +479,7 @@
             <a href="#"><span>home</span></a>
             <a href="code2html.html">html</a>
             <button id="vtn"><a href="loginpage.html">join now</a></button>
-            <button id="themeBtn">🌙 Dark Mode</button>
+            <button id="themeBtn">🌙</button>
         </div>
 
     </nav>

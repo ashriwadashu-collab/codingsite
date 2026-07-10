@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Tutorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"el="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+
+    body {
+        background: #ffffff;
+        color: #111;
+        overflow-x: hidden;
+        transition: .4s;
+    }
+
+
+    body.dark {
+        background: #111;
+        color: #fff;
+    }
+
+    body.dark nav {
+        background: #1b1b1b;
+    }
+
+    body.dark .card,
+    body.dark .feature-card,
+    body.dark .uses-card,
+    body.dark .info-box,
+    body.dark .project-card,
+    body.dark .faq {
+        background: #222;
+        color: #fff;
+        border-color: #555;
+    }
+
+    body.dark footer {
+        background: #1b1b1b;
+    }
+
+
+
+    #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 5px;
+        background: #0d6efd;
+        z-index: 9999;
+    }
+
+
+
+    #scrollTop {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        width: 55px;
+        height: 55px;
+        border: none;
+        border-radius: 50%;
+        background: #0d6efd;
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+        display: none;
+        transition: .3s;
+        z-index: 999;
+    }
+
+    #scrollTop:hover {
+        transform: translateY(-5px);
+    }
+
+
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 80px;
+        z-index: 999;
+    }
+
+    .logo {
+        color: #fff;
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    .logo span {
+        color: #0d6efd;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .menu a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 18px;
+        transition: .3s;
+    }
+
+    .menu a:hover {
+        color: #0d6efd;
+    }
+
+    #themeBtn {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    #btn {
+        display: none;
+    }
+
+
+
+    .intro,
+    .points,
+    .why{
+        padding:40px 20px;
+    }
+
+    .intro h1,
+    .points h1,
+    .why h1{
+        font-size:30px;
+    }
+
+    .intro p,
+    .why p{
+        font-size:16px;
+        line-height:28px;
+    }
+
+    .why ul{
+        padding:0;
+    }
+
+    .why ul li{
+        font-size:16px;
+        line-height:28px;
+        margin:12px 0;
+    }
+
+    .card-box{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .card h2{
+        font-size:22px;
+    }
+
+    .card p{
+        font-size:15px;
+        line-height:25px;
+    }
+
+    .image-section{
+        flex-direction:column;
+        padding:20px;
+        gap:20px;
+    }
+
+    .image-box img{
+        width:100%;
+        height:auto;
+        border-radius:12px;
+    }
+
+
+
+
+    /* ===========================
+   Introduction
+=========================== */
+
+.intro{
+    padding:80px;
+    text-align:center;
+}
+
+.intro h1{
+    font-size:45px;
+    color:#0d6efd;
+    margin-bottom:25px;
+}
+
+.intro p{
+    max-width:1000px;
+    margin:auto;
+    font-size:20px;
+    line-height:35px;
+}
+
+
+/* ===========================
+   Key Features
+=========================== */
+
+.points{
+    padding:80px;
+}
+
+.points h1{
+    text-align:center;
+    font-size:45px;
+    color:#0d6efd;
+    margin-bottom:40px;
+}
+
+.card-box{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.card{
+    background:#fff;
+    border:2px solid #ddd;
+    border-radius:12px;
+    padding:30px;
+    text-align:center;
+    transition:.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h2{
+    color:#0d6efd;
+    margin-bottom:15px;
+    font-size:25px;
+}
+
+.card p{
+    font-size:17px;
+    line-height:28px;
+}
+
+
+/* ===========================
+   Why Learn JavaScript
+=========================== */
+
+.why{
+    padding:80px;
+    text-align:center;
+}
+
+.why h1{
+    font-size:45px;
+    color:#0d6efd;
+    margin-bottom:25px;
+}
+
+.why p{
+    max-width:1000px;
+    margin:0 auto 30px;
+    font-size:20px;
+    line-height:35px;
+}
+
+.why ul{
+    list-style:none;
+}
+
+.why ul li{
+    font-size:20px;
+    margin:15px 0;
+}
+
+
+/* ===========================
+   Image Section
+=========================== */
+
+.image-section{
+    display:flex;
+    gap:30px;
+    padding:60px 80px;
+}
+
+.image-box{
+    flex:1;
+}
+
+.image-box img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+    border-radius:15px;
+    display:block;
+}
+
+    /* ===========================
+   Hero Section
+=========================== */
+
+    .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 60px;
+        padding: 140px 80px 80px;
+    }
+
+    .hero-image {
+        flex: 1;
+        text-align: center;
+    }
+
+    .hero-image img {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .hero-text {
+        flex: 1;
+    }
+
+    .hero-text h1 {
+        font-size: 65px;
+        margin-bottom: 15px;
+    }
+
+    .hero-text h1 span {
+        color: #0d6efd;
+    }
+
+    .hero-text h2 {
+        color: #ff3b3b;
+        font-size: 36px;
+        margin-bottom: 20px;
+    }
+
+    .hero-text p {
+        font-size: 19px;
+        line-height: 34px;
+    }
+
+    .hero-btn {
+        margin-top: 35px;
+        display: flex;
+        gap: 20px;
+    }
+
+    .btn1,
+    .btn2 {
+        padding: 15px 35px;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .btn1 {
+        background: #000;
+        color: #fff;
+    }
+
+    .btn2 {
+        background: #0d6efd;
+        color: #fff;
+    }
+
+    /* =========================
+   Image Section
+========================= */
+
+    .image-section {
+        display: flex;
+        gap: 30px;
+        padding: 50px 80px;
+    }
+
+    .image-box {
+        flex: 1;
+    }
+
+    .image-box img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    /* =========================
+   Features
+========================= */
+
+    .features {
+        padding: 80px;
+    }
+
+    .features h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 40px;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .feature-card {
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        padding: 25px;
+        text-align: center;
+        transition: .3s;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-8px);
+    }
+
+    .feature-card h2 {
+        color: #0d6efd;
+        margin-bottom: 15px;
+    }
+
+    .feature-card p {
+        line-height: 28px;
+    }
+
+    /* =========================
+   Uses
+========================= */
+
+    .uses {
+        padding: 80px;
+    }
+
+    .uses h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 40px;
+    }
+
+    .uses-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .uses-card {
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        padding: 25px;
+        text-align: center;
+        transition: .3s;
+    }
+
+    .uses-card:hover {
+        transform: translateY(-8px);
+    }
+
+    .uses-card h2 {
+        color: #0d6efd;
+        margin-bottom: 15px;
+    }
+
+    .uses-card p {
+        line-height: 28px;
+    }
+
+    /* =========================
+   Advantages & Disadvantages
+========================= */
+
+    .info-section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        padding: 60px 80px;
+    }
+
+    .info-box {
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        padding: 30px;
+    }
+
+    .info-box h1 {
+        text-align: center;
+        color: #0d6efd;
+        margin-bottom: 20px;
+    }
+
+    .info-box p {
+        line-height: 32px;
+        font-size: 18px;
+    }
+
+    /* =========================
+   Projects
+========================= */
+
+    .projects {
+        padding: 80px;
+    }
+
+    .projects h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 40px;
+    }
+
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .project-card {
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        padding: 25px;
+        text-align: center;
+        transition: .3s;
+    }
+
+    .project-card:hover {
+        transform: translateY(-8px);
+    }
+
+    .project-card h2 {
+        color: #0d6efd;
+        margin-bottom: 15px;
+    }
+
+    .project-card p {
+        line-height: 28px;
+    }
+
+    /* =========================
+   FAQ
+========================= */
+
+    .faq-section {
+        padding: 80px;
+    }
+
+    .faq-section h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 40px;
+    }
+
+    .faq {
+        width: 850px;
+        margin: 20px auto;
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        padding: 20px;
+    }
+
+    .question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .answer {
+        display: none;
+        margin-top: 15px;
+        line-height: 30px;
+    }
+
+    .faq.active .answer {
+        display: block;
+    }
+
+    .btn {
+        width: 35px;
+        height: 35px;
+        border: none;
+        border-radius: 50%;
+        background: #0d6efd;
+        color: #fff;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    /* =========================
+   Footer
+========================= */
+
+    footer {
+        background: #111;
+        color: #fff;
+        margin-top: 80px;
+    }
+
+    .footer-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        padding: 60px 80px;
+    }
+
+    .footer-box h2 {
+        margin-bottom: 20px;
+        color: #0d6efd;
+    }
+
+    .footer-box p {
+        margin: 10px 0;
+        cursor: pointer;
+    }
+
+    .footer-box p:hover {
+        color: #0d6efd;
+    }
+
+    .copyright {
+        text-align: center;
+        padding: 20px;
+        border-top: 1px solid rgba(255, 255, 255, .2);
+    }
+
+    /* =========================
+   Mobile Responsive
+========================= */
+
+    @media(max-width:768px) {
+
+        nav {
+            padding: 15px 20px;
+        }
+
+        #btn {
+            display: block;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .menu {
+            position: absolute;
+            top: 70px;
+            right: 0;
+            width: 60%;
+            background: #000;
+            flex-direction: column;
+            text-align: center;
+            max-height: 0;
+            overflow: hidden;
+            transition: .4s;
+        }
+
+        .menu.show {
+            max-height: 700px;
+        }
+
+        .hero,
+        .image-section {
+            flex-direction: column;
+            padding: 30px 20px;
+            margin-top:80px;
+        }
+
+        .card-box,
+        .feature-grid,
+        .uses-grid,
+        .project-grid,
+        .info-section,
+        .footer-container {
+            grid-template-columns: 1fr;
+            padding: 20px;
+        }
+
+        .faq {
+            width: 95%;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+        }
+
+        .hero h2 {
+            font-size: 24px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            line-height: 28px;
+        }
+
+        .btn1,
+        .btn2 {
+            width: 100%;
+            margin-top: 10px;
+        }
+    }
+</style>
+    <header>
+    <nav>
+
+        <div class="logo">code<span>learn</span></div>
+
+        <button id="btn">☰</button>
+
+        <div class="menu" id="menu">
+
+            <a href="index.html">Home</a>
+
+            <a href="code2html.html">html</a>
+
+            <a href="code3html.html">css</a>
+
+            <a href="code4html.html">JavaScript</a>
+
+            <a href="code5html.html">php</a>
+
+             <a href="code6html.html">react</a>
+
+            <a href=".html">c++</a>
+
+            <a href=".html">c</a>
+
+            <a href=".html">phython</a>
+
+            <button id="themeBtn">🌙 </button>
+
+        </div>
+
+    </nav>
+</header>
+<body>
+
+    <div id="progress-bar"></div>
+
+    <button id="scrollTop">↑</button>
+
+
+
+
+    <section class="hero">
+
+        <div class="hero-image">
+
+            <img src="images/ic2.jpg" alt="JavaScript">
+
+        </div>
+
+        <div class="hero-text">
+
+            <h1>Learn <span>JavaScript</span></h1>
+
+            <h2>The Language of the Web</h2>
+
+            <p>
+                JavaScript is the world's most popular programming language.
+                It makes websites interactive by adding animations, sliders,
+                forms, popups, games, APIs and dynamic web applications.
+            </p>
+
+            <div class="hero-btn">
+
+                <button class="btn1">Start Learning</button>
+
+                <button class="btn2">Watch Video</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="intro">
+
+        <h1>1. Introduction</h1>
+
+        <p>
+            JavaScript is a powerful programming language used to make
+            websites interactive and dynamic. It works together with
+            HTML and CSS to build modern websites.
+        </p>
+
+    </section>
+
+
+
+    <section class="points">
+
+        <h1>2. Key Features</h1>
+
+        <div class="card-box">
+
+            <div class="card">
+                <h2>Easy to Learn</h2>
+                <p>Simple syntax that is beginner friendly.</p>
+            </div>
+
+            <div class="card">
+                <h2>Fast</h2>
+                <p>Runs directly inside every modern browser.</p>
+            </div>
+
+            <div class="card">
+                <h2>Interactive</h2>
+                <p>Adds animations, events and dynamic content.</p>
+            </div>
+
+            <div class="card">
+                <h2>Popular</h2>
+                <p>Used by millions of developers worldwide.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="why">
+
+        <h1>3. Why Learn JavaScript?</h1>
+
+        <p>
+            JavaScript is one of the most important programming languages for web
+            development. It works together with HTML and CSS to build modern,
+            responsive and interactive websites.
+        </p>
+
+        <ul>
+            <li>Create interactive websites.</li>
+            <li>Build games and web applications.</li>
+            <li>Create animations and sliders.</li>
+            <li>Work with APIs and databases.</li>
+            <li>Learn React, Node.js and modern frameworks.</li>
+            <li>High demand for Front-End Developers.</li>
+        </ul>
+
+    </section>
+
+
+    <section class="features">
+
+        <h1>4. JavaScript Features</h1>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <h2>DOM Manipulation</h2>
+                <p>Change HTML and CSS dynamically using JavaScript.</p>
+            </div>
+
+            <div class="feature-card">
+                <h2>Events</h2>
+                <p>Respond to user actions like click, scroll and keyboard events.</p>
+            </div>
+
+            <div class="feature-card">
+                <h2>Animations</h2>
+                <p>Create sliders, counters, popups and smooth animations.</p>
+            </div>
+
+            <div class="feature-card">
+                <h2>Fetch API</h2>
+                <p>Load live data from servers without refreshing the page.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="uses">
+
+        <h1>5. Uses of JavaScript</h1>
+
+        <div class="uses-grid">
+
+            <div class="uses-card">
+                <h2>Web Development</h2>
+                <p>Create interactive websites and web applications.</p>
+            </div>
+
+            <div class="uses-card">
+                <h2>Games</h2>
+                <p>Build browser games with animations and logic.</p>
+            </div>
+
+            <div class="uses-card">
+                <h2>Forms</h2>
+                <p>Validate user input before submitting forms.</p>
+            </div>
+
+            <div class="uses-card">
+                <h2>Image Sliders</h2>
+                <p>Create automatic image sliders and carousels.</p>
+            </div>
+
+            <div class="uses-card">
+                <h2>Dark Mode</h2>
+                <p>Switch between light and dark themes.</p>
+            </div>
+
+            <div class="uses-card">
+                <h2>APIs</h2>
+                <p>Display live weather, news and other online data.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="info-section">
+
+        <div class="info-box">
+
+            <h1>Advantages</h1>
+
+            <p>✔ Easy to Learn</p>
+            <p>✔ Beginner Friendly</p>
+            <p>✔ Fast Execution</p>
+            <p>✔ Runs in Every Browser</p>
+            <p>✔ Interactive Websites</p>
+            <p>✔ Huge Community Support</p>
+            <p>✔ Works with HTML & CSS</p>
+
+        </div>
+
+        <div class="info-box">
+
+            <h1>Disadvantages</h1>
+
+            <p>✖ Client-side code is visible.</p>
+            <p>✖ Browser compatibility issues.</p>
+            <p>✖ Debugging can be difficult.</p>
+            <p>✖ Single-threaded language.</p>
+            <p>✖ Security limitations.</p>
+            <p>✖ Slow for heavy calculations.</p>
+            <p>✖ Requires good coding practice.</p>
+
+        </div>
+
+    </section>
+
+
+    <section class="projects">
+
+        <h1>6. Practice Projects</h1>
+
+        <div class="project-grid">
+
+            <div class="project-card">
+                <h2>Digital Clock</h2>
+                <p>Create a live digital clock using JavaScript.</p>
+            </div>
+
+            <div class="project-card">
+                <h2>Calculator</h2>
+                <p>Build a working calculator.</p>
+            </div>
+
+            <div class="project-card">
+                <h2>Image Slider</h2>
+                <p>Create an automatic image slider.</p>
+            </div>
+
+            <div class="project-card">
+                <h2>Dark Mode</h2>
+                <p>Add light and dark theme switching.</p>
+            </div>
+
+            <div class="project-card">
+                <h2>Quiz App</h2>
+                <p>Create a quiz application with score.</p>
+            </div>
+
+            <div class="project-card">
+                <h2>To-Do List</h2>
+                <p>Manage daily tasks using JavaScript.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="faq-section">
+
+        <h1>7. Frequently Asked Questions</h1>
+
+        <div class="faq">
+            <div class="question">
+                What is JavaScript?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                JavaScript is a programming language used to make websites interactive and dynamic.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                Is JavaScript easy to learn?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                Yes, JavaScript is beginner-friendly and easy to learn with practice.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                What is DOM?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                DOM allows JavaScript to access and change HTML elements.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                What is an Event?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                An event is an action like click, scroll or keyboard input.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                What is a Function?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                A function is a reusable block of code that performs a task.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                What is an Array?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                An array stores multiple values in a single variable.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                What is an Object?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                An object stores data in key-value pairs.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                What is setTimeout()?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                It runs a function once after a specified delay.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                What is setInterval()?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                It repeatedly runs a function after a specified time interval.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                Why should I learn JavaScript?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                JavaScript is essential for creating modern, interactive websites and web applications.
+            </div>
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-box">
+
+                <h2>Code Learn</h2>
+
+                <p>
+                    Learn HTML, CSS, JavaScript, React, PHP and other web technologies
+                    with simple tutorials and real projects.
+                </p>
+
+            </div>
+
+            <div class="footer-box">
+
+                <h2>Quick Links</h2>
+
+                <p>Home</p>
+                <p>HTML</p>
+                <p>CSS</p>
+                <p>JavaScript</p>
+                <p>React</p>
+
+            </div>
+
+            <div class="footer-box">
+
+                <h2>JavaScript Topics</h2>
+
+                <p>Variables</p>
+                <p>Functions</p>
+                <p>Arrays</p>
+                <p>DOM</p>
+                <p>Events</p>
+
+            </div>
+
+            <div class="footer-box">
+
+                <h2>Practice Projects</h2>
+
+                <p>Calculator</p>
+                <p>Quiz App</p>
+                <p>Image Slider</p>
+                <p>To-Do List</p>
+                <p>Digital Clock</p>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+
+            <p>© 2026 Code Learn. All Rights Reserved.</p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+<script>
+
+
+    const btn = document.getElementById("btn");
+    const menu = document.getElementById("menu");
+
+    btn.onclick = function () {
+        menu.classList.toggle("show");
+    };
+
+    document.querySelectorAll(".btn").forEach(function (button) {
+
+        button.onclick = function () {
+
+            let faq = this.parentElement.parentElement;
+
+            faq.classList.toggle("active");
+
+            if (faq.classList.contains("active")) {
+                this.innerHTML = "-";
+            } else {
+                this.innerHTML = "+";
+            }
+
+        };
+
+    });
+
+  
+
+    const themeBtn = document.getElementById("themeBtn");
+
+    themeBtn.onclick = function () {
+
+        document.body.classList.toggle("dark");
+
+        if (document.body.classList.contains("dark")) {
+            themeBtn.innerHTML = "☀️";
+        } else {
+            themeBtn.innerHTML = "🌙";
+        }
+
+    };
+
+    
+
+    const progressBar = document.getElementById("progress-bar");
+    const scrollTopBtn = document.getElementById("scrollTop");
+
+    window.addEventListener("scroll", function () {
+
+        let scroll = document.documentElement.scrollTop;
+
+        let height =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+
+        let progress = (scroll / height) * 100;
+
+        progressBar.style.width = progress + "%";
+
+        if (scroll > 300) {
+            scrollTopBtn.style.display = "block";
+        } else {
+            scrollTopBtn.style.display = "none";
+        }
+
+    });
+
+
+    scrollTopBtn.onclick = function () {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    };
+</script>
+
+</html>

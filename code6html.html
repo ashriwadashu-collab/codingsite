@@ -1,0 +1,2542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>React Tutorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<style>
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#fff;
+    color:#111;
+    transition:.4s;
+}
+
+
+
+body.dark{
+    background:#111;
+    color:#fff;
+}
+
+body.dark nav{
+    background:#1b1b1b;
+}
+
+
+#progress-bar{
+
+    position:fixed;
+    top:0;
+    left:0;
+    width:0%;
+    height:5px;
+    background:#0d6efd;
+    z-index:9999;
+
+}
+
+
+#scrollTop{
+
+    position:fixed;
+    right:25px;
+    bottom:25px;
+
+    width:55px;
+    height:55px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#0d6efd;
+    color:#fff;
+
+    font-size:25px;
+
+    cursor:pointer;
+
+    display:none;
+
+    z-index:999;
+
+    transition:.3s;
+
+}
+
+
+#scrollTop:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+nav{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:80px;
+
+    background:#000;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 80px;
+
+    z-index:1000;
+
+}
+
+
+
+.logo{
+
+    color:white;
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+
+
+.logo span{
+
+    color:#0d6efd;
+
+}
+
+
+
+.menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+}
+
+
+
+.menu a{
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+
+
+.menu a:hover{
+
+    color:#0d6efd;
+
+}
+
+
+
+#themeBtn{
+
+    border:none;
+
+    background:none;
+
+    color:white;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+}
+
+
+
+#btn{
+
+    display:none;
+
+}
+
+
+.hero{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:60px;
+
+    padding:140px 80px 80px;
+
+}
+
+
+
+.hero-image{
+
+    flex:1;
+
+    text-align:center;
+
+}
+
+
+
+.hero-image img{
+
+    width:100%;
+
+    max-width:500px;
+
+    border-radius:20px;
+
+}
+
+
+
+.hero-text{
+
+    flex:1;
+
+}
+
+
+
+.hero-text h1{
+
+    font-size:65px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.hero-text h1 span{
+
+    color:#0d6efd;
+
+}
+
+
+
+.hero-text h2{
+
+    color:#ff3b3b;
+
+    font-size:36px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.hero-text p{
+
+    font-size:19px;
+
+    line-height:34px;
+
+    color:#555;
+
+}
+
+
+
+.hero-btn{
+
+    display:flex;
+
+    gap:20px;
+
+    margin-top:35px;
+
+}
+
+
+
+.btn1,
+.btn2{
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+.btn1{
+
+    background:#000;
+
+    color:white;
+
+}
+
+
+
+.btn2{
+
+    background:#0d6efd;
+
+    color:white;
+
+}
+
+
+
+.btn1:hover,
+.btn2:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+.intro{
+
+    width:90%;
+    margin:auto;
+    padding:70px 0;
+    text-align:center;
+
+}
+
+
+.intro h1{
+
+    font-size:45px;
+    color:#0d6efd;
+    margin-bottom:25px;
+
+}
+
+
+.intro p{
+
+    max-width:1000px;
+    margin:auto;
+
+    font-size:20px;
+
+    line-height:35px;
+
+    color:#555;
+
+}
+
+
+
+.points{
+
+    width:90%;
+    margin:auto;
+    padding:70px 0;
+
+}
+
+
+.points h1{
+
+    text-align:center;
+
+    font-size:45px;
+
+    color:#0d6efd;
+
+    margin-bottom:50px;
+
+}
+
+
+
+.card-box{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+
+
+.card{
+
+    background:#fff;
+
+    border:2px solid #ddd;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    text-align:center;
+
+    transition:.4s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+
+}
+
+
+
+.card h2{
+
+    color:#0d6efd;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.card p{
+
+    color:#555;
+
+    line-height:28px;
+
+}
+
+
+.why{
+
+    width:90%;
+
+    margin:auto;
+
+    padding:70px 0;
+
+    text-align:center;
+
+}
+
+
+
+.why h1{
+
+    font-size:45px;
+
+    color:#0d6efd;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.why p{
+
+    max-width:1000px;
+
+    margin:auto;
+
+    font-size:20px;
+
+    line-height:35px;
+
+    color:#555;
+
+}
+
+
+
+.why ul{
+
+    list-style:none;
+
+    margin-top:30px;
+
+}
+
+
+
+.why ul li{
+
+    font-size:20px;
+
+    margin:15px 0;
+
+}
+
+
+
+
+.image-section{
+
+    width:90%;
+
+    margin:auto;
+
+    padding:60px 0;
+
+    display:flex;
+
+    gap:30px;
+
+}
+
+
+
+.image-box{
+
+    flex:1;
+
+}
+
+
+
+.image-box img{
+
+    width:100%;
+
+    height:350px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    transition:.4s;
+
+}
+
+
+
+.image-box img:hover{
+
+    transform:scale(1.03);
+
+}
+
+
+
+.features{
+
+    width:90%;
+
+    margin:auto;
+
+    padding:70px 0;
+
+}
+
+
+
+.features h1{
+
+    text-align:center;
+
+    font-size:45px;
+
+    color:#0d6efd;
+
+    margin-bottom:50px;
+
+}
+
+
+
+.feature-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+}
+
+
+
+.feature-card{
+
+    background:#fff;
+
+    border:2px solid #ddd;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    text-align:center;
+
+    transition:.4s;
+
+}
+
+
+
+.feature-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+
+}
+
+
+
+.feature-card h2{
+
+    color:#0d6efd;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.feature-card p{
+
+    color:#555;
+
+    line-height:28px;
+
+}
+
+
+
+.uses{
+
+    width:90%;
+
+    margin:auto;
+
+    padding:70px 0;
+
+}
+
+
+
+.uses h1{
+
+    text-align:center;
+
+    font-size:45px;
+
+    color:#0d6efd;
+
+    margin-bottom:50px;
+
+}
+
+
+
+.uses-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+
+
+.uses-card{
+
+    background:#fff;
+
+    border:2px solid #ddd;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    transition:.4s;
+
+}
+
+
+
+.uses-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+
+}
+
+
+
+.uses-card h2{
+
+    color:#0d6efd;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.uses-card p{
+
+    color:#555;
+
+    line-height:28px;
+
+}
+
+
+.info-section{
+
+    width:90%;
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:40px;
+
+    padding:70px 0;
+
+}
+
+
+
+.info-box{
+
+    background:#fff;
+
+    border:2px solid #ddd;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    transition:.4s;
+
+}
+
+
+
+.info-box:hover{
+
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+
+}
+
+
+
+.info-box h1{
+
+    text-align:center;
+
+    color:#0d6efd;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.info-box p{
+
+    font-size:18px;
+
+    line-height:32px;
+
+    color:#555;
+
+}
+
+
+
+
+.projects{
+
+    width:90%;
+
+    margin:auto;
+
+    padding:70px 0;
+
+}
+
+
+
+.projects h1{
+
+    text-align:center;
+
+    font-size:45px;
+
+    color:#0d6efd;
+
+    margin-bottom:50px;
+
+}
+
+
+
+.project-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+
+
+.project-card{
+
+    background:#fff;
+
+    border:2px solid #ddd;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    text-align:center;
+
+    transition:.4s;
+
+}
+
+
+
+.project-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+
+}
+
+
+
+.project-card h2{
+
+    color:#0d6efd;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.project-card p{
+
+    color:#555;
+
+    line-height:28px;
+
+}
+
+
+
+
+.faq-section{
+
+    width:90%;
+
+    margin:auto;
+
+    padding:70px 0;
+
+}
+
+
+
+.faq-section h1{
+
+    text-align:center;
+
+    font-size:45px;
+
+    color:#0d6efd;
+
+    margin-bottom:50px;
+
+}
+
+
+
+.faq{
+
+    width:850px;
+
+    margin:20px auto;
+
+    background:#fff;
+
+    border:2px solid #ddd;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+}
+
+
+
+.question{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 25px;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+
+.answer{
+
+    display:none;
+
+    padding:20px 25px;
+
+    border-top:1px solid #ddd;
+
+    color:#555;
+
+    line-height:30px;
+
+}
+
+
+
+.faq.active .answer{
+
+    display:block;
+
+}
+
+
+
+.btn{
+
+    width:35px;
+
+    height:35px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#0d6efd;
+
+    color:white;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+}
+
+
+footer{
+
+    background:#111;
+
+    color:white;
+
+    margin-top:80px;
+
+}
+
+
+
+.footer-container{
+
+    width:90%;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:40px;
+
+    padding:60px 0;
+
+}
+
+
+
+.footer-box h2{
+
+    color:#0d6efd;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.footer-box p{
+
+    color:#ddd;
+
+    line-height:28px;
+
+    margin:10px 0;
+
+}
+
+
+
+.footer-box p:hover{
+
+    color:#0d6efd;
+
+    cursor:pointer;
+
+}
+
+
+
+.copyright{
+
+    border-top:1px solid #333;
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+
+
+.copyright p{
+
+    color:#bbb;
+
+}
+
+
+
+
+body.dark .card,
+body.dark .feature-card,
+body.dark .uses-card,
+body.dark .info-box,
+body.dark .project-card,
+body.dark .faq{
+
+    background:#222;
+
+    border-color:#555;
+
+    color:white;
+
+}
+
+
+
+body.dark .intro p,
+body.dark .why p,
+body.dark .card p,
+body.dark .feature-card p,
+body.dark .uses-card p,
+body.dark .project-card p,
+body.dark .info-box p,
+body.dark .answer{
+
+    color:#ddd;
+
+}
+
+
+
+body.dark footer{
+
+    background:#000;
+
+}
+
+
+@media(max-width:768px){
+
+
+nav{
+
+    padding:15px 20px;
+
+}
+
+
+#btn{
+
+    display:block;
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    font-size:32px;
+
+    cursor:pointer;
+
+}
+
+
+
+.menu{
+
+    position:absolute;
+
+    top:80px;
+
+    left:0;
+
+    width:100%;
+
+    background:#111;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:20px;
+
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:.4s;
+
+}
+
+
+
+.menu.show{
+
+    max-height:600px;
+
+    padding:20px 0;
+
+}
+
+
+
+.menu a{
+
+    font-size:17px;
+
+}
+
+.hero{
+
+    flex-direction:column;
+
+    padding:120px 20px 40px;
+
+    text-align:center;
+
+    gap:30px;
+
+}
+
+
+
+.hero-image img{
+
+    width:100%;
+
+}
+
+
+
+.hero-text h1{
+
+    font-size:40px;
+
+}
+
+
+
+.hero-text h2{
+
+    font-size:25px;
+
+}
+
+
+
+.hero-text p{
+
+    font-size:16px;
+
+    line-height:30px;
+
+}
+
+
+
+.hero-btn{
+
+    flex-direction:column;
+
+}
+
+
+
+.btn1,
+.btn2{
+
+    width:100%;
+
+}
+
+.intro{
+
+    width:90%;
+
+    padding:40px 0;
+
+}
+
+
+
+.intro h1{
+
+    font-size:32px;
+
+}
+
+
+
+.intro p{
+
+    font-size:16px;
+
+    line-height:30px;
+
+}
+
+.points{
+
+    width:90%;
+
+}
+
+
+
+.points h1{
+
+    font-size:32px;
+
+}
+
+
+
+.card-box{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.card{
+
+    padding:25px;
+
+}
+
+.why{
+
+    width:90%;
+
+}
+
+
+
+.why h1{
+
+    font-size:32px;
+
+}
+
+
+
+.why p{
+
+    font-size:16px;
+
+    line-height:30px;
+
+}
+
+
+
+.why ul{
+
+    padding-left:20px;
+
+}
+
+
+
+.why ul li{
+
+    font-size:17px;
+
+}
+
+
+.image-section{
+
+    width:90%;
+
+    flex-direction:column;
+
+    padding:30px 0;
+
+}
+
+
+
+.image-box img{
+
+    height:auto;
+
+}
+
+
+.features{
+
+    width:90%;
+
+}
+
+
+
+.features h1{
+
+    font-size:32px;
+
+}
+
+
+
+.feature-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.feature-card{
+
+    padding:25px;
+
+}
+
+.uses{
+
+    width:90%;
+
+}
+
+
+
+.uses h1{
+
+    font-size:32px;
+
+}
+
+
+
+.uses-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.uses-card{
+
+    padding:25px;
+
+}
+
+.info-section{
+
+    width:90%;
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.info-box{
+
+    padding:25px;
+
+}
+
+
+
+.info-box h1{
+
+    font-size:28px;
+
+}
+
+
+
+.info-box p{
+
+    font-size:16px;
+
+}
+
+
+
+
+
+/* PROJECTS */
+
+
+.projects{
+
+    width:90%;
+
+}
+
+
+
+.projects h1{
+
+    font-size:32px;
+
+}
+
+
+
+.project-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+
+
+.project-card{
+
+    padding:25px;
+
+}
+
+.faq-section{
+
+    width:90%;
+
+}
+
+
+
+.faq-section h1{
+
+    font-size:32px;
+
+}
+
+
+
+.faq{
+
+    width:100%;
+
+}
+
+
+
+.question{
+
+    font-size:16px;
+
+    padding:15px;
+
+}
+
+
+
+.answer{
+
+    font-size:15px;
+
+}
+
+
+.footer-container{
+
+    width:90%;
+
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+    padding:40px 0;
+
+}
+
+
+
+.footer-box h2{
+
+    font-size:24px;
+
+}
+
+
+
+.footer-box p{
+
+    font-size:15px;
+
+}
+
+
+
+#scrollTop{
+
+    width:50px;
+
+    height:50px;
+
+    right:15px;
+
+    bottom:15px;
+
+    font-size:20px;
+
+}
+
+
+}
+
+
+</style>
+<header>
+
+
+<nav>
+
+
+<div class="logo">
+
+Code<span>Learn</span>
+
+</div>
+
+
+
+
+<button id="btn">☰</button>
+
+
+
+<div class="menu" id="menu">
+
+
+<a href="index.html">Home</a>
+
+<a href="html.html">HTML</a>
+
+<a href="css.html">CSS</a>
+
+<a href="javascript.html">JavaScript</a>
+
+<a href="react.html">React</a>
+
+<a href="php.html">PHP</a>
+
+<a href="python.html">Python</a>
+
+
+<button id="themeBtn">🌙</button>
+
+
+
+</div>
+
+
+</nav>
+
+
+</header>
+<body>
+<div id="progress-bar"></div>
+
+
+<button id="scrollTop">↑</button>
+
+<section class="hero">
+
+
+<div class="hero-image">
+
+
+<img src="images/ic9.jpg" alt="React">
+
+
+</div>
+
+
+
+
+
+<div class="hero-text">
+
+
+<h1>Learn <span>React</span></h1>
+
+
+<h2>JavaScript Library For UI Development</h2>
+
+
+
+<p>
+
+React is a popular JavaScript library used to
+create fast, interactive and reusable user
+interfaces for modern web applications.
+
+It helps developers build single-page applications
+with powerful components.
+
+</p>
+
+
+
+
+
+<div class="hero-btn">
+
+
+<button class="btn1">
+
+Start Learning
+
+</button>
+
+
+
+<button class="btn2">
+
+Watch Video
+
+</button>
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+<section class="intro">
+
+
+<h1>1. Introduction</h1>
+
+
+
+<p>
+
+
+React is an open-source JavaScript library created
+by Facebook for building modern user interfaces.
+
+It allows developers to create reusable components,
+manage application data and develop fast web
+applications easily.
+
+
+</p>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- KEY FEATURES -->
+
+
+<section class="points">
+
+
+<h1>2. Key Features</h1>
+
+
+
+<div class="card-box">
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>Components</h2>
+
+
+<p>
+
+React applications are built using reusable
+and independent components.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>Virtual DOM</h2>
+
+
+<p>
+
+React uses Virtual DOM to improve website
+performance and speed.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>Reusable Code</h2>
+
+
+<p>
+
+Components can be reused multiple times
+to save development time.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="card">
+
+
+<h2>Fast Performance</h2>
+
+
+<p>
+
+React creates fast and responsive user
+interfaces.
+
+</p>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</section>
+
+<section class="why">
+
+
+<h1>3. Why Learn React?</h1>
+
+
+
+
+<p>
+
+
+React is one of the most popular frontend
+technologies used by companies worldwide.
+
+Learning React helps developers build professional
+web applications and become modern frontend
+developers.
+
+
+</p>
+
+
+
+
+<ul>
+
+
+<li>Create Modern User Interfaces</li>
+
+
+<li>Build Single Page Applications</li>
+
+
+<li>Learn Component Based Development</li>
+
+
+<li>Create Fast Web Applications</li>
+
+
+<li>Work With APIs</li>
+
+
+<li>High Demand Frontend Skill</li>
+
+
+<li>Used By Top Companies</li>
+
+
+<li>Better Career Opportunities</li>
+
+
+
+</ul>
+
+
+
+</section>
+
+<section class="features">
+
+<h1>4. React Features</h1>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<h2>Component Based</h2>
+<p>React uses reusable components to build large and powerful applications easily.</p>
+</div>
+
+<div class="feature-card">
+<h2>Virtual DOM</h2>
+<p>Virtual DOM improves performance by updating only required parts of the page.</p>
+</div>
+
+<div class="feature-card">
+<h2>JSX</h2>
+<p>JSX allows developers to write HTML-like code inside JavaScript.</p>
+</div>
+
+<div class="feature-card">
+<h2>State Management</h2>
+<p>React manages changing data using state and hooks.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="why">
+
+<h1>5. How React Works?</h1>
+
+<p>
+React works by creating reusable components and updating the user interface
+using Virtual DOM. When data changes, React efficiently updates only the
+necessary parts of the webpage.
+</p>
+
+<ul>
+
+<li>User interacts with the application</li>
+
+<li>React updates the component state</li>
+
+<li>Virtual DOM compares changes</li>
+
+<li>Only required elements are updated</li>
+
+<li>Updated UI appears to the user</li>
+
+</ul>
+
+</section>
+
+
+
+
+
+
+
+<!-- USES OF REACT -->
+
+<section class="uses">
+
+<h1>6. Uses of React</h1>
+
+<div class="uses-grid">
+
+
+<div class="uses-card">
+<h2>Web Applications</h2>
+<p>React is used to create fast and interactive web applications.</p>
+</div>
+
+
+<div class="uses-card">
+<h2>Single Page Apps</h2>
+<p>Create applications that load pages without refreshing the browser.</p>
+</div>
+
+
+<div class="uses-card">
+<h2>E-Commerce</h2>
+<p>React helps build modern online shopping websites.</p>
+</div>
+
+
+<div class="uses-card">
+<h2>Dashboards</h2>
+<p>Create professional admin panels and data dashboards.</p>
+</div>
+
+
+<div class="uses-card">
+<h2>Mobile Apps</h2>
+<p>React Native allows developers to create mobile applications.</p>
+</div>
+
+
+<div class="uses-card">
+<h2>UI Development</h2>
+<p>Build beautiful and reusable user interface designs.</p>
+</div>
+
+
+</div>
+
+</section>
+<!-- ADVANTAGES & DISADVANTAGES -->
+
+<section class="info-section">
+
+<div class="info-box">
+
+<h1>Advantages of React</h1>
+
+<p>✔ Component Based Development</p>
+<p>✔ Fast Performance</p>
+<p>✔ Reusable Components</p>
+<p>✔ Large Developer Community</p>
+<p>✔ Easy UI Development</p>
+<p>✔ SEO Friendly</p>
+<p>✔ Used By Top Companies</p>
+
+</div>
+
+
+<div class="info-box">
+
+<h1>Disadvantages of React</h1>
+
+<p>✖ Learning JSX Can Be Difficult</p>
+<p>✖ Requires JavaScript Knowledge</p>
+<p>✖ Many Extra Libraries Needed</p>
+<p>✖ Frequent Updates</p>
+<p>✖ Project Setup Can Be Complex</p>
+<p>✖ Large Applications Need Proper Structure</p>
+<p>✖ Debugging Can Be Challenging</p>
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+<!-- REACT PROJECTS -->
+
+
+<section class="projects">
+
+<h1>7. React Practice Projects</h1>
+
+
+<div class="project-grid">
+
+
+<div class="project-card">
+<h2>Todo App</h2>
+<p>Create a task management application using React components and state.</p>
+</div>
+
+
+<div class="project-card">
+<h2>E-Commerce Website</h2>
+<p>Build an online shopping website with products and cart system.</p>
+</div>
+
+
+<div class="project-card">
+<h2>Weather App</h2>
+<p>Create a weather application using React and API data.</p>
+</div>
+
+
+<div class="project-card">
+<h2>Portfolio Website</h2>
+<p>Develop a professional developer portfolio using React.</p>
+</div>
+
+
+<div class="project-card">
+<h2>Movie App</h2>
+<p>Create a movie search application using API integration.</p>
+</div>
+
+
+<div class="project-card">
+<h2>Dashboard</h2>
+<p>Build an interactive admin dashboard with charts and data.</p>
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+<!-- CAREER SECTION -->
+
+
+<section class="intro">
+
+<h1>8. React Career Opportunities</h1>
+
+<p>
+
+React developers are highly demanded in the web development industry.
+After learning React, developers can work as Front-End Developers,
+React Developers and Full Stack Developers.
+
+React skills help in creating professional websites, web applications
+and modern user interfaces.
+
+</p>
+
+</section>
+<!-- FAQ SECTION -->
+
+<section class="faq-section">
+
+<h1>9. Frequently Asked Questions</h1>
+
+
+<div class="faq">
+
+<div class="question">
+What is React?
+<button class="btn">+</button>
+</div>
+
+<div class="answer">
+React is a JavaScript library used to build fast and interactive user interfaces.
+</div>
+
+</div>
+
+
+
+<div class="faq">
+
+<div class="question">
+Who created React?
+<button class="btn">+</button>
+</div>
+
+<div class="answer">
+React was created by Facebook for building modern web applications.
+</div>
+
+</div>
+
+
+
+<div class="faq">
+
+<div class="question">
+Why is React used?
+<button class="btn">+</button>
+</div>
+
+<div class="answer">
+React is used to create reusable components and fast web applications.
+</div>
+
+</div>
+
+
+
+<div class="faq">
+
+<div class="question">
+What is a Component in React?
+<button class="btn">+</button>
+</div>
+
+<div class="answer">
+A component is a reusable piece of UI that can be used multiple times.
+</div>
+
+</div>
+
+
+
+<div class="faq">
+
+<div class="question">
+What is JSX?
+<button class="btn">+</button>
+</div>
+
+<div class="answer">
+JSX allows developers to write HTML-like code inside JavaScript.
+</div>
+
+</div>
+
+
+
+<div class="faq">
+
+<div class="question">
+What is Virtual DOM?
+<button class="btn">+</button>
+</div>
+
+<div class="answer">
+Virtual DOM is a React feature that improves performance by updating only required changes.
+</div>
+
+</div>
+
+
+
+<div class="faq">
+
+<div class="question">
+What are React Hooks?
+<button class="btn">+</button>
+</div>
+
+<div class="answer">
+Hooks are functions that allow developers to use state and other React features.
+</div>
+
+</div>
+
+
+
+<div class="faq">
+
+<div class="question">
+What is React Router?
+<button class="btn">+</button>
+</div>
+
+<div class="answer">
+React Router helps create navigation between different pages in React applications.
+</div>
+
+</div>
+
+
+
+<div class="faq">
+
+<div class="question">
+Can React create mobile apps?
+<button class="btn">+</button>
+</div>
+
+<div class="answer">
+Yes, React Native is used to create mobile applications.
+</div>
+
+</div>
+
+
+
+<div class="faq">
+
+<div class="question">
+Should I learn JavaScript before React?
+<button class="btn">+</button>
+</div>
+
+<div class="answer">
+Yes, strong JavaScript knowledge makes learning React easier.
+</div>
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+
+<div class="footer-container">
+
+
+<div class="footer-box">
+
+<h2>Code Learn</h2>
+
+<p>
+Learn HTML, CSS, JavaScript, React, PHP and other web technologies
+with simple tutorials and practical projects.
+</p>
+
+</div>
+
+
+
+
+<div class="footer-box">
+
+<h2>Quick Links</h2>
+
+<p>Home</p>
+<p>HTML</p>
+<p>CSS</p>
+<p>JavaScript</p>
+<p>React</p>
+
+</div>
+
+
+
+
+<div class="footer-box">
+
+<h2>React Topics</h2>
+
+<p>Components</p>
+<p>JSX</p>
+<p>Hooks</p>
+<p>Virtual DOM</p>
+<p>React Router</p>
+
+</div>
+
+
+
+
+<div class="footer-box">
+
+<h2>Practice Projects</h2>
+
+<p>Todo App</p>
+<p>Weather App</p>
+<p>E-Commerce</p>
+<p>Portfolio</p>
+<p>Dashboard</p>
+
+</div>
+
+
+</div>
+
+
+
+<div class="copyright">
+
+<p>
+© 2026 Code Learn. All Rights Reserved.
+</p>
+
+</div>
+
+
+</footer>
+
+
+
+
+
+
+
+
+<script>
+
+
+const btn = document.getElementById("btn");
+const menu = document.getElementById("menu");
+
+
+btn.onclick = function(){
+
+menu.classList.toggle("show");
+
+};
+
+
+
+
+
+document.querySelectorAll(".btn").forEach(function(button){
+
+
+button.onclick = function(){
+
+
+let faq = this.parentElement.parentElement;
+
+
+faq.classList.toggle("active");
+
+
+
+if(faq.classList.contains("active")){
+
+this.innerHTML="-";
+
+}else{
+
+this.innerHTML="+";
+
+}
+
+
+};
+
+
+});
+
+
+
+
+
+
+
+const themeBtn = document.getElementById("themeBtn");
+
+
+themeBtn.onclick=function(){
+
+
+document.body.classList.toggle("dark");
+
+
+
+if(document.body.classList.contains("dark")){
+
+themeBtn.innerHTML="☀️";
+
+}else{
+
+themeBtn.innerHTML="🌙";
+
+}
+
+
+};
+
+
+
+
+
+
+
+const progressBar = document.getElementById("progress-bar");
+
+const scrollTopBtn = document.getElementById("scrollTop");
+
+
+
+window.addEventListener("scroll",function(){
+
+
+let scroll = document.documentElement.scrollTop;
+
+
+let height =
+document.documentElement.scrollHeight -
+document.documentElement.clientHeight;
+
+
+
+let progress = (scroll / height) * 100;
+
+
+progressBar.style.width = progress+"%";
+
+
+
+if(scroll > 300){
+
+scrollTopBtn.style.display="block";
+
+}else{
+
+scrollTopBtn.style.display="none";
+
+}
+
+
+});
+
+
+
+
+
+
+
+scrollTopBtn.onclick=function(){
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+
+};
+
+
+</script>
+
+
+</body>
+
+</html>

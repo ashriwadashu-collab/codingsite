@@ -17,6 +17,29 @@
         font-family: "Poppins", sans-serif;
     }
 
+    body.dark .faq {
+        background: #222;
+        color: white;
+    }
+
+    body.dark .answer {
+        color: white;
+    }
+
+    body.dark .question {
+        color: white;
+    }
+
+    #themeBtn {
+        background: none;
+        color: white;
+        font-size: 25px;
+        border: none;
+        cursor: pointer;
+        text-align: center;
+        align-items: center;
+    }
+
 
     #progress-bar {
         position: fixed;
@@ -464,7 +487,6 @@
             height: auto;
             padding: 20px;
         }
-
     }
 </style>
 <header>
@@ -480,17 +502,17 @@
 
             <a href="code2html.html">html</a>
 
-            <a href=".html">css</a>
+            <a href="code3html.html">css</a>
 
-            <a href=".html">JavaScript</a>
+            <a href="code4html.html">JavaScript</a>
+
+            <a href="code5html.html">php</a>
+
+             <a href="code6html.html">react</a>
 
             <a href=".html">c++</a>
 
-            <a href=".html">react</a>
-
             <a href=".html">c</a>
-
-            <a href=".html">php</a>
 
             <a href=".html">phython</a>
 
@@ -1085,32 +1107,32 @@
 
 <script>
     const progressBar = document.getElementById("progress-bar");
-const scrollBtn = document.getElementById("scrollTop");
+    const scrollBtn = document.getElementById("scrollTop");
 
-window.addEventListener("scroll", function () {
+    window.addEventListener("scroll", function () {
 
-    let scroll = document.documentElement.scrollTop;
+        let scroll = document.documentElement.scrollTop;
 
-    let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
-    let progress = (scroll / height) * 100;
+        let progress = (scroll / height) * 100;
 
-    progressBar.style.width = progress + "%";
+        progressBar.style.width = progress + "%";
 
-    if (scroll > 300) {
-        scrollBtn.style.display = "block";
-    } else {
-        scrollBtn.style.display = "none";
-    }
+        if (scroll > 300) {
+            scrollBtn.style.display = "block";
+        } else {
+            scrollBtn.style.display = "none";
+        }
 
-});
-
-scrollBtn.onclick = function () {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
     });
-};
+
+    scrollBtn.onclick = function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
 </script>
 
 </html>
