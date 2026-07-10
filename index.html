@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 5px;
+        background: red;
+        z-index: 9999;
+    }
+
+    #scrollTop {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        width: 50px;
+        height: 50px;
+        border: none;
+        border-radius: 50%;
+        background: blue;
+        color: white;
+        font-size: 22px;
+        cursor: pointer;
+        display: none;
+    }
+
+
+    body {
+        background: #ffffff;
+        color: #000;
+        transition: .3s;
+    }
+
+    body.dark {
+        background: #111;
+        color: #fff;
+    }
+
+    body.dark nav {
+        background: #1b1b1b;
+    }
+
+    body.dark .top6,
+    body.dark .top9 {
+        background: #222;
+        color: #fff;
+        border-color: #555;
+    }
+
+    body.dark footer {
+        background: #1b1b1b;
+        color: #fff;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        background: rgb(254, 252, 252);
+        color: black;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 18px 40px;
+        cursor: pointer;
+        text-align: center;
+        align-items: center;
+        text-transform: capitalize;
+    }
+
+    #btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 20px;
+        color: black;
+        cursor: pointer;
+    }
+
+    .logo {
+        color: black;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .logo span {
+        color: red;
+        padding-left: 15px;
+    }
+
+    .menu a {
+        text-decoration: none;
+        color: black;
+        font-size: 20px;
+        cursor: pointer;
+        margin: 10px;
+        font-weight: bold;
+    }
+
+    .menu a span {
+        color: blue;
+    }
+
+    .menu {
+        display: flex;
+        gap: 30px;
+    }
+
+    #vtn {
+        background: red;
+        color: white;
+        border: none;
+        width: 16vh;
+        border-radius: 10px;
+        font-size: 16px;
+        height: 40px;
+        font-weight: bold;
+        text-transform: capitalize;
+        margin-left: 320px;
+    }
+
+    .top1 {
+        display: flex;
+        justify-content: space-between;
+        padding: 140px 60px;
+        gap: 20px;
+    }
+
+    .top2 img {
+        width: 90%;
+        border-radius: 30px;
+    }
+
+    .top3 {
+        margin-top: 80px;
+        text-transform: capitalize;
+    }
+
+    .top3 h1 {
+        text-transform: capitalize;
+        font-size: 50px;
+        margin-bottom: 20px;
+    }
+
+    .top3 h1 span {
+        color: blue;
+    }
+
+    .top3 h2 {
+        line-height: 40px;
+    }
+
+    .top3 input {
+        background: white;
+        border: 3px solid black;
+        padding: 15px;
+        cursor: pointer;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        border-radius: 10px;
+        width: 30vh;
+    }
+
+    .top3 button {
+        background: blue;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;
+        width: 20vh;
+    }
+
+    .top4 h1 {
+        text-align: center;
+        font-size: 40px;
+        text-transform: capitalize;
+        margin-top: -50px;
+        margin-bottom: 30px;
+    }
+
+    .top5 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 20px 40px;
+        gap: 30px;
+    }
+
+    .top6 {
+        width: 250px;
+        height: 250px;
+        background: none;
+        border: 3px solid black;
+        cursor: pointer;
+        margin: auto;
+        display: block;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    .top6 img {
+        width: 50px;
+        padding-top: 20px;
+    }
+
+    .top6 h1 {
+        text-align: center;
+        text-transform: capitalize;
+        padding-bottom: 20px;
+    }
+
+    .top6 h2 {
+        padding-bottom: 20px;
+        font-size: 15px;
+    }
+
+    .top7 {
+        text-align: center;
+        font-size: 20px;
+        text-transform: capitalize;
+        margin-bottom: 30px;
+        margin-top: 55px;
+    }
+
+    .top8 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        padding: 40px 80px;
+        gap: 20px;
+    }
+
+    .top9 {
+        width: 230px;
+        height: 230px;
+        border-radius: 10px;
+        border: 3px solid black;
+        background: white;
+        margin: auto;
+        display: block;
+        text-align: center;
+        box-shadow: 1px 2px 2px gray;
+    }
+
+    .top9 h1 {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .top9 h2 {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    footer {
+        background: #F8F9FA;
+    }
+
+
+    .top10 {
+        display: flex;
+        grid-template-columns: repeat(4, 1fr);
+        align-items: flex-start;
+        padding: 40px 60px;
+        gap: 20px;
+    }
+
+    .top11 {
+        min-width: 220px;
+        text-align: left;
+    }
+
+    .top11 h1 {
+        font-size: 30px;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+        text-align: center;
+        white-space: nowrap;
+        width: 100%;
+    }
+
+    .top11 h1 span {
+        display: inline;
+        color: blue;
+    }
+
+    .top11 p {
+        margin: 10px;
+        text-align: center;
+        text-transform: capitalize;
+    }
+
+    .top12 {
+        background: black;
+        color: white;
+        padding: 10px;
+    }
+
+    .top12 h1 {
+        text-align: center;
+        font-size: 14px;
+        text-transform: capitalize;
+    }
+
+    @media (max-width: 767px) {
+
+        nav {
+            padding: 15px 20px;
+        }
+
+        #btn {
+            display: block;
+        }
+
+        .menu {
+            position: absolute;
+            top: 65px;
+            right: 0;
+            width: 50%;
+            background: black;
+            flex-direction: column;
+            text-align: center;
+            gap: 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        .menu a {
+            color: white;
+            margin-top: 20px;
+        }
+
+        .menu.show {
+            max-height: 500px;
+            padding-bottom: 20px;
+        }
+
+
+        #vtn {
+            margin: 10px auto;
+            width: 140px;
+        }
+
+        #vtn a {
+            color: white;
+        }
+
+
+        .top1 {
+            flex-direction: column;
+            padding: 100px 20px 50px;
+            text-align: center;
+        }
+
+        .top2 img {
+            width: 100%;
+        }
+
+
+        .top3 {
+            margin-top: 20px;
+        }
+
+        .top3 h1 {
+            font-size: 35px;
+        }
+
+        .top3 h2 {
+            font-size: 18px;
+            line-height: 28px;
+        }
+
+        .top3 input {
+            width: 100%;
+        }
+
+        .top3 button {
+            width: 100%;
+            justify-content: center;
+        }
+
+
+        .top4 h1 {
+            font-size: 30px;
+            margin-top: 20px;
+        }
+
+
+        .top5 {
+            grid-template-columns: 1fr;
+            padding: 20px;
+        }
+
+        .top6 {
+            width: 100%;
+            height: auto;
+            padding: 20px;
+        }
+
+
+        .top8 {
+            grid-template-columns: 1fr;
+            padding: 20px;
+        }
+
+        .top9 {
+            width: 100%;
+            height: auto;
+            padding: 20px;
+        }
+
+
+        .top10 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 30px 20px;
+        }
+
+        .top11 {
+            width: 100%;
+            text-align: left;
+        }
+
+        .top11 h1 {
+            text-align: left;
+        }
+
+        .top11 p {
+            text-align: left;
+        }
+
+    }
+</style>
+<header>
+
+    <nav>
+
+        <div class="logo">code<span>learn</span></div>
+
+        <button id="btn">☰</button>
+
+        <div class="menu" id="menu">
+            <a href="#"><span>home</span></a>
+            <a href="code2html.html">html</a>
+            <button id="vtn"><a href="loginpage.html">join now</a></button>
+            <button id="themeBtn">🌙 Dark Mode</button>
+        </div>
+
+    </nav>
+</header>
+
+<body>
+
+    <div id="progress-bar"></div>
+
+    <button id="scrollTop">↑</button>
+
+    <div class="top1">
+        <div class="top2">
+            <img src="images/new1.png">
+        </div>
+        <div class="top3">
+            <h1>read learn <span>code</span> grow</h1>
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, commodi quaerat magnam minus quibusdam in?
+            </h2>
+            <input type="text" id="search" placeholder="Search Language">
+
+            <button onclick="searchcourse()">search</button>
+        </div>
+    </div>
+    </div>
+
+    <div class="top4">
+        <h1>popular language</h1>
+    </div>
+    </div>
+
+    <div class="top5">
+        <div class="top6">
+            <img src="images/ic1.jpg">
+            <h1>html</h1>
+            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+            <h3>read more</h3>
+        </div>
+
+        <div class="top6">
+            <img src="images/ic3.jpg">
+            <h1>css</h1>
+            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+            <h3>read more</h3>
+        </div>
+
+        <div class="top6">
+            <img src="images/ic2.jpg">
+            <h1>javascript</h1>
+            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+            <h3>read more</h3>
+        </div>
+
+
+        <div class="top6">
+            <img src="images/ic4.jpg">
+            <h1>php</h1>
+            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+            <h3>read more</h3>
+        </div>
+
+
+        <div class="top6">
+            <img src="images/ic5.jpg">
+            <h1>java</h1>
+            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+            <h3>read more</h3>
+        </div>
+
+        <div class="top6">
+            <img src="images/ic6.jpg">
+            <h1>c++</h1>
+            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+            <h3>read more</h3>
+        </div>
+
+        <div class="top6">
+            <img src="images/ic7.jpg">
+            <h1>c</h1>
+            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+            <h3>read more</h3>
+        </div>
+
+        <div class="top6">
+            <img src="images/ic8.jpg">
+            <h1>phython</h1>
+            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+            <h3>read more</h3>
+        </div>
+
+        <div class="top6">
+            <img src="images/ic9.jpg">
+            <h1>react</h1>
+            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+            <h3>read more</h3>
+        </div>
+    </div>
+    </div>
+
+
+    <div class="top7">
+        <h1>why learn here</h1>
+    </div>
+    </div>
+
+    <div class="top8">
+        <div class="top9">
+            <h1>hello</h1>
+            <h2>Lorem, ipsum dolor.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        </div>
+
+        <div class="top9">
+            <h1>hello</h1>
+            <h2>Lorem, ipsum dolor.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        </div>
+
+        <div class="top9">
+            <h1>hello</h1>
+            <h2>Lorem, ipsum dolor.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        </div>
+
+        <div class="top9">
+            <h1>hello</h1>
+            <h2>Lorem, ipsum dolor.</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="top10">
+
+            <div class="top11">
+                <h1>home</h1>
+                <p>hello</p>
+                <p>hello</p>
+                <p>hello</p>
+                <p>hello</p>
+            </div>
+
+
+            <div class="top11">
+                <h1>home</h1>
+                <p>hello</p>
+                <p>hello</p>
+                <p>hello</p>
+                <p>hello</p>
+                <p>hello</p>
+                <p>hello</p>
+                <p>hello</p>
+                <p>hello</p>
+            </div>
+
+
+            <div class="top11">
+                <h1>home</h1>
+                <p>hello</p>
+                <p>hello</p>
+                <p>hello</p>
+                <p>hello</p>
+            </div>
+
+
+            <div class="top11">
+                <h1>home</h1>
+                <p>hello</p>
+                <p>hello</p>
+            </div>
+        </div>
+        </div>
+
+        <div class="top12">
+            <h1>@2026 code learn.all rights reserved</h1>
+        </div>
+        </div>
+    </footer>
+</body>
+<script>
+    var btn = document.getElementById("btn");
+
+    var menu = document.getElementById("menu");
+
+    btn.onclick = function () {
+
+        menu.classList.toggle("show")
+    }
+</script>
+
+<script>
+    const themeBtn = document.getElementById("themeBtn");
+
+    themeBtn.onclick = function () {
+        document.body.classList.toggle("dark");
+
+        if (document.body.classList.contains("dark")) {
+            themeBtn.innerHTML = "☀️ ";
+        } else {
+            themeBtn.innerHTML = "🌙 ";
+        }
+    };
+</script>
+
+<script>
+    const progressBar = document.getElementById("progress-bar");
+    const scrollBtn = document.getElementById("scrollTop");
+
+    window.addEventListener("scroll", function () {
+
+        let scroll = document.documentElement.scrollTop;
+
+        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+        let progress = (scroll / height) * 100;
+
+        progressBar.style.width = progress + "%";
+
+        if (scroll > 300) {
+            scrollBtn.style.display = "block";
+        } else {
+            scrollBtn.style.display = "none";
+        }
+
+    });
+
+    scrollBtn.onclick = function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+</script>
+
+<script>
+    var load = {
+        "html": "code2html.html",
+        "3d": "tttt.html"
+    }
+
+    function searchcourse() {
+
+        var page = document.getElementById("search").value.toLowerCase();
+
+        if (load[page]) {
+            window.location.href = load[page];
+        }
+        else {
+            alert("no file");
+        }
+    }
+</script>
+
+</html>
