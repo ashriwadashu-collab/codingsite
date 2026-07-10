@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Learn Python</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<style>
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+body{
+    background:#fff;
+    color:#111;
+    overflow-x:hidden;
+    transition:.4s;
+}
+
+body.dark{
+    background:#111;
+    color:#fff;
+}
+
+body.dark nav{
+    background:#1b1b1b;
+}
+
+body.dark .card,
+body.dark .feature-card,
+body.dark .uses-card,
+body.dark .info-box,
+body.dark .project-card,
+body.dark .faq{
+    background:#222;
+    color:#fff;
+    border-color:#555;
+}
+
+body.dark footer{
+    background:#1b1b1b;
+}
+
+#progress-bar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:0%;
+    height:5px;
+    background:#0d6efd;
+    z-index:9999;
+}
+
+#scrollTop{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    background:#0d6efd;
+    color:#fff;
+    font-size:24px;
+    cursor:pointer;
+    display:none;
+    transition:.3s;
+    z-index:999;
+}
+
+#scrollTop:hover{
+    transform:translateY(-5px);
+}
+
+/*==========================
+Navbar
+==========================*/
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:#000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 80px;
+    z-index:999;
+}
+
+.logo{
+    color:#fff;
+    font-size:30px;
+    font-weight:700;
+}
+
+.logo span{
+    color:#0d6efd;
+}
+
+.menu{
+    display:flex;
+    align-items:center;
+    gap:30px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#fff;
+    font-size:18px;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:#0d6efd;
+}
+
+#themeBtn{
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:24px;
+    cursor:pointer;
+}
+
+#btn{
+    display:none;
+}
+
+/*==========================
+Hero Section
+==========================*/
+
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:60px;
+    padding:140px 80px 80px;
+}
+
+.hero-image{
+    flex:1;
+    text-align:center;
+}
+
+.hero-image img{
+    width:100%;
+    max-width:500px;
+}
+
+.hero-text{
+    flex:1;
+}
+
+.hero-text h1{
+    font-size:65px;
+    margin-bottom:15px;
+}
+
+.hero-text h1 span{
+    color:#0d6efd;
+}
+
+.hero-text h2{
+    color:#ff3b3b;
+    font-size:36px;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    font-size:19px;
+    line-height:34px;
+}
+
+.hero-btn{
+    margin-top:35px;
+    display:flex;
+    gap:20px;
+}
+
+.btn1,
+.btn2{
+    padding:15px 35px;
+    border:none;
+    border-radius:8px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.btn1{
+    background:#000;
+    color:#fff;
+}
+
+.btn2{
+    background:#0d6efd;
+    color:#fff;
+}
+
+/*==========================
+Introduction
+==========================*/
+
+.intro{
+    padding:80px;
+    text-align:center;
+}
+
+.intro h1{
+    font-size:45px;
+    color:#0d6efd;
+    margin-bottom:25px;
+}
+
+.intro p{
+    max-width:1000px;
+    margin:auto;
+    font-size:20px;
+    line-height:35px;
+}
+
+/*==========================
+Key Features
+==========================*/
+
+.points{
+    padding:80px;
+}
+
+.points h1{
+    text-align:center;
+    font-size:45px;
+    color:#0d6efd;
+    margin-bottom:40px;
+}
+
+.card-box{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.card{
+    background:#fff;
+    border:2px solid #ddd;
+    border-radius:12px;
+    padding:30px;
+    text-align:center;
+    transition:.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h2{
+    color:#0d6efd;
+    margin-bottom:15px;
+    font-size:25px;
+}
+
+.card p{
+    font-size:17px;
+    line-height:28px;
+}
+
+/*==========================
+Why Learn Python
+==========================*/
+
+.why{
+    padding:80px;
+    text-align:center;
+}
+
+.why h1{
+    font-size:45px;
+    color:#0d6efd;
+    margin-bottom:25px;
+}
+
+.why p{
+    max-width:1000px;
+    margin:0 auto 30px;
+    font-size:20px;
+    line-height:35px;
+}
+
+.why ul{
+    list-style:none;
+}
+
+.why ul li{
+    font-size:20px;
+    margin:15px 0;
+}
+
+/*==========================
+Image Section
+==========================*/
+
+.image-section{
+    display:flex;
+    gap:30px;
+    padding:60px 80px;
+}
+
+.image-box{
+    flex:1;
+}
+
+.image-box img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+    border-radius:15px;
+    display:block;
+}
+
+/*==========================
+Features
+==========================*/
+
+.features{
+    padding:80px;
+}
+
+.features h1{
+    text-align:center;
+    font-size:42px;
+    color:#0d6efd;
+    margin-bottom:40px;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.feature-card{
+    background:#fff;
+    border:2px solid #ddd;
+    border-radius:12px;
+    padding:25px;
+    text-align:center;
+    transition:.3s;
+}
+
+.feature-card:hover{
+    transform:translateY(-8px);
+}
+
+.feature-card h2{
+    color:#0d6efd;
+    margin-bottom:15px;
+}
+
+.feature-card p{
+    line-height:28px;
+}
+
+/*==========================
+Uses
+==========================*/
+
+.uses{
+    padding:80px;
+}
+
+.uses h1{
+    text-align:center;
+    font-size:42px;
+    color:#0d6efd;
+    margin-bottom:40px;
+}
+
+.uses-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.uses-card{
+    background:#fff;
+    border:2px solid #ddd;
+    border-radius:12px;
+    padding:25px;
+    text-align:center;
+    transition:.3s;
+}
+
+.uses-card:hover{
+    transform:translateY(-8px);
+}
+
+.uses-card h2{
+    color:#0d6efd;
+    margin-bottom:15px;
+}
+
+.uses-card p{
+    line-height:28px;
+}
+
+/*==========================
+Advantages & Disadvantages
+==========================*/
+
+.info-section{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+    padding:60px 80px;
+}
+
+.info-box{
+    background:#fff;
+    border:2px solid #ddd;
+    border-radius:12px;
+    padding:30px;
+}
+
+.info-box h1{
+    text-align:center;
+    color:#0d6efd;
+    margin-bottom:20px;
+}
+
+.info-box p{
+    line-height:32px;
+    font-size:18px;
+}
+
+/*==========================
+Projects
+==========================*/
+
+.projects{
+    padding:80px;
+}
+
+.projects h1{
+    text-align:center;
+    font-size:42px;
+    color:#0d6efd;
+    margin-bottom:40px;
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.project-card{
+    background:#fff;
+    border:2px solid #ddd;
+    border-radius:12px;
+    padding:25px;
+    text-align:center;
+    transition:.3s;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+}
+
+.project-card h2{
+    color:#0d6efd;
+    margin-bottom:15px;
+}
+
+.project-card p{
+    line-height:28px;
+}
+
+/*==========================
+FAQ
+==========================*/
+
+.faq-section{
+    padding:80px;
+}
+
+.faq-section h1{
+    text-align:center;
+    font-size:42px;
+    color:#0d6efd;
+    margin-bottom:40px;
+}
+
+.faq{
+    width:850px;
+    margin:20px auto;
+    background:#fff;
+    border:2px solid #ddd;
+    border-radius:12px;
+    padding:20px;
+}
+
+.question{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:20px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.answer{
+    display:none;
+    margin-top:15px;
+    line-height:30px;
+}
+
+.faq.active .answer{
+    display:block;
+}
+
+.btn{
+    width:35px;
+    height:35px;
+    border:none;
+    border-radius:50%;
+    background:#0d6efd;
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+}
+
+/*==========================
+Footer
+==========================*/
+
+footer{
+    background:#111;
+    color:#fff;
+    margin-top:80px;
+}
+
+.footer-container{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+    padding:60px 80px;
+}
+
+.footer-box h2{
+    color:#0d6efd;
+    margin-bottom:20px;
+}
+
+.footer-box p{
+    margin:10px 0;
+    line-height:28px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.footer-box p:hover{
+    color:#0d6efd;
+}
+
+.copyright{
+    text-align:center;
+    padding:20px;
+    border-top:1px solid rgba(255,255,255,.2);
+}
+
+/*==========================
+Mobile Responsive
+==========================*/
+
+@media (max-width:768px){
+
+    nav{
+        padding:15px 20px;
+    }
+
+    .logo{
+        font-size:24px;
+    }
+
+    #btn{
+        display:block;
+        background:none;
+        border:none;
+        color:#fff;
+        font-size:30px;
+        cursor:pointer;
+    }
+
+    .menu{
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:#000;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:20px;
+        max-height:0;
+        overflow:hidden;
+        transition:.4s;
+    }
+
+    .menu.show{
+        max-height:700px;
+        padding:25px 0;
+    }
+
+    .menu a{
+        font-size:17px;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        gap:35px;
+        padding:110px 20px 40px;
+    }
+
+    .hero-image{
+        width:100%;
+    }
+
+    .hero-image img{
+        width:100%;
+        max-width:380px;
+    }
+
+    .hero-text{
+        width:100%;
+    }
+
+    .hero-text h1{
+        font-size:42px;
+    }
+
+    .hero-text h2{
+        font-size:26px;
+    }
+
+    .hero-text p{
+        font-size:16px;
+        line-height:28px;
+    }
+
+    .hero-btn{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .btn1,
+    .btn2{
+        width:100%;
+    }
+
+    .intro,
+    .points,
+    .why,
+    .features,
+    .uses,
+    .projects,
+    .faq-section{
+        padding:40px 20px;
+    }
+
+    .intro h1,
+    .points h1,
+    .why h1,
+    .features h1,
+    .uses h1,
+    .projects h1,
+    .faq-section h1{
+        font-size:30px;
+    }
+
+    .intro p,
+    .why p{
+        font-size:16px;
+        line-height:28px;
+    }
+
+    .why ul{
+        padding-left:20px;
+    }
+
+    .why ul li{
+        font-size:16px;
+        margin:12px 0;
+    }
+
+     .card-box,
+    .feature-grid,
+    .uses-grid,
+    .project-grid,
+    .info-section{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .card,
+    .feature-card,
+    .uses-card,
+    .project-card,
+    .info-box{
+        width:100%;
+        padding:22px;
+    }
+
+    .card h2,
+    .feature-card h2,
+    .uses-card h2,
+    .project-card h2,
+    .info-box h1{
+        font-size:24px;
+    }
+
+    .card p,
+    .feature-card p,
+    .uses-card p,
+    .project-card p,
+    .info-box p{
+        font-size:15px;
+        line-height:26px;
+    }
+
+    .image-section{
+        display:flex;
+        flex-direction:column;
+        gap:20px;
+        padding:20px;
+    }
+
+    .image-box{
+        width:100%;
+    }
+
+    .image-box img{
+        width:100%;
+        height:auto;
+        border-radius:12px;
+    }
+
+    .faq{
+        width:100%;
+        padding:15px;
+    }
+
+    .question{
+        font-size:16px;
+    }
+
+    .answer{
+        font-size:15px;
+        line-height:26px;
+    }
+
+    footer{
+        width:100%;
+        overflow:hidden;
+    }
+
+    .footer-container{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:30px;
+        padding:40px 20px;
+    }
+
+    .footer-box{
+        text-align:center;
+    }
+
+    .footer-box h2{
+        font-size:24px;
+        margin-bottom:15px;
+    }
+
+    .footer-box p{
+        font-size:15px;
+        line-height:26px;
+    }
+
+    .copyright{
+        padding:15px;
+        font-size:14px;
+        text-align:center;
+    }
+
+    #scrollTop{
+        width:45px;
+        height:45px;
+        right:15px;
+        bottom:15px;
+        font-size:20px;
+    }
+
+}
+</style>
+  <header>
+    <nav>
+
+        <div class="logo">code<span>learn</span></div>
+
+        <button id="btn">☰</button>
+
+        <div class="menu" id="menu">
+
+            <a href="index.html">Home</a>
+
+            <a href="code2html.html">html</a>
+
+            <a href="code3html.html">css</a>
+
+            <a href="code4html.html">JavaScript</a>
+
+            <a href="code5html.html">php</a>
+
+             <a href="code6html.html">react</a>
+
+            <a href="code7html.html">c++</a>
+
+            <a href="code8html.html">c</a>
+
+            <a href="code9html.html">phython</a>
+
+            <button id="themeBtn">🌙 </button>
+
+        </div>
+
+    </nav>
+</header>
+<body>
+
+    <div id="progress-bar"></div>
+
+    <button id="scrollTop">↑</button>
+
+    <section class="hero">
+
+        <div class="hero-image">
+
+            <img src="images/ic8.jpg" alt="Python">
+
+        </div>
+
+        <div class="hero-text">
+
+            <h1>Learn <span>Python</span></h1>
+
+            <h2>Simple & Powerful Programming Language</h2>
+
+            <p>
+
+                Python is an easy, powerful and high-level programming language
+                used for web development, artificial intelligence,
+                machine learning, automation, data science and software development.
+
+            </p>
+
+            <div class="hero-btn">
+
+                <button class="btn1">
+                    Start Learning
+                </button>
+
+                <button class="btn2">
+                    Watch Video
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="intro">
+
+        <h1>1. Introduction</h1>
+
+        <p>
+
+            Python is a high-level, interpreted and object-oriented programming
+            language. It is famous for its simple syntax and readability,
+            making it one of the best programming languages for beginners
+            and professionals.
+
+        </p>
+
+    </section>
+
+    <section class="points">
+
+        <h1>2. Key Points</h1>
+
+        <div class="card-box">
+
+            <div class="card">
+
+                <h2>Easy Syntax</h2>
+
+                <p>
+                    Python has clean and readable syntax,
+                    making it easy for beginners.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>Open Source</h2>
+
+                <p>
+                    Python is free to use and supported
+                    by a large developer community.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>Powerful</h2>
+
+                <p>
+                    Python is used for AI, web development,
+                    automation and data science.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>Cross Platform</h2>
+
+                <p>
+                    Python programs run on Windows,
+                    Linux and macOS.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="features">
+
+        <h1>4. Python Features</h1>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <h2>Easy Syntax</h2>
+                <p>Python has simple and readable syntax, making it easy for beginners.</p>
+            </div>
+
+            <div class="feature-card">
+                <h2>Object-Oriented</h2>
+                <p>Python supports object-oriented programming for building reusable code.</p>
+            </div>
+
+            <div class="feature-card">
+                <h2>Cross Platform</h2>
+                <p>Python programs run on Windows, Linux and macOS without major changes.</p>
+            </div>
+
+            <div class="feature-card">
+                <h2>Large Libraries</h2>
+                <p>Python includes thousands of libraries for web, AI, automation and data science.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="uses">
+
+        <h1>5. Uses of Python</h1>
+
+        <div class="uses-grid">
+
+            <div class="uses-card">
+                <h2>Web Development</h2>
+                <p>Create powerful websites and web applications using Django and Flask.</p>
+            </div>
+
+            <div class="uses-card">
+                <h2>Artificial Intelligence</h2>
+                <p>Build AI and Machine Learning applications with Python.</p>
+            </div>
+
+            <div class="uses-card">
+                <h2>Automation</h2>
+                <p>Automate repetitive tasks and save time with Python scripts.</p>
+            </div>
+
+            <div class="uses-card">
+                <h2>Data Science</h2>
+                <p>Analyze, visualize and process large amounts of data.</p>
+            </div>
+
+            <div class="uses-card">
+                <h2>Game Development</h2>
+                <p>Create simple games using Python libraries like Pygame.</p>
+            </div>
+
+            <div class="uses-card">
+                <h2>Cyber Security</h2>
+                <p>Develop security tools, scanners and penetration testing scripts.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="info-section">
+
+        <div class="info-box">
+
+            <h1>Advantages</h1>
+
+            <p>✔ Easy to Learn</p>
+            <p>✔ Beginner Friendly</p>
+            <p>✔ Huge Library Support</p>
+            <p>✔ Cross Platform</p>
+            <p>✔ Open Source</p>
+            <p>✔ Fast Development</p>
+            <p>✔ High Demand Career</p>
+
+        </div>
+
+        <div class="info-box">
+
+            <h1>Disadvantages</h1>
+
+            <p>✖ Slower than C++</p>
+            <p>✖ Higher Memory Usage</p>
+            <p>✖ Not Ideal for Mobile Apps</p>
+            <p>✖ Runtime Errors</p>
+            <p>✖ Global Interpreter Lock (GIL)</p>
+            <p>✖ Dynamic Typing Issues</p>
+            <p>✖ Slower Execution Speed</p>
+
+        </div>
+
+    </section>
+
+     <section class="projects">
+
+        <h1>6. Practice Projects</h1>
+
+        <div class="project-grid">
+
+            <div class="project-card">
+                <h2>Calculator</h2>
+                <p>Create a basic calculator using Python.</p>
+            </div>
+
+            <div class="project-card">
+                <h2>Student Management System</h2>
+                <p>Store and manage student records using Python.</p>
+            </div>
+
+            <div class="project-card">
+                <h2>Password Generator</h2>
+                <p>Generate strong and secure passwords with Python.</p>
+            </div>
+
+            <div class="project-card">
+                <h2>Quiz Application</h2>
+                <p>Build an interactive quiz program with score calculation.</p>
+            </div>
+
+            <div class="project-card">
+                <h2>Library Management</h2>
+                <p>Create a system to manage books and student records.</p>
+            </div>
+
+            <div class="project-card">
+                <h2>Weather App</h2>
+                <p>Fetch live weather information using Python APIs.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="faq-section">
+
+        <h1>7. Frequently Asked Questions</h1>
+
+        <div class="faq">
+            <div class="question">
+                What is Python?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                Python is a high-level programming language used for web development, AI, automation and data science.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                Is Python easy to learn?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                Yes, Python has simple syntax, making it one of the easiest programming languages for beginners.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                What is Python used for?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                Python is used for web development, AI, machine learning, automation, game development and data science.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                Is Python free?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                Yes, Python is completely free and open-source.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                Which companies use Python?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                Companies like Google, Netflix, Instagram, Spotify and Dropbox use Python.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                Can Python create websites?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                Yes, Python can create websites using frameworks like Django and Flask.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                Is Python good for AI?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                Yes, Python is the most popular language for Artificial Intelligence and Machine Learning.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                Can Python connect with databases?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                Yes, Python supports MySQL, PostgreSQL, SQLite and many other databases.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                Is Python frontend or backend?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                Python is mainly used as a backend programming language.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                Why should I learn Python?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                Python offers excellent career opportunities in web development, AI, automation, cybersecurity and data science.
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-box">
+
+                <h2>Code Learn</h2>
+
+                <p>
+                    Learn HTML, CSS, JavaScript, C++, Python, PHP, React and other programming languages with simple tutorials and real-world projects.
+                </p>
+
+            </div>
+
+            <div class="footer-box">
+
+                <h2>Quick Links</h2>
+
+                <p>Home</p>
+                <p>HTML</p>
+                <p>CSS</p>
+                <p>JavaScript</p>
+                <p>Python</p>
+
+            </div>
+
+            <div class="footer-box">
+
+                <h2>Python Topics</h2>
+
+                <p>Variables</p>
+                <p>Data Types</p>
+                <p>Functions</p>
+                <p>Loops</p>
+                <p>Classes</p>
+
+            </div>
+
+            <div class="footer-box">
+
+                <h2>Practice Projects</h2>
+
+                <p>Calculator</p>
+                <p>Quiz App</p>
+                <p>Weather App</p>
+                <p>Student Management</p>
+                <p>Password Generator</p>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+
+            <p>© 2026 Code Learn. All Rights Reserved.</p>
+
+        </div>
+
+    </footer>
+
+</body>
+<script>
+    const btn = document.getElementById("btn");
+const menu = document.getElementById("menu");
+
+btn.onclick = function () {
+    menu.classList.toggle("show");
+};
+
+document.querySelectorAll(".btn").forEach(function (button) {
+
+    button.onclick = function () {
+
+        let faq = this.parentElement.parentElement;
+
+        faq.classList.toggle("active");
+
+        if (faq.classList.contains("active")) {
+            this.innerHTML = "−";
+        } else {
+            this.innerHTML = "+";
+        }
+
+    };
+
+});
+
+const themeBtn = document.getElementById("themeBtn");
+
+themeBtn.onclick = function () {
+
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+        themeBtn.innerHTML = "☀️";
+    } else {
+        themeBtn.innerHTML = "🌙";
+    }
+
+};
+
+const progressBar = document.getElementById("progress-bar");
+const scrollTopBtn = document.getElementById("scrollTop");
+
+window.addEventListener("scroll", function () {
+
+    let scroll = document.documentElement.scrollTop;
+
+    let height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    let progress = (scroll / height) * 100;
+
+    progressBar.style.width = progress + "%";
+
+    if (scroll > 300) {
+        scrollTopBtn.style.display = "block";
+    } else {
+        scrollTopBtn.style.display = "none";
+    }
+
+});
+
+scrollTopBtn.onclick = function () {
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+};
+</script>
+</html>

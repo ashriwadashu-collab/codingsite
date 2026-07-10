@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,68 +14,23 @@
         font-family: "Poppins", sans-serif;
     }
 
+    body {
+        background: #ffffff;
+        color: #222;
+        line-height: 1.7;
+    }
+
     #themeBtn {
-        background:none;
-        color:white;
+        background: none;
+        color: white;
         font-size: 25px;
-        border:none;
-        cursor:pointer;
+        border: none;
+        cursor: pointer;
         text-align: center;
         align-items: center;
     }
 
-    #progress-bar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 0%;
-        height: 5px;
-        background: red;
-        z-index: 9999;
-    }
 
-    #scrollTop {
-        position: fixed;
-        right: 20px;
-        bottom: 20px;
-        width: 50px;
-        height: 50px;
-        border: none;
-        border-radius: 50%;
-        background: blue;
-        color: white;
-        font-size: 22px;
-        cursor: pointer;
-        display: none;
-    }
-
-
-    body {
-        background: #ffffff;
-        color: #000;
-        transition: .3s;
-    }
-
-    body.dark {
-        background: #111;
-        color: #fff;
-    }
-
-    body.dark nav {
-        //background: #1b1b1b;
-    }
-
-    body.dark .top6,
-    body.dark .top9 {
-        //background: #222;
-        //color: #fff;
-        //border-color: #555;
-    }
-
-    body.dark footer {
-        //background: #1b1b1b;
-        //color: #fff;
-    }
 
     nav {
         display: flex;
@@ -95,7 +51,7 @@
         display: none;
         background: none;
         border: none;
-        font-size:30px;
+        font-size: 30px;
         color: black;
         cursor: pointer;
     }
@@ -129,19 +85,6 @@
         gap: 30px;
     }
 
-    #vtn {
-        background: red;
-        color: white;
-        border: none;
-        width: 16vh;
-        border-radius: 10px;
-        font-size: 16px;
-        height: 40px;
-        font-weight: bold;
-        text-transform: capitalize;
-        margin-left: 320px;
-    }
-
     .top1 {
         display: flex;
         justify-content: space-between;
@@ -155,7 +98,7 @@
     }
 
     .top3 {
-        margin-top: 80px;
+        margin-top: 40px;
         text-transform: capitalize;
     }
 
@@ -331,12 +274,137 @@
         text-transform: capitalize;
     }
 
+    footer {
+        background: #111;
+        color: #fff;
+        margin-top: 80px;
+    }
+
+    .footer-container {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        padding: 60px 0;
+    }
+
+    .footer-box h2 {
+        margin-bottom: 20px;
+        color: #0d6efd;
+    }
+
+    .footer-box p {
+        margin: 12px 0;
+        color: #ddd;
+        line-height: 28px;
+    }
+
+    .footer-box p:hover {
+        color: #0d6efd;
+        cursor: pointer;
+    }
+
+    .copyright {
+        border-top: 1px solid #333;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .copyright p {
+        color: #bbb;
+    }
+
+    .top9{
+        padding-top: 40px;
+        text-transform: capitalize;
+        font-weight: bold;
+    }
+
+
+    #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 5px;
+        background: #0d6efd;
+        z-index: 9999;
+    }
+
+
+    #scrollTop {
+        position: fixed;
+        right: 25px;
+        bottom: 25px;
+
+        width: 55px;
+        height: 55px;
+
+        border: none;
+        border-radius: 50%;
+
+        background: #0d6efd;
+        color: #fff;
+
+        font-size: 22px;
+        cursor: pointer;
+
+        display: none;
+
+        transition: .3s;
+    }
+
+    #scrollTop:hover {
+        transform: translateY(-8px);
+    }
+
+
+    body.dark {
+        background: #121212;
+        color: #fff;
+    }
+
+    body.dark nav {
+        background: #1b1b1b;
+    }
+
+    body.dark .card,
+    body.dark .feature-card,
+    body.dark .uses-card,
+    body.dark .project-card,
+    body.dark .info-box,
+    body.dark .faq {
+        background: #1f1f1f;
+        border-color: #444;
+        color: #fff;
+    }
+
+    body.dark .answer,
+    body.dark .card p,
+    body.dark .feature-card p,
+    body.dark .uses-card p,
+    body.dark .project-card p,
+    body.dark .info-box p,
+    body.dark .intro p,
+    body.dark .why p {
+        color: #ddd;
+    }
+
+    body.dark footer {
+        background: #000;
+    }
+
+    body.dark .footer-box p {
+        color: #ccc;
+    }
+
     @media (max-width: 767px) {
 
 
-       #btn{
-        display:block;
-       }
+        #btn {
+            display: block;
+        }
 
         nav {
             padding: 15px 20px;
@@ -465,6 +533,11 @@
             text-align: left;
         }
 
+        .footer-container {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
     }
 </style>
 <header>
@@ -478,7 +551,6 @@
         <div class="menu" id="menu">
             <a href="#"><span>home</span></a>
             <a href="code2html.html">html</a>
-            <button id="vtn"><a href="loginpage.html">join now</a></button>
             <button id="themeBtn">🌙</button>
         </div>
 
@@ -515,66 +587,59 @@
         <div class="top6">
             <img src="images/ic1.jpg">
             <h1>html</h1>
-            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
-            <h3>read more</h3>
+            <h2>structure your web pages with html</h2>
         </div>
 
         <div class="top6">
             <img src="images/ic3.jpg">
             <h1>css</h1>
-            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
-            <h3>read more</h3>
+            <h2>style your website beautiful with css</h2>
         </div>
 
         <div class="top6">
             <img src="images/ic2.jpg">
             <h1>javascript</h1>
-            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
-            <h3>read more</h3>
+            <h2>add interactivity and logic to your website</h2>
         </div>
 
 
         <div class="top6">
             <img src="images/ic4.jpg">
             <h1>php</h1>
-            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
-            <h3>read more</h3>
+            <h2>Database Management,
+                 Dynamic Websites
+            </h2>
         </div>
 
 
         <div class="top6">
             <img src="images/ic5.jpg">
             <h1>java</h1>
-            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
-            <h3>read more</h3>
+            <h2>build robust and secure application</h2>
         </div>
 
         <div class="top6">
             <img src="images/ic6.jpg">
             <h1>c++</h1>
-            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
-            <h3>read more</h3>
+            <h2>high performance programming language</h2>
         </div>
 
         <div class="top6">
             <img src="images/ic7.jpg">
             <h1>c</h1>
-            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
-            <h3>read more</h3>
+            <h2>foundation of many modern languages</h2>
         </div>
 
         <div class="top6">
             <img src="images/ic8.jpg">
             <h1>phython</h1>
-            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
-            <h3>read more</h3>
+            <h2>powerful language for web AI and more</h2>
         </div>
 
         <div class="top6">
             <img src="images/ic9.jpg">
             <h1>react</h1>
-            <h2>Lorem ipsum dolor sit amet consectetur.</h2>
-            <h3>read more</h3>
+            <h2>build modern UI with react library</h2>
         </div>
     </div>
     </div>
@@ -587,77 +652,67 @@
 
     <div class="top8">
         <div class="top9">
-            <h1>hello</h1>
-            <h2>Lorem, ipsum dolor.</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+            <h2>easy to read</h2>
+            <p>simple explanations for better understanding</p>
         </div>
 
         <div class="top9">
-            <h1>hello</h1>
-            <h2>Lorem, ipsum dolor.</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+            <h2>real examples</h2>
+            <p>plenty of examples to clear your concepts</p>
         </div>
 
         <div class="top9">
-            <h1>hello</h1>
-            <h2>Lorem, ipsum dolor.</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+            <h2>beginner friendly</h2>
+            <p>perfect for beginners to advanced learners</p>
         </div>
 
         <div class="top9">
-            <h1>hello</h1>
-            <h2>Lorem, ipsum dolor.</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+            <h2>well structured</h2>
+            <p>organized content for a smooth learning experience</p>
         </div>
     </div>
 
     <footer>
-        <div class="top10">
+        <div class="footer-container">
 
-            <div class="top11">
-                <h1>home</h1>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
+            <div class="footer-box">
+                <h2>Code Learn</h2>
+                <p>Learn HTML, CSS, JavaScript, React and many more programming languages with easy examples.</p>
             </div>
 
-
-            <div class="top11">
-                <h1>home</h1>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
+            <div class="footer-box">
+                <h2>Quick Links</h2>
+                <p>Home</p>
+                <p>HTML</p>
+                <p>CSS</p>
+                <p>JavaScript</p>
+                <p>React</p>
             </div>
 
-
-            <div class="top11">
-                <h1>home</h1>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
-                <p>hello</p>
+            <div class="footer-box">
+                <h2>Topics</h2>
+                <p>Selectors</p>
+                <p>Flexbox</p>
+                <p>Grid</p>
+                <p>Animations</p>
+                <p>Media Queries</p>
             </div>
 
-
-            <div class="top11">
-                <h1>home</h1>
-                <p>hello</p>
-                <p>hello</p>
+            <div class="footer-box">
+                <h2>Contact</h2>
+                <p>Email : support@codelearn.com</p>
+                <p>Phone : +91 9876543210</p>
+                <p>India</p>
             </div>
-        </div>
+
         </div>
 
-        <div class="top12">
-            <h1>@2026 code learn.all rights reserved</h1>
+        <div class="copyright">
+            <p>© 2026 Code Learn. All Rights Reserved.</p>
         </div>
-        </div>
+
     </footer>
+
 </body>
 <script>
     var btn = document.getElementById("btn");
@@ -717,7 +772,13 @@
 <script>
     var load = {
         "html": "code2html.html",
-        "3d": "tttt.html"
+        "css": "code3html.html",
+        "javascript": "code4html.html",
+        "php": "code5html.html",
+        "react": "code6html.html",
+        "c++": "code7html.html",
+        "phyton": "code8html.html",
+        "c": "code9html.html",
     }
 
     function searchcourse() {

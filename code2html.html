@@ -4,42 +4,583 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn HTML</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap"
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+
+    <link rel="stylesheet" href="css.css">
 </head>
 <style>
+    /* ===================================
+   RESET
+=================================== */
+
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
         font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
     }
 
-    body.dark .faq {
-        background: #222;
-        color: white;
+    body {
+        background: #ffffff;
+        color: #222;
+        line-height: 1.7;
     }
 
-    body.dark .answer {
-        color: white;
+
+    /* ===================================
+   NAVBAR
+=================================== */
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: #111;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 80px;
+        z-index: 1000;
     }
 
-    body.dark .question {
-        color: white;
+    .logo {
+        font-size: 30px;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .logo span {
+        color: #0d6efd;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .menu a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 18px;
+        transition: .3s;
+    }
+
+    .menu a:hover {
+        color: #0d6efd;
+    }
+
+    #btn {
+        display: none;
     }
 
     #themeBtn {
-        background: none;
-        color: white;
-        font-size: 25px;
         border: none;
+        background: none;
+        color: #fff;
+        font-size: 22px;
         cursor: pointer;
-        text-align: center;
-        align-items: center;
     }
 
+
+    /* ===================================
+   HERO SECTION
+=================================== */
+
+    .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 140px 80px 70px;
+        gap: 60px;
+    }
+
+    .hero-image {
+        flex: 1;
+    }
+
+    .hero-image img {
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .hero-text {
+        flex: 1;
+    }
+
+    .hero-text h1 {
+        font-size: 65px;
+        margin-bottom: 15px;
+    }
+
+    .hero-text h1 span {
+        color: #0d6efd;
+    }
+
+    .hero-text h2 {
+        font-size: 35px;
+        color: #ff3b3b;
+        margin-bottom: 20px;
+    }
+
+    .hero-text p {
+        font-size: 18px;
+        color: #555;
+        line-height: 32px;
+        margin-bottom: 30px;
+    }
+
+    .hero-btn {
+        display: flex;
+        gap: 20px;
+    }
+
+    .btn1,
+    .btn2 {
+        padding: 15px 35px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: .3s;
+    }
+
+    .btn1 {
+        background: #111;
+        color: #fff;
+    }
+
+    .btn2 {
+        background: #0d6efd;
+        color: #fff;
+    }
+
+    .btn1:hover,
+    .btn2:hover {
+        transform: translateY(-5px);
+    }
+
+
+    /* ===================================
+   INTRODUCTION
+=================================== */
+
+    .intro {
+        width: 90%;
+        margin: auto;
+        padding: 50px 0;
+        text-align: center;
+    }
+
+    .intro h1 {
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 25px;
+    }
+
+    .intro p {
+        font-size: 19px;
+        color: #444;
+        line-height: 35px;
+    }
+
+    /* ===================================
+   KEY POINTS
+=================================== */
+
+    .points {
+        width: 90%;
+        margin: auto;
+        padding: 50px 0;
+    }
+
+    .points h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .card-box {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .card {
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: .4s;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
+    }
+
+    .card h2 {
+        color: #0d6efd;
+        margin-bottom: 15px;
+        font-size: 26px;
+    }
+
+    .card p {
+        color: #555;
+        line-height: 28px;
+        font-size: 17px;
+    }
+
+
+    /* ===================================
+   WHY LEARN HTML
+=================================== */
+
+    .why {
+        width: 90%;
+        margin: auto;
+        padding: 70px 0;
+    }
+
+    .why h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 30px;
+    }
+
+    .why p {
+        text-align: center;
+        font-size: 19px;
+        color: #555;
+        line-height: 34px;
+        margin-bottom: 40px;
+    }
+
+    .why ul {
+        width: 700px;
+        margin: auto;
+    }
+
+    .why ul li {
+        font-size: 20px;
+        margin: 15px 0;
+    }
+
+
+    /* ===================================
+   HTML FEATURES
+=================================== */
+
+    .features {
+        width: 90%;
+        margin: auto;
+        padding: 60px 0;
+    }
+
+    .features h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .feature-card {
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: .4s;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .12);
+    }
+
+    .feature-card h2 {
+        color: #0d6efd;
+        margin-bottom: 15px;
+        font-size: 26px;
+    }
+
+    .feature-card p {
+        color: #555;
+        line-height: 28px;
+        font-size: 17px;
+    }
+
+
+    /* ===================================
+   USES OF HTML
+=================================== */
+
+    .uses {
+        width: 90%;
+        margin: auto;
+        padding: 60px 0;
+    }
+
+    .uses h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .uses-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .uses-card {
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        padding: 30px;
+        transition: .4s;
+    }
+
+    .uses-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+    }
+
+    .uses-card h2 {
+        color: #0d6efd;
+        margin-bottom: 15px;
+        font-size: 25px;
+    }
+
+    .uses-card p {
+        color: #555;
+        line-height: 28px;
+        font-size: 17px;
+    }
+
+    /* ===================================
+   ADVANTAGES & DISADVANTAGES
+=================================== */
+
+    .info-section {
+        width: 90%;
+        margin: 80px auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .info-box {
+        border: 2px solid #ddd;
+        border-radius: 20px;
+        padding: 35px;
+        transition: .4s;
+        background: #fff;
+    }
+
+    .info-box:hover {
+        box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
+    }
+
+    .info-box h1 {
+        text-align: center;
+        color: #0d6efd;
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+
+    .info-box p {
+        font-size: 18px;
+        color: #555;
+        margin: 15px 0;
+        line-height: 30px;
+    }
+
+
+    /* ===================================
+   PRACTICE PROJECTS
+=================================== */
+
+    .projects {
+        width: 90%;
+        margin: auto;
+        padding: 60px 0;
+    }
+
+    .projects h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .project-card {
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: .4s;
+    }
+
+    .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .12);
+    }
+
+    .project-card h2 {
+        color: #0d6efd;
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+
+    .project-card p {
+        color: #555;
+        font-size: 17px;
+        line-height: 28px;
+    }
+
+
+    /* ===================================
+   FAQ SECTION
+=================================== */
+
+    .faq-section {
+        width: 90%;
+        margin: 80px auto;
+    }
+
+    .faq-section h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .faq {
+        width: 850px;
+        margin: 20px auto;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fff;
+        transition: .3s;
+    }
+
+    .faq:hover {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+    }
+
+    .question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 25px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .answer {
+        display: none;
+        padding: 20px 25px;
+        border-top: 1px solid #ddd;
+        color: #555;
+        line-height: 30px;
+        font-size: 17px;
+    }
+
+    .faq.active .answer {
+        display: block;
+    }
+
+    .btn {
+        width: 35px;
+        height: 35px;
+        border: none;
+        border-radius: 50%;
+        background: #0d6efd;
+        color: #fff;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    /* ===================================
+   FOOTER
+=================================== */
+
+    footer {
+        background: #111;
+        color: #fff;
+        margin-top: 80px;
+    }
+
+    .footer-container {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        padding: 60px 0;
+    }
+
+    .footer-box h2 {
+        color: #0d6efd;
+        margin-bottom: 20px;
+        font-size: 28px;
+    }
+
+    .footer-box p {
+        color: #ddd;
+        margin: 12px 0;
+        line-height: 28px;
+        transition: .3s;
+        cursor: pointer;
+    }
+
+    .footer-box p:hover {
+        color: #0d6efd;
+    }
+
+    .copyright {
+        border-top: 1px solid #333;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .copyright p {
+        color: #bbb;
+        font-size: 16px;
+    }
+
+
+    /* ===================================
+   PROGRESS BAR
+=================================== */
 
     #progress-bar {
         position: fixed;
@@ -47,33 +588,48 @@
         left: 0;
         width: 0%;
         height: 5px;
-        background: red;
+        background: #0d6efd;
         z-index: 9999;
     }
 
+
+    /* ===================================
+   SCROLL TO TOP BUTTON
+=================================== */
+
     #scrollTop {
         position: fixed;
-        right: 20px;
-        bottom: 20px;
-        width: 50px;
-        height: 50px;
+        right: 25px;
+        bottom: 25px;
+
+        width: 55px;
+        height: 55px;
+
         border: none;
         border-radius: 50%;
-        background: blue;
-        color: white;
+
+        background: #0d6efd;
+        color: #fff;
+
         font-size: 22px;
         cursor: pointer;
-        display: none;
-    }
 
-    body {
-        background: #ffffff;
-        color: #000;
+        display: none;
+
         transition: .3s;
     }
 
+    #scrollTop:hover {
+        transform: translateY(-8px);
+    }
+
+
+    /* ===================================
+   DARK MODE
+=================================== */
+
     body.dark {
-        background: #111;
+        background: #121212;
         color: #fff;
     }
 
@@ -81,348 +637,138 @@
         background: #1b1b1b;
     }
 
-    body.dark .top6,
-    body.dark .top9 {
-        background: #222;
+    body.dark .card,
+    body.dark .feature-card,
+    body.dark .uses-card,
+    body.dark .project-card,
+    body.dark .info-box,
+    body.dark .faq {
+        background: #1f1f1f;
+        border-color: #444;
         color: #fff;
-        border-color: #555;
+    }
+
+    body.dark .hero-text p,
+    body.dark .intro p,
+    body.dark .why p,
+    body.dark .card p,
+    body.dark .feature-card p,
+    body.dark .uses-card p,
+    body.dark .project-card p,
+    body.dark .info-box p,
+    body.dark .answer {
+        color: #ddd;
     }
 
     body.dark footer {
-        background: #1b1b1b;
-        color: #fff;
+        background: #000;
     }
 
-
-    nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: black;
-        padding: 20px 80px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-transform: capitalize;
+    body.dark .footer-box p {
+        color: #ccc;
     }
 
-
-    .logo {
-        color: white;
-        font-size: 28px;
-        font-weight: bold;
+    body.dark .footer-box p:hover {
+        color: #0d6efd;
     }
 
-    .menu {
-        display: flex;
-        gap: 30px;
-    }
+    /* ===================================
+   MOBILE RESPONSIVE
+   max-width:768px
+=================================== */
 
-    .menu a {
-        color: white;
-        text-decoration: none;
-        font-size: 18px;
-    }
+    @media (max-width:768px) {
 
-    /* Mobile Button */
-
-    #btn {
-        display: none;
-        background: none;
-        border: none;
-        color: white;
-        font-size: 30px;
-        cursor: pointer;
-    }
-
-    .top1 {
-        display: flex;
-        justify-content: space-between;
-        padding: 40px 120px;
-        gap: 20px;
-        margin-top: 100px;
-    }
-
-    .top2 img {
-        width: 100%;
-        border-radius: 20px;
-    }
-
-    .top3 {
-        margin-top: 80px;
-    }
-
-    .top3 h1 {
-        text-transform: capitalize;
-        padding-bottom: 10px;
-        font-size: 60px;
-    }
-
-    .top3 h2 {
-        text-transform: capitalize;
-        padding-bottom: 10px;
-        font-size: 40px;
-        color: red;
-    }
-
-    .top3 h3 {
-        text-transform: capitalize;
-        padding-bottom: 10px;
-        font-size: 20px;
-        line-height: 43px;
-        color: black;
-    }
-
-    .top4 {
-        display: flex;
-        gap: 30px;
-    }
-
-    .btn1 {
-        background: black;
-        color: white;
-        border: none;
-        padding: 15px 25px;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 20px;
-    }
-
-    .btn2 {
-        background: red;
-        color: white;
-        border: none;
-        padding: 15px 25px;
-        border-radius: 10px;
-        cursor: pointer;
-        font-size: 20px;
-    }
-
-    .top5 h1 {
-        margin-top: 40px;
-        text-transform: capitalize;
-        font-size: 40px;
-        text-align: center;
-        color: blue;
-    }
-
-    .top5 h2 {
-        margin-top: 20px;
-        text-transform: capitalize;
-        font-size: 20px;
-        text-align: center;
-        line-height: 40px;
-    }
-
-    .top5 h3 {
-        margin-top: 40px;
-        text-transform: capitalize;
-        font-size: 40px;
-        text-align: center;
-        color: blue;
-    }
-
-    .top5 h4 {
-        margin-top: 40px;
-        text-transform: capitalize;
-        font-size: 40px;
-        text-align: center;
-        color: blue;
-    }
-
-    .top5 p {
-        margin-top: 20px;
-        text-transform: capitalize;
-        font-size: 20px;
-        text-align: center;
-        line-height: 30px;
-        font-weight: 600;
-    }
-
-    .top6 {
-        display: flex;
-        justify-content: space-between;
-        gap: 30px;
-        padding: 30px 40px;
-    }
-
-    .top7 {
-        flex: 1;
-    }
-
-    .top7 img {
-        width: 100%;
-        height: 350px;
-        object-fit: cover;
-        border-radius: 15px;
-        display: block;
-    }
-
-    .top8 {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        padding: 30px 50px;
-        gap: 20px;
-    }
-
-    .top9 {
-        margin: auto;
-        display: block;
-        width: 200px;
-        height: 200px;
-        background: none;
-        border: 3px solid black;
-        border-radius: 10px;
-        cursor: pointer;
-        text-align: center;
-    }
-
-    .top10 {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        padding: 30px 40px;
-        gap: 40px;
-    }
-
-    .top11 {
-        margin: auto;
-        display: block;
-    }
-
-    .top11 h1 {
-        text-align: center;
-        text-transform: capitalize;
-        font-size: 35px;
-        margin-top: 30px;
-        color: blue;
-        margin-bottom: 7px;
-    }
-
-    .top11 p {
-        line-height: 30px;
-        text-transform: capitalize;
-    }
-
-    .faq {
-        width: 700px;
-        margin: 20px auto;
-        background: #fff;
-        padding: 15px 20px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .question {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-        font-weight: bold;
-    }
-
-    .btn {
-        background: black;
-        color: white;
-        border: none;
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        cursor: pointer;
-    }
-
-    .answer {
-        display: none;
-        margin-top: 10px;
-    }
-
-    .faq.active .answer {
-        display: block;
-    }
-
-    .top12 {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        padding: 30px 40px;
-        gap: 30px;
-    }
-
-    .top13 {
-        margin: auto;
-        display: block;
-        width: 200px;
-        height: 200px;
-        background: none;
-        border: 2px solid black;
-        border-radius: 10px;
-        text-align: center;
-    }
-
-    /* Mobile */
-
-    @media(max-width:768px) {
-
-        /* Show Button */
-
-        #btn {
-            display: block;
-        }
-
-        /* Hide Menu */
-
-        .menu {
-            position: absolute;
-            top: 75px;
-            right: 0;
-            width: 50%;
-            background: black;
-
-            flex-direction: column;
-            text-align: center;
-
-            max-height: 0;
-            overflow: hidden;
-
-            transition: 0.5s;
-        }
-
-        .menu a {
-            //padding: 8px;
-        }
-
-        /* Show Menu */
-
-        .menu.show {
-            max-height: 900px;
-        }
+        /* ==========================
+   NAVBAR
+========================== */
 
         nav {
             padding: 15px 20px;
+            height: 80px;
         }
 
-        .top1 {
+        .logo {
+            font-size: 26px;
+        }
+
+        #btn {
+            display: block;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 32px;
+            cursor: pointer;
+        }
+
+        .menu {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: #111;
+
+            display: flex;
             flex-direction: column;
-            padding: 20px;
+            align-items: center;
+            gap: 20px;
+
+            max-height: 0;
+            overflow: hidden;
+            transition: .5s;
+        }
+
+        .menu.show {
+            max-height: 700px;
+            padding: 20px 0;
+        }
+
+        .menu a {
+            font-size: 18px;
+        }
+
+        #themeBtn {
+            margin-top: 10px;
+        }
+
+
+        /* ==========================
+   HERO SECTION
+========================== */
+
+        .hero {
+            flex-direction: column;
+            padding: 120px 20px 50px;
             text-align: center;
+            gap: 35px;
         }
 
-        .top3 {
-            margin-top: 20px;
+        .hero-image {
+            order: 1;
         }
 
-        .top3 h1 {
-            font-size: 38px;
+        .hero-text {
+            order: 2;
         }
 
-        .top3 h2 {
-            font-size: 24px;
+        .hero-image img {
+            width: 100%;
         }
 
-        .top3 h3 {
+        .hero-text h1 {
+            font-size: 42px;
+        }
+
+        .hero-text h2 {
+            font-size: 28px;
+        }
+
+        .hero-text p {
             font-size: 16px;
-            line-height: 28px;
+            line-height: 30px;
         }
 
-        .top4 {
+        .hero-btn {
             flex-direction: column;
             gap: 15px;
         }
@@ -432,707 +778,993 @@
             width: 100%;
         }
 
-        .top5 {
-            padding: 0 15px;
+
+        /* ==========================
+   INTRODUCTION
+========================== */
+
+        .intro {
+            width: 92%;
+            padding: 40px 0;
         }
 
-        .top5 h1,
-        .top5 h3,
-        .top5 h4 {
+        .intro h1 {
+            font-size: 32px;
+        }
+
+        .intro p {
+            font-size: 16px;
+            line-height: 30px;
+        }
+
+
+        /* ==========================
+   KEY POINTS
+========================== */
+
+        .points {
+            width: 92%;
+        }
+
+        .points h1 {
+            font-size: 32px;
+        }
+
+        .card-box {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            width: 100%;
+        }
+
+        .card h2 {
+            font-size: 24px;
+        }
+
+        .card p {
+            font-size: 16px;
+        }
+
+
+        /* ==========================
+   WHY LEARN HTML
+========================== */
+
+        .why {
+            width: 92%;
+            padding: 50px 0;
+        }
+
+        .why h1 {
+            font-size: 32px;
+        }
+
+        .why p {
+            font-size: 16px;
+            line-height: 30px;
+        }
+
+        .why ul {
+            width: 100%;
+            padding-left: 20px;
+        }
+
+        .why ul li {
+            font-size: 18px;
+        }
+
+        /* ==========================
+   FEATURES
+========================== */
+
+        .features {
+            width: 92%;
+            padding: 50px 0;
+        }
+
+        .features h1 {
+            font-size: 32px;
+        }
+
+        .feature-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .feature-card {
+            width: 100%;
+        }
+
+        .feature-card h2 {
+            font-size: 24px;
+        }
+
+        .feature-card p {
+            font-size: 16px;
+        }
+
+
+        /* ==========================
+   USES
+========================== */
+
+        .uses {
+            width: 92%;
+            padding: 50px 0;
+        }
+
+        .uses h1 {
+            font-size: 32px;
+        }
+
+        .uses-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .uses-card {
+            width: 100%;
+        }
+
+        .uses-card h2 {
+            font-size: 24px;
+        }
+
+        .uses-card p {
+            font-size: 16px;
+        }
+
+
+        /* ==========================
+   ADVANTAGES
+========================== */
+
+        .info-section {
+            width: 92%;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .info-box {
+            width: 100%;
+        }
+
+        .info-box h1 {
             font-size: 30px;
         }
 
-        .top5 h2,
-        .top5 p {
+        .info-box p {
             font-size: 16px;
-            line-height: 28px;
         }
 
-        .top6 {
-            flex-direction: column;
-            padding: 20px;
+
+        /* ==========================
+   PROJECTS
+========================== */
+
+        .projects {
+            width: 92%;
+            padding: 50px 0;
         }
 
-        .top7 img {
-            height: auto;
+        .projects h1 {
+            font-size: 32px;
         }
 
-        .top8 {
+        .project-grid {
             grid-template-columns: 1fr;
-            padding: 20px;
+            gap: 20px;
         }
 
-        .top9 {
+        .project-card {
             width: 100%;
-            height: auto;
-            padding: 20px;
         }
 
-        .top10 {
-            grid-template-columns: 1fr;
-            padding: 20px;
+        .project-card h2 {
+            font-size: 24px;
+        }
+
+        .project-card p {
+            font-size: 16px;
+        }
+
+
+        /* ==========================
+   FAQ
+========================== */
+
+        .faq-section {
+            width: 92%;
+        }
+
+        .faq-section h1 {
+            font-size: 32px;
         }
 
         .faq {
-            width: 95%;
-        }
-
-        .top12 {
-            grid-template-columns: 1fr;
-            padding: 20px;
-        }
-
-        .top13 {
             width: 100%;
-            height: auto;
-            padding: 20px;
         }
+
+        .question {
+            font-size: 17px;
+            padding: 18px;
+        }
+
+        .answer {
+            font-size: 15px;
+            line-height: 28px;
+        }
+
+
+        /* ==========================
+   FOOTER
+========================== */
+
+        .footer-container {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 30px;
+        }
+
+        .footer-box h2 {
+            font-size: 26px;
+        }
+
+        .footer-box p {
+            font-size: 16px;
+        }
+
+
+        /* ==========================
+   SCROLL BUTTON
+========================== */
+
+        #scrollTop {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            right: 15px;
+            bottom: 15px;
+        }
+
     }
 </style>
-<header>
-    <nav>
+  <header>
 
-        <div class="logo">code<span>learn</span></div>
+        <nav>
 
-        <button id="btn">☰</button>
+            <div class="logo">
+                code<span>learn</span>
+            </div>
 
-        <div class="menu" id="menu">
+            <button id="btn">☰</button>
 
-            <a href="index.html">Home</a>
+            <div class="menu" id="menu">
 
-            <a href="code2html.html">html</a>
+                <a href="index.html">Home</a>
 
-            <a href="code3html.html">css</a>
+                <a href="code2html.html">HTML</a>
 
-            <a href="code4html.html">JavaScript</a>
+                <a href="code3html.html">CSS</a>
 
-            <a href="code5html.html">php</a>
+                <a href="code4html.html">JavaScript</a>
 
-             <a href="code6html.html">react</a>
+                <a href="code5html.html">PHP</a>
 
-            <a href=".html">c++</a>
+                <a href="code6html.html">React</a>
 
-            <a href=".html">c</a>
+                <a href="code7html.html">C++</a>
 
-            <a href=".html">phython</a>
+                <a href="code8html.html">C</a>
 
-            <button id="themeBtn">🌙 </button>
+                <a href="code9html.html">Python</a>
 
-        </div>
+                <button id="themeBtn">🌙</button>
 
-    </nav>
-</header>
+            </div>
 
+        </nav>
+
+    </header>
 <body>
 
     <div id="progress-bar"></div>
 
     <button id="scrollTop">↑</button>
 
-    <div class="top1">
-        <div class="top2">
-            <img src="images/ic1.jpg">
+    <!-- ==========================
+     Hero Section
+========================== -->
+
+    <section class="hero">
+
+        <div class="hero-image">
+
+            <img src="images/ic1.jpg" alt="HTML">
+
         </div>
-        <div class="top3">
-            <h1>html</h1>
-            <h2>hyper text markup language</h2>
-            <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Repudiandae amet veritatis eaque inventore
-                incidunt <br>explicabo quam corporis et neque modi.</h3>
-            <div class="top4">
-                <button class="btn1">Start Learning</button>
-                <button class="btn2">Watch Video</button>
+
+        <div class="hero-text">
+
+            <h1>Learn <span>HTML</span></h1>
+
+            <h2>HyperText Markup Language</h2>
+
+            <p>
+
+                HTML is the standard markup language used to create web pages.
+                It provides the basic structure of a website using elements,
+                headings, paragraphs, images, links, forms, tables and many
+                other tags.
+
+            </p>
+
+            <div class="hero-btn">
+
+                <button class="btn1">
+                    Start Learning
+                </button>
+
+                <button class="btn2">
+                    Watch Video
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+     Introduction
+========================== -->
+
+    <section class="intro">
+
+        <h1>1. Introduction</h1>
+
+        <p>
+
+            HTML (HyperText Markup Language) is the standard language used to
+            create and structure web pages. It defines the content of a webpage
+            using elements such as headings, paragraphs, images, links, lists,
+            tables, forms, videos, and many other tags. HTML is the foundation
+            of every website and works together with CSS for styling and
+            JavaScript for interactivity.
+
+        </p>
+
+    </section>
+
+    <!-- ==========================
+     2. Key Points
+========================== -->
+
+    <section class="points">
+
+        <h1>2. Key Points</h1>
+
+        <div class="card-box">
+
+            <div class="card">
+
+                <h2>Easy to Learn</h2>
+
+                <p>
+                    HTML has simple tags and is the best language for beginners in web development.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>Web Structure</h2>
+
+                <p>
+                    HTML provides the basic structure of every web page using different elements.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>Semantic Tags</h2>
+
+                <p>
+                    Semantic elements make web pages more meaningful and improve SEO and accessibility.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <h2>Cross Platform</h2>
+
+                <p>
+                    HTML works on all modern browsers and devices without any extra software.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+     3. Why Learn HTML?
+========================== -->
+
+    <section class="why">
+
+        <h1>3. Why Learn HTML?</h1>
+
+        <p>
+
+            HTML is the foundation of every website. Learning HTML helps you
+            understand how web pages are built and prepares you for learning
+            CSS, JavaScript, and other modern web technologies.
+
+        </p>
+
+        <ul>
+
+            <li>Build the Structure of Websites</li>
+
+            <li>Easy to Learn for Beginners</li>
+
+            <li>Create Web Pages Quickly</li>
+
+            <li>Works with CSS and JavaScript</li>
+
+            <li>Supports Images, Videos and Audio</li>
+
+            <li>Create Forms and Tables</li>
+
+            <li>SEO Friendly with Semantic Tags</li>
+
+            <li>Essential Skill for Web Developers</li>
+
+        </ul>
+
+    </section>
+
+    <!-- ==========================
+     4. HTML Features
+========================== -->
+
+    <section class="features">
+
+        <h1>4. HTML Features</h1>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+
+                <h2>Simple Syntax</h2>
+
+                <p>
+                    HTML uses simple tags that are easy to understand and write.
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <h2>Semantic Elements</h2>
+
+                <p>
+                    Use semantic tags like header, nav, section and footer for better structure.
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <h2>Multimedia Support</h2>
+
+                <p>
+                    Add images, videos, audio and other media directly to your web pages.
+                </p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <h2>Forms</h2>
+
+                <p>
+                    Create contact forms, login forms and registration forms using HTML.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+     5. Uses of HTML
+========================== -->
+
+    <section class="uses">
+
+        <h1>5. Uses of HTML</h1>
+
+        <div class="uses-grid">
+
+            <div class="uses-card">
+
+                <h2>Website Structure</h2>
+
+                <p>
+                    Build the basic structure and content of websites.
+                </p>
+
+            </div>
+
+            <div class="uses-card">
+
+                <h2>Landing Pages</h2>
+
+                <p>
+                    Create attractive landing pages for businesses and products.
+                </p>
+
+            </div>
+
+            <div class="uses-card">
+
+                <h2>Portfolio Websites</h2>
+
+                <p>
+                    Build personal portfolio websites to showcase your skills and projects.
+                </p>
+
+            </div>
+
+            <div class="uses-card">
+
+                <h2>Contact Forms</h2>
+
+                <p>
+                    Design forms for user registration, login and feedback.
+                </p>
+
+            </div>
+
+            <div class="uses-card">
+
+                <h2>Blogs & Articles</h2>
+
+                <p>
+                    Create blog pages, articles and documentation websites.
+                </p>
+
+            </div>
+
+            <div class="uses-card">
+
+                <h2>Web Applications</h2>
+
+                <p>
+                    HTML provides the foundation for modern web applications.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+     Advantages & Disadvantages
+========================== -->
+
+    <section class="info-section">
+
+        <div class="info-box">
+
+            <h1>Advantages of HTML</h1>
+
+            <p>✔ Easy to Learn and Use</p>
+            <p>✔ Free and Open Standard</p>
+            <p>✔ Supported by All Browsers</p>
+            <p>✔ Works with CSS and JavaScript</p>
+            <p>✔ SEO Friendly Structure</p>
+            <p>✔ Supports Multimedia Elements</p>
+            <p>✔ Perfect for Building Websites</p>
+
+        </div>
+
+        <div class="info-box">
+
+            <h1>Disadvantages of HTML</h1>
+
+            <p>✖ Cannot Create Dynamic Websites Alone</p>
+            <p>✖ No Programming Logic</p>
+            <p>✖ Needs CSS for Styling</p>
+            <p>✖ Needs JavaScript for Interactivity</p>
+            <p>✖ Limited Functionality by Itself</p>
+            <p>✖ Large Pages Become Hard to Manage</p>
+            <p>✖ Cannot Connect to Databases Directly</p>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+     Practice Projects
+========================== -->
+
+    <section class="projects">
+
+        <h1>6. Practice Projects</h1>
+
+        <div class="project-grid">
+
+            <div class="project-card">
+
+                <h2>Personal Portfolio</h2>
+
+                <p>
+                    Create a personal portfolio website using HTML elements.
+                </p>
+
+            </div>
+
+            <div class="project-card">
+
+                <h2>Restaurant Website</h2>
+
+                <p>
+                    Build a restaurant homepage with images, menu and contact details.
+                </p>
+
+            </div>
+
+            <div class="project-card">
+
+                <h2>Registration Form</h2>
+
+                <p>
+                    Design a student registration form using HTML forms.
+                </p>
+
+            </div>
+
+            <div class="project-card">
+
+                <h2>Resume Website</h2>
+
+                <p>
+                    Create an online resume with your education and skills.
+                </p>
+
+            </div>
+
+            <div class="project-card">
+
+                <h2>Image Gallery</h2>
+
+                <p>
+                    Build a simple image gallery using HTML images and sections.
+                </p>
+
+            </div>
+
+            <div class="project-card">
+
+                <h2>Blog Page</h2>
+
+                <p>
+                    Create a blog page with headings, paragraphs and links.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ==========================
+     Frequently Asked Questions
+========================== -->
+
+    <section class="faq-section">
+
+        <h1>7. Frequently Asked Questions</h1>
+
+        <div class="faq">
+            <div class="question">
+                What is HTML?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                HTML (HyperText Markup Language) is the standard language used to create web pages.
             </div>
         </div>
-    </div>
-    </div>
-
-    <div class="top5">
-        <h1>1. introduction</h1>
-        <h2>HTML (HyperText Markup Language) is the standard markup language used to create the structure of web
-            pages.<br>
-            It defines how content such as headings, paragraphs, images, links, tables, forms, and multimedia are<br>
-            displayed in a browser. HTML is the foundation of every website and works together with CSS for styling
-            and<br>
-            JavaScript for interactivity.</h2>
-        <h3>2. Key Points</h3>
-        <p>HTML stands for HyperText Markup Language.</p>
-        <p>It is the basic building block of every website.</p>
-        <p>HTML uses tags to organize and display content.</p>
-        <p>It is easy to learn and beginner-friendly.</p>
-        <p>HTML works with CSS and JavaScript to build modern websites.</p>
-        <p>Every web page starts with an HTML document structure.</p>
-        <h4>3. Why Learn HTML?</h4>
-        <h2>Learning HTML is the first step toward becoming a Front-End Developer or Full-Stack Developer. It helps
-            you<br> understand how websites are structured and prepares you for advanced technologies like CSS,
-            JavaScript, React, <br>and other modern frameworks.</h2>
-    </div>
-    </div>
-
-
-    <div class="top6">
-
-        <div class="top7">
-            <img src="images/new3.png" alt="Image 1">
-        </div>
 
-        <div class="top7">
-            <img src="images/new4.png" alt="Image 2">
+        <div class="faq">
+            <div class="question">
+                What is the full form of HTML?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                HTML stands for HyperText Markup Language.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                Why is HTML used?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                HTML is used to create the structure and content of web pages.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                Is HTML a programming language?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                No. HTML is a markup language, not a programming language.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                What are HTML tags?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                HTML tags are special keywords used to create elements on a web page.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                What is an HTML element?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                An HTML element consists of an opening tag, content and a closing tag.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="question">
+                What is an HTML attribute?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                An attribute provides additional information about an HTML element.
+            </div>
         </div>
-
-    </div>
-    </div>
 
-
-
-    <div class="top8">
-        <div class="top9">
-            <h1>easy to learn</h1>
-            <p>simple and easy syntax</p>
+        <div class="faq">
+            <div class="question">
+                What is the purpose of the &lt;head&gt; tag?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                The head tag stores metadata like the page title, links and styles.
+            </div>
         </div>
 
-        <div class="top9">
-            <h1>hyperlinks support</h1>
-            <p>connects pages and resources</p>
+        <div class="faq">
+            <div class="question">
+                What is the purpose of the &lt;body&gt; tag?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                The body tag contains all the visible content displayed on the webpage.
+            </div>
         </div>
 
-        <div class="top9">
-            <h1>semantic elements</h1>
-            <p>better structure and meaning</p>
+        <div class="faq">
+            <div class="question">
+                Can HTML create responsive websites?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                HTML provides the structure, while CSS is used to make websites responsive.
+            </div>
         </div>
 
-        <div class="top9">
-            <h1>multimedia support</h1>
-            <p>audio video and graphics</p>
-        </div>
-    </div>
-    </div>
-
-    <div class="top10">
-        <div class="top11">
-            <h1>user of html</h1>
-            <p>create websites and web pages</p>
-            <p>build web applications</p>
-            <p>design navigation menus</p>
-            <p>display images and multimedia</p>
-            <p>create forms for data collection</p>
-            <p>structure content on the web</p>
-            <p>build portfolios blogs and more</p>
+        <div class="faq">
+            <div class="question">
+                What is a semantic tag?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                Semantic tags describe the meaning of content, such as header, nav, section and footer.
+            </div>
         </div>
 
-        <div class="top11">
-            <h1>advantages of html</h1>
-            <p>easy to learn and use</p>
-            <p>free and open source</p>
-            <p>works on all browsers</p>
-            <p>platform independent</p>
-            <p>lightweight and fast</p>
-            <p>good for SEO</p>
-            <p>large community support</p>
+        <div class="faq">
+            <div class="question">
+                What is the latest version of HTML?
+                <button class="btn">+</button>
+            </div>
+            <div class="answer">
+                HTML5 is the latest and most widely used version of HTML.
+            </div>
         </div>
 
+    </section>
 
-        <div class="top11">
-            <h1>disadvantages of html</h1>
-            <p>not a programming languages</p>
-            <p>static (needs CSS & JS)</p>
-            <p>limited functionality</p>
-            <p>no database handing</p>
-            <p>security limitations</p>
-            <p>Static websites only</p>
-            <p>No dynamic features</p>
-        </div>
-    </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            what is html
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            HTML (HyperText Markup Language) is the standard markup language used to create and structure web pages.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            what is the difference between div and span
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            div is a block-level element, while span is an inline element.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            what are semantic tags
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            Semantic tags are HTML tags that clearly describe the meaning and purpose of the content they contain.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            what is the difference between inline and block elements.
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            Block elements start on a new line, while inline elements stay in the same line.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            what is the difference between id and clean.
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            An id is unique for one element, while a class can be used for multiple elements.
-        </div>
-    </div>
-    </div>
-
-    <div class="top12">
-        <div class="top13">
-            <h1>login form</h1>
-            <p>create a simple login form</p>
-        </div>
+    <!-- ==========================
+     Footer
+========================== -->
 
-        <div class="top13">
-            <h1>tables</h1>
-            <p>create an html table</p>
-        </div>
+    <footer>
 
-        <div class="top13">
-            <h1>contact form</h1>
-            <p>create a contact form</p>
-        </div>
+        <div class="footer-container">
 
-        <div class="top13">
-            <h1>image gallery</h1>
-            <p>build an image gallery</p>
-        </div>
+            <div class="footer-box">
 
-        <div class="top13">
-            <h1>navigation bar</h1>
-            <p>build a simple navbar</p>
-        </div>
+                <h2>Code Learn</h2>
 
-        <div class="top13">
-            <h1>landing page</h1>
-            <p>create a landing page</p>
-        </div>
+                <p>
+                    Learn HTML, CSS, JavaScript, PHP, React, C, C++ and Python
+                    with simple explanations and practical examples.
+                </p>
 
-        <div class="top13">
-            <h1>registration form</h1>
-            <p>create a registration form</p>
-        </div>
+            </div>
 
-        <div class="top13">
-            <h1>portfolio page</h1>
-            <p>create a personal portfolio</p>
-        </div>
-    </div>
-    </div>
+            <div class="footer-box">
 
+                <h2>Quick Links</h2>
 
-    <div class="faq">
-        <div class="question">
-            what is html
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            HTML (HyperText Markup Language) is the standard markup language used to create and structure web pages.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            what is DOCTYPE
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            defines the document as an HTML5 web page.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            what is head
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            contains information about the web page that is not displayed on the screen.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            title
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The tag sets the name of the web page. It appears on the browser tab and helps users identify the page.
-        </div>
-    </div>
+                <p>Home</p>
+                <p>HTML</p>
+                <p>CSS</p>
+                <p>JavaScript</p>
+                <p>PHP</p>
 
+            </div>
 
-    <div class="faq">
-        <div class="question">
-            header
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            header tag ka use website ke upar wale hissa (top section) ko banane ke liye hota hai, jisme logo,
-            navigation menu ya heading hoti hai.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            nav
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            nav tag ka use website me navigation links (menu) banane ke liye hota hai, jisse user alag-alag pages par ja
-            sakta hai.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            section
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            section tag ka use website ke content ko alag-alag parts (sections) me divide karne ke liye hota hai.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            footer
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            footer tag ka use website ke last (bottom) section ko banane ke liye hota hai, jisme copyright, contact aur
-            links hote hain.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            body
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The tag contains all the content that is displayed on the web page, such as text, images, buttons, and
-            links.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            h1 = h6
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            h1 to h6 tags are used to create headings, with h1 being the largest and h6 the smallest.
-        </div>
-    </div>
+            <div class="footer-box">
 
+                <h2>HTML Topics</h2>
 
-    <div class="faq">
-        <div class="question">
-            p
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The tag is used to create paragraphs and display text on a web page.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            a
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The tag is used to create hyperlinks that connect one web page to another.
-        </div>
-    </div>
+                <p>HTML Elements</p>
+                <p>HTML Tags</p>
+                <p>Forms</p>
+                <p>Tables</p>
+                <p>Semantic Tags</p>
 
+            </div>
 
-    <div class="faq">
-        <div class="question">
-            img
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The img tag is used to display images on a web page.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            div
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            he div tag is used to group and organize HTML elements into sections or containers.
-        </div>
-    </div>
+            <div class="footer-box">
 
+                <h2>Contact</h2>
 
-    <div class="faq">
-        <div class="question">
-            span
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The span tag is used to style or group a small part of text without starting a new line.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            br
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The br tag is used to insert a line break and move the content to the next line.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            hr
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The hr tag is used to create a horizontal line that separates sections of content on a web page.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            ol
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The ol tag is used to create a numbered list of items.
-            Each list item is written inside the li tag and is displayed in order (1, 2, 3...).
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            ul
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The ul tag is used to create an unordered list with bullet points.
-            Each list item is written inside the li tag and is displayed with bullets (•).
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            li
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The li tag is used to define a list item inside an ul or ol list.
-            Each li represents one item in the list.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            table
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The table tag is used to create a table for organizing data into rows and columns.
-            It works with tr, th, and td tags to display tabular information.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            tr
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The tr tag is used to create a row in an HTML table.
-            It contains table heading th or table data td cells.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            th
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The th tag is used to create a heading cell in an HTML table.
-            By default, the text inside a th tag is bold and centered.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            td
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The td tag is used to create a data cell in an HTML table.
-            It contains the actual information displayed inside each table row.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            form
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The form tag is used to create a form for collecting user information.
-            It contains elements like input fields, buttons, checkboxes, and dropdown lists.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            input
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The input tag is used to create input fields where users can enter information.
-            It supports different types such as text, password, email, number, and more.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            label
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The label tag is used to provide a label or description for an input field.
-            It helps users understand what information they need to enter.
-        </div>
-    </div>
+                <p>Email : support@codelearn.com</p>
+                <p>Phone : +91 9876543210</p>
+                <p>India</p>
 
+            </div>
 
-    <div class="faq">
-        <div class="question">
-            button
-            <button class="btn">+</button>
         </div>
-        <div class="answer">
-            The button tag is used to create a clickable button on a web page.
-            It can perform actions such as submitting a form or running JavaScript.
-        </div>
-    </div>
 
+        <div class="copyright">
 
-    <div class="faq">
-        <div class="question">
-            select
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            The select tag is used to create a dropdown list of options.
-            Users can choose one option from the available items.
-        </div>
-    </div>
-
-    <div class="faq">
-        <div class="question">
-            textarea
-            <button class="btn">+</button>
-        </div>
-        <div class="answer">
-            textarea tag ka use website me bada text box banane ke liye hota hai, jisme user multiple lines ka text likh
-            sakta hai.
+            <p>© 2026 Code Learn. All Rights Reserved.</p>
+
         </div>
-    </div>
 
+    </footer>
 
 </body>
-<script>
-
-    var btn = document.getElementById("btn")
-
-    var menu = document.getElementById("menu")
-
-
-
-    btn.onclick = function () {
-
-        menu.classList.toggle("show")
-
-    }
-
-</script>
 
 <script>
-    document.querySelectorAll(".btn")
-        .forEach(function (btn) {
-            btn.onclick = function () {
-                var code = btn.parentElement.parentElement
-                code.classList.toggle("active")
-                btn.innerText = code.classList.contains("active") ? "-" : "+";
+
+    // ==========================
+    // Mobile Menu
+    // ==========================
+
+    const btn = document.getElementById("btn");
+    const menu = document.getElementById("menu");
+
+    btn.addEventListener("click", function () {
+        menu.classList.toggle("show");
+    });
+
+
+    // ==========================
+    // FAQ
+    // ==========================
+
+    const faqs = document.querySelectorAll(".faq");
+
+    faqs.forEach(function (faq) {
+
+        const question = faq.querySelector(".question");
+        const button = faq.querySelector(".btn");
+
+        question.addEventListener("click", function () {
+
+            faq.classList.toggle("active");
+
+            if (faq.classList.contains("active")) {
+                button.innerHTML = "−";
+            } else {
+                button.innerHTML = "+";
             }
-        })
-</script>
 
-<script>
+        });
+
+    });
+
+
+    // ==========================
+    // Dark Mode
+    // ==========================
+
     const themeBtn = document.getElementById("themeBtn");
 
-    themeBtn.onclick = function () {
+    themeBtn.addEventListener("click", function () {
+
         document.body.classList.toggle("dark");
 
         if (document.body.classList.contains("dark")) {
-            themeBtn.innerHTML = "☀️ ";
+            themeBtn.innerHTML = "☀️";
         } else {
-            themeBtn.innerHTML = "🌙 ";
-        }
-    };
-</script>
-
-<script>
-    const progressBar = document.getElementById("progress-bar");
-    const scrollBtn = document.getElementById("scrollTop");
-
-    window.addEventListener("scroll", function () {
-
-        let scroll = document.documentElement.scrollTop;
-
-        let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
-        let progress = (scroll / height) * 100;
-
-        progressBar.style.width = progress + "%";
-
-        if (scroll > 300) {
-            scrollBtn.style.display = "block";
-        } else {
-            scrollBtn.style.display = "none";
+            themeBtn.innerHTML = "🌙";
         }
 
     });
 
-    scrollBtn.onclick = function () {
+
+    // ==========================
+    // Scroll Progress
+    // ==========================
+
+    const progressBar = document.getElementById("progress-bar");
+    const scrollTopBtn = document.getElementById("scrollTop");
+
+    window.addEventListener("scroll", function () {
+
+        const scrollTop = document.documentElement.scrollTop;
+
+        const scrollHeight =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+
+        const progress = (scrollTop / scrollHeight) * 100;
+
+        progressBar.style.width = progress + "%";
+
+        if (scrollTop > 300) {
+            scrollTopBtn.style.display = "block";
+        } else {
+            scrollTopBtn.style.display = "none";
+        }
+
+    });
+
+
+    // ==========================
+    // Scroll To Top
+    // ==========================
+
+    scrollTopBtn.addEventListener("click", function () {
+
         window.scrollTo({
+
             top: 0,
             behavior: "smooth"
+
         });
-    };
+
+    });
+
 </script>
 
 </html>
