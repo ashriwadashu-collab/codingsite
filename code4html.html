@@ -670,78 +670,414 @@
    Mobile Responsive
 ========================= */
 
-    @media(max-width:768px) {
+    @media(max-width:768px){
 
-        nav {
-            padding: 15px 20px;
-        }
-
-        #btn {
-            display: block;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 30px;
-            cursor: pointer;
-        }
-
-        .menu {
-            position: absolute;
-            top: 70px;
-            right: 0;
-            width: 60%;
-            background: #000;
-            flex-direction: column;
-            text-align: center;
-            max-height: 0;
-            overflow: hidden;
-            transition: .4s;
-        }
-
-        .menu.show {
-            max-height: 700px;
-        }
-
-        .hero,
-        .image-section {
-            flex-direction: column;
-            padding: 30px 20px;
-            margin-top:80px;
-        }
-
-        .card-box,
-        .feature-grid,
-        .uses-grid,
-        .project-grid,
-        .info-section,
-        .footer-container {
-            grid-template-columns: 1fr;
-            padding: 20px;
-        }
-
-        .faq {
-            width: 95%;
-        }
-
-        .hero h1 {
-            font-size: 38px;
-        }
-
-        .hero h2 {
-            font-size: 24px;
-        }
-
-        .hero p {
-            font-size: 16px;
-            line-height: 28px;
-        }
-
-        .btn1,
-        .btn2 {
-            width: 100%;
-            margin-top: 10px;
-        }
+    body{
+        overflow-x:hidden;
     }
+
+
+    /* Navbar */
+
+    nav{
+        height:70px;
+        padding:0 20px;
+    }
+
+
+    .logo{
+        font-size:24px;
+    }
+
+
+    #btn{
+        display:block;
+        background:none;
+        border:none;
+        color:white;
+        font-size:30px;
+        cursor:pointer;
+    }
+
+
+    .menu{
+
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:#000;
+
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+
+        gap:20px;
+
+        max-height:0;
+        overflow:hidden;
+
+        transition:.4s;
+
+    }
+
+
+    .menu.show{
+
+        max-height:700px;
+        padding:25px 0;
+
+    }
+
+
+    .menu a{
+
+        font-size:17px;
+
+    }
+
+
+    #themeBtn{
+
+        font-size:22px;
+
+    }
+
+
+
+    /* Hero */
+
+    .hero{
+
+        flex-direction:column;
+        padding:110px 20px 40px;
+        gap:30px;
+        text-align:center;
+
+    }
+
+
+    .hero-image img{
+
+        width:100%;
+        max-width:350px;
+
+    }
+
+
+    .hero-text h1{
+
+        font-size:38px;
+
+    }
+
+
+    .hero-text h2{
+
+        font-size:24px;
+
+    }
+
+
+    .hero-text p{
+
+        font-size:16px;
+        line-height:28px;
+
+    }
+
+
+    .hero-btn{
+
+        flex-direction:column;
+        gap:15px;
+
+    }
+
+
+    .btn1,
+    .btn2{
+
+        width:100%;
+        padding:14px;
+
+    }
+
+
+
+    /* All Sections */
+
+    .intro,
+    .points,
+    .why,
+    .features,
+    .uses,
+    .projects,
+    .faq-section{
+
+        width:100%;
+        padding:40px 15px;
+
+    }
+
+
+
+    .intro h1,
+    .points h1,
+    .why h1,
+    .features h1,
+    .uses h1,
+    .projects h1,
+    .faq-section h1{
+
+        font-size:30px;
+        margin-bottom:25px;
+
+    }
+
+
+
+    .intro p,
+    .why p{
+
+        font-size:16px;
+        line-height:28px;
+
+    }
+
+
+
+    /* Cards */
+
+    .card-box,
+    .feature-grid,
+    .uses-grid,
+    .project-grid{
+
+        display:grid;
+        grid-template-columns:1fr;
+        gap:20px;
+
+    }
+
+
+
+    .card,
+    .feature-card,
+    .uses-card,
+    .project-card{
+
+        width:100%;
+        padding:22px;
+
+    }
+
+
+
+    .card h2,
+    .feature-card h2,
+    .uses-card h2,
+    .project-card h2{
+
+        font-size:22px;
+
+    }
+
+
+    .card p,
+    .feature-card p,
+    .uses-card p,
+    .project-card p{
+
+        font-size:15px;
+        line-height:26px;
+
+    }
+
+
+
+    /* Why List */
+
+    .why ul{
+
+        padding-left:20px;
+
+    }
+
+
+    .why ul li{
+
+        font-size:16px;
+        margin:10px 0;
+
+    }
+
+
+
+    /* Images */
+
+    .image-section{
+
+        display:flex;
+        flex-direction:column;
+        padding:30px 15px;
+        gap:20px;
+
+    }
+
+
+    .image-box img{
+
+        width:100%;
+        height:auto;
+
+    }
+
+
+
+    /* Advantages Disadvantages */
+
+
+    .info-section{
+
+        display:grid;
+        grid-template-columns:1fr;
+
+        width:100%;
+        padding:30px 15px;
+
+        gap:20px;
+
+    }
+
+
+    .info-box{
+
+        width:100%;
+        padding:22px;
+
+    }
+
+
+    .info-box h1{
+
+        font-size:25px;
+
+    }
+
+
+    .info-box p{
+
+        font-size:15px;
+        line-height:26px;
+
+    }
+
+
+
+    /* FAQ */
+
+    .faq{
+
+        width:100%;
+        margin:15px 0;
+        padding:15px;
+
+    }
+
+
+    .question{
+
+        font-size:16px;
+
+    }
+
+
+    .answer{
+
+        font-size:15px;
+        line-height:26px;
+
+    }
+
+
+
+    /* Footer */
+
+
+    footer{
+
+        width:100%;
+        overflow:hidden;
+
+    }
+
+
+    .footer-container{
+
+        display:flex;
+        flex-direction:column;
+
+        width:100%;
+
+        padding:40px 15px;
+
+        gap:30px;
+
+    }
+
+
+    .footer-box{
+
+        width:100%;
+        text-align:center;
+
+    }
+
+
+    .footer-box h2{
+
+        font-size:22px;
+
+    }
+
+
+    .footer-box p{
+
+        font-size:15px;
+        line-height:26px;
+
+        word-break:break-word;
+
+    }
+
+
+    .copyright{
+
+        width:100%;
+        padding:15px 10px;
+        font-size:13px;
+
+    }
+
+
+
+    /* Scroll Button */
+
+
+    #scrollTop{
+
+        width:45px;
+        height:45px;
+
+        right:15px;
+        bottom:15px;
+
+        font-size:20px;
+
+    }
+
+}
 </style>
     <header>
     <nav>
