@@ -597,6 +597,34 @@
         color: #0d6efd;
     }
 
+    .dd h1 {
+        text-align: center;
+        text-transform: capitalize;
+        font-size: 40px;
+        color: #0d6efd;
+        margin-bottom: 15px;
+    }
+
+    .top6 {
+        display: flex;
+        justify-content: space-between;
+        gap: 30px;
+        padding: 30px 40px;
+    }
+
+    .top7 {
+        flex: 1;
+    }
+
+    .top7 img {
+        width: 100%;
+        height: 350px;
+        border-radius: 10px;
+        object-fit: cover;
+        display: block;
+
+    }
+
     @media (max-width:768px) {
 
 
@@ -869,6 +897,19 @@
         .answer {
             font-size: 15px;
             line-height: 28px;
+        }
+
+        .top6{
+            flex-direction: column;
+            padding:20px;
+        }
+
+        .top7 {
+            width:100%;
+        }
+
+        .top7 img{
+            height:250px;
         }
 
         .footer-container {
@@ -1407,7 +1448,57 @@
             </div>
         </div>
 
+         <div class="faq">
+        <div class="question">
+            what is the difference between div and span
+            <button class="btn">+</button>
+        </div>
+        <div class="answer">
+            div is a block-level element, while span is an inline element.
+        </div>
+    </div>
+
+    <div class="faq">
+        <div class="question">
+            what is the difference between inline and block elements.
+            <button class="btn">+</button>
+        </div>
+        <div class="answer">
+            Block elements start on a new line, while inline elements stay in the same line.
+        </div>
+    </div>
+
+    <div class="faq">
+        <div class="question">
+            what is the difference between id and class.
+            <button class="btn">+</button>
+        </div>
+        <div class="answer">
+            An id is unique for one element, while a class can be used for multiple elements.
+        </div>
+    </div>
+    </div>
+
+
     </section>
+
+    <div class="dd">
+        <h1>example of html</h1>
+    </div>
+    </div>
+
+    <div class="top6">
+
+        <div class="top7">
+            <img src="images/new3.png" alt="Image 1">
+        </div>
+
+        <div class="top7">
+            <img src="images/new4.png" alt="Image 2">
+        </div>
+
+    </div>
+    </div>
 
     <footer>
 
@@ -1550,4 +1641,5 @@
     });
 
 </script>
+
 </html>
