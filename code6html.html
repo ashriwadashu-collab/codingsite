@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React Tutorial</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <title>React Tutorial</title>
 </head>
 <style>
     * {
@@ -20,25 +20,504 @@
     }
 
     body {
-        background: #fff;
-        color: #111;
-        transition: .4s;
+        background: #ffffff;
+        color: #222;
+        line-height: 1.7;
     }
 
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: #111;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 80px;
+        z-index: 1000;
+    }
 
+    .logo {
+        font-size: 30px;
+        font-weight: 700;
+        color: #fff;
+    }
 
-    body.dark {
+    .logo span {
+        color: #0d6efd;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .menu a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 18px;
+        transition: .3s;
+    }
+
+    .menu a:hover {
+        color: #0d6efd;
+    }
+
+    #btn {
+        display: none;
+    }
+
+    #themeBtn {
+        border: none;
+        background: none;
+        color: #fff;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 140px 80px 70px;
+        gap: 60px;
+    }
+
+    .hero-image {
+        flex: 1;
+    }
+
+    .hero-image img {
+        width: 80%;
+        border-radius: 20px;
+    }
+
+    .hero-text {
+        flex: 1;
+    }
+
+    .hero-text h1 {
+        font-size: 65px;
+        margin-bottom: 15px;
+    }
+
+    .hero-text h1 span {
+        color: #0d6efd;
+    }
+
+    .hero-text h2 {
+        font-size: 35px;
+        color: #ff3b3b;
+        margin-bottom: 20px;
+    }
+
+    .hero-text p {
+        font-size: 18px;
+        color: #555;
+        line-height: 32px;
+        margin-bottom: 30px;
+    }
+
+    .hero-btn {
+        display: flex;
+        gap: 20px;
+    }
+
+    .btn1,
+    .btn2 {
+        padding: 15px 35px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: .3s;
+    }
+
+    .btn1 {
         background: #111;
         color: #fff;
     }
 
-    body.dark nav {
-        background: #1b1b1b;
+    .btn2 {
+        background: #0d6efd;
+        color: #fff;
     }
 
+    .btn1:hover,
+    .btn2:hover {
+        transform: translateY(-5px);
+    }
+
+    .intro {
+        width: 90%;
+        margin: auto;
+        padding: 50px 0;
+        text-align: center;
+    }
+
+    .intro h1 {
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 25px;
+    }
+
+    .intro p {
+        font-size: 19px;
+        color: #444;
+        line-height: 35px;
+    }
+
+    .points {
+        width: 90%;
+        margin: auto;
+        padding: 50px 0;
+    }
+
+    .points h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .card-box {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .card {
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: .4s;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
+    }
+
+    .card h2 {
+        color: #0d6efd;
+        margin-bottom: 15px;
+        font-size: 26px;
+    }
+
+    .card p {
+        color: #555;
+        line-height: 28px;
+        font-size: 17px;
+    }
+
+    .why {
+        width: 90%;
+        margin: auto;
+        padding: 70px 0;
+    }
+
+    .why h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 30px;
+    }
+
+    .why p {
+        text-align: center;
+        font-size: 19px;
+        color: #555;
+        line-height: 34px;
+        margin-bottom: 40px;
+    }
+
+    .why ul {
+        width: 700px;
+        margin: auto;
+    }
+
+    .why ul li {
+        font-size: 20px;
+        margin: 15px 0;
+    }
+
+    .features {
+        width: 90%;
+        margin: auto;
+        padding: 60px 0;
+    }
+
+    .features h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .feature-card {
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: .4s;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .12);
+    }
+
+    .feature-card h2 {
+        color: #0d6efd;
+        margin-bottom: 15px;
+        font-size: 26px;
+    }
+
+    .feature-card p {
+        color: #555;
+        line-height: 28px;
+        font-size: 17px;
+    }
+
+    .uses {
+        width: 90%;
+        margin: auto;
+        padding: 60px 0;
+    }
+
+    .uses h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .uses-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .uses-card {
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        padding: 30px;
+        transition: .4s;
+    }
+
+    .uses-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+    }
+
+    .uses-card h2 {
+        color: #0d6efd;
+        margin-bottom: 15px;
+        font-size: 25px;
+    }
+
+    .uses-card p {
+        color: #555;
+        line-height: 28px;
+        font-size: 17px;
+    }
+
+    .info-section {
+        width: 90%;
+        margin: 80px auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .info-box {
+        border: 2px solid #ddd;
+        border-radius: 20px;
+        padding: 35px;
+        transition: .4s;
+        background: #fff;
+    }
+
+    .info-box:hover {
+        box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
+    }
+
+    .info-box h1 {
+        text-align: center;
+        color: #0d6efd;
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+
+    .info-box p {
+        font-size: 18px;
+        color: #555;
+        margin: 15px 0;
+        line-height: 30px;
+    }
+
+    .projects {
+        width: 90%;
+        margin: auto;
+        padding: 60px 0;
+    }
+
+    .projects h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .project-card {
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: .4s;
+    }
+
+    .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .12);
+    }
+
+    .project-card h2 {
+        color: #0d6efd;
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+
+    .project-card p {
+        color: #555;
+        font-size: 17px;
+        line-height: 28px;
+    }
+
+    .faq-section {
+        width: 90%;
+        margin: 80px auto;
+    }
+
+    .faq-section h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .faq {
+        width: 850px;
+        margin: 20px auto;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fff;
+        transition: .3s;
+    }
+
+    .faq:hover {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+    }
+
+    .question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 25px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .answer {
+        display: none;
+        padding: 20px 25px;
+        border-top: 1px solid #ddd;
+        color: #555;
+        line-height: 30px;
+        font-size: 17px;
+    }
+
+    .faq.active .answer {
+        display: block;
+    }
+
+    .btn {
+        width: 35px;
+        height: 35px;
+        border: none;
+        border-radius: 50%;
+        background: #0d6efd;
+        color: #fff;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    footer {
+        background: #111;
+        color: #fff;
+        margin-top: 80px;
+    }
+
+    .footer-container {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        padding: 60px 0;
+    }
+
+    .footer-box h2 {
+        color: #0d6efd;
+        margin-bottom: 20px;
+        font-size: 28px;
+    }
+
+    .footer-box p {
+        color: #ddd;
+        margin: 12px 0;
+        line-height: 28px;
+        transition: .3s;
+        cursor: pointer;
+    }
+
+    .footer-box p:hover {
+        color: #0d6efd;
+    }
+
+    .copyright {
+        border-top: 1px solid #333;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .copyright p {
+        color: #bbb;
+        font-size: 16px;
+    }
 
     #progress-bar {
-
         position: fixed;
         top: 0;
         left: 0;
@@ -46,12 +525,9 @@
         height: 5px;
         background: #0d6efd;
         z-index: 9999;
-
     }
 
-
     #scrollTop {
-
         position: fixed;
         right: 25px;
         bottom: 25px;
@@ -65,1036 +541,39 @@
         background: #0d6efd;
         color: #fff;
 
-        font-size: 25px;
-
+        font-size: 22px;
         cursor: pointer;
 
         display: none;
 
-        z-index: 999;
-
         transition: .3s;
-
     }
-
 
     #scrollTop:hover {
-
         transform: translateY(-8px);
-
-    }
-
-
-
-    nav {
-
-        position: fixed;
-
-        top: 0;
-        left: 0;
-
-        width: 100%;
-        height: 80px;
-
-        background: #000;
-
-        display: flex;
-
-        justify-content: space-between;
-
-        align-items: center;
-
-        padding: 0 80px;
-
-        z-index: 1000;
-
-    }
-
-
-
-    .logo {
-
-        color: white;
-
-        font-size: 30px;
-
-        font-weight: 700;
-
-    }
-
-
-
-    .logo span {
-
-        color: #0d6efd;
-
-    }
-
-
-
-    .menu {
-
-        display: flex;
-
-        align-items: center;
-
-        gap: 30px;
-
-    }
-
-
-
-    .menu a {
-
-        text-decoration: none;
-
-        color: white;
-
-        font-size: 18px;
-
-        transition: .3s;
-
-    }
-
-
-
-    .menu a:hover {
-
-        color: #0d6efd;
-
-    }
-
-
-
-    #themeBtn {
-
-        border: none;
-
-        background: none;
-
-        color: white;
-
-        font-size: 24px;
-
-        cursor: pointer;
-
-    }
-
-
-
-    #btn {
-
-        display: none;
-
-    }
-
-
-    .hero {
-
-        display: flex;
-
-        justify-content: space-between;
-
-        align-items: center;
-
-        gap: 60px;
-
-        padding: 140px 80px 80px;
-
-    }
-
-
-
-    .hero-image {
-
-        flex: 1;
-
-        text-align: center;
-
-    }
-
-
-
-    .hero-image img {
-
-        width: 100%;
-
-        max-width: 500px;
-
-        border-radius: 20px;
-
-    }
-
-
-
-    .hero-text {
-
-        flex: 1;
-
-    }
-
-
-
-    .hero-text h1 {
-
-        font-size: 65px;
-
-        margin-bottom: 15px;
-
-    }
-
-
-
-    .hero-text h1 span {
-
-        color: #0d6efd;
-
-    }
-
-
-
-    .hero-text h2 {
-
-        color: #ff3b3b;
-
-        font-size: 36px;
-
-        margin-bottom: 20px;
-
-    }
-
-
-
-    .hero-text p {
-
-        font-size: 19px;
-
-        line-height: 34px;
-
-        color: #555;
-
-    }
-
-
-
-    .hero-btn {
-
-        display: flex;
-
-        gap: 20px;
-
-        margin-top: 35px;
-
-    }
-
-
-
-    .btn1,
-    .btn2 {
-
-        padding: 15px 35px;
-
-        border: none;
-
-        border-radius: 10px;
-
-        font-size: 18px;
-
-        cursor: pointer;
-
-        transition: .3s;
-
-    }
-
-
-
-    .btn1 {
-
-        background: #000;
-
-        color: white;
-
-    }
-
-
-
-    .btn2 {
-
-        background: #0d6efd;
-
-        color: white;
-
-    }
-
-
-
-    .btn1:hover,
-    .btn2:hover {
-
-        transform: translateY(-5px);
-
-    }
-
-
-
-    .intro {
-
-        width: 90%;
-        margin: auto;
-        padding: 70px 0;
-        text-align: center;
-
-    }
-
-
-    .intro h1 {
-
-        font-size: 45px;
-        color: #0d6efd;
-        margin-bottom: 25px;
-
-    }
-
-
-    .intro p {
-
-        max-width: 1000px;
-        margin: auto;
-
-        font-size: 20px;
-
-        line-height: 35px;
-
-        color: #555;
-
-    }
-
-
-
-    .points {
-
-        width: 90%;
-        margin: auto;
-        padding: 70px 0;
-
-    }
-
-
-    .points h1 {
-
-        text-align: center;
-
-        font-size: 45px;
-
-        color: #0d6efd;
-
-        margin-bottom: 50px;
-
-    }
-
-
-
-    .card-box {
-
-        display: grid;
-
-        grid-template-columns: repeat(4, 1fr);
-
-        gap: 25px;
-
-    }
-
-
-
-    .card {
-
-        background: #fff;
-
-        border: 2px solid #ddd;
-
-        border-radius: 15px;
-
-        padding: 30px;
-
-        text-align: center;
-
-        transition: .4s;
-
-    }
-
-
-
-    .card:hover {
-
-        transform: translateY(-10px);
-
-        box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
-
-    }
-
-
-
-    .card h2 {
-
-        color: #0d6efd;
-
-        margin-bottom: 15px;
-
-    }
-
-
-
-    .card p {
-
-        color: #555;
-
-        line-height: 28px;
-
-    }
-
-
-    .why {
-
-        width: 90%;
-
-        margin: auto;
-
-        padding: 70px 0;
-
-        text-align: center;
-
-    }
-
-
-
-    .why h1 {
-
-        font-size: 45px;
-
-        color: #0d6efd;
-
-        margin-bottom: 25px;
-
-    }
-
-
-
-    .why p {
-
-        max-width: 1000px;
-
-        margin: auto;
-
-        font-size: 20px;
-
-        line-height: 35px;
-
-        color: #555;
-
-    }
-
-
-
-    .why ul {
-
-        list-style: none;
-
-        margin-top: 30px;
-
-    }
-
-
-
-    .why ul li {
-
-        font-size: 20px;
-
-        margin: 15px 0;
-
-    }
-
-
-
-
-    .image-section {
-
-        width: 90%;
-
-        margin: auto;
-
-        padding: 60px 0;
-
-        display: flex;
-
-        gap: 30px;
-
-    }
-
-
-
-    .image-box {
-
-        flex: 1;
-
-    }
-
-
-
-    .image-box img {
-
-        width: 100%;
-
-        height: 350px;
-
-        object-fit: cover;
-
-        border-radius: 20px;
-
-        transition: .4s;
-
-    }
-
-
-
-    .image-box img:hover {
-
-        transform: scale(1.03);
-
-    }
-
-
-
-    .features {
-
-        width: 90%;
-
-        margin: auto;
-
-        padding: 70px 0;
-
-    }
-
-
-
-    .features h1 {
-
-        text-align: center;
-
-        font-size: 45px;
-
-        color: #0d6efd;
-
-        margin-bottom: 50px;
-
-    }
-
-
-
-    .feature-grid {
-
-        display: grid;
-
-        grid-template-columns: repeat(4, 1fr);
-
-        gap: 25px;
-
-    }
-
-
-
-    .feature-card {
-
-        background: #fff;
-
-        border: 2px solid #ddd;
-
-        border-radius: 15px;
-
-        padding: 30px;
-
-        text-align: center;
-
-        transition: .4s;
-
-    }
-
-
-
-    .feature-card:hover {
-
-        transform: translateY(-10px);
-
-        box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
-
-    }
-
-
-
-    .feature-card h2 {
-
-        color: #0d6efd;
-
-        margin-bottom: 15px;
-
-    }
-
-
-
-    .feature-card p {
-
-        color: #555;
-
-        line-height: 28px;
-
-    }
-
-
-
-    .uses {
-
-        width: 90%;
-
-        margin: auto;
-
-        padding: 70px 0;
-
-    }
-
-
-
-    .uses h1 {
-
-        text-align: center;
-
-        font-size: 45px;
-
-        color: #0d6efd;
-
-        margin-bottom: 50px;
-
-    }
-
-
-
-    .uses-grid {
-
-        display: grid;
-
-        grid-template-columns: repeat(3, 1fr);
-
-        gap: 25px;
-
-    }
-
-
-
-    .uses-card {
-
-        background: #fff;
-
-        border: 2px solid #ddd;
-
-        border-radius: 15px;
-
-        padding: 30px;
-
-        transition: .4s;
-
-    }
-
-
-
-    .uses-card:hover {
-
-        transform: translateY(-10px);
-
-        box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
-
-    }
-
-
-
-    .uses-card h2 {
-
-        color: #0d6efd;
-
-        margin-bottom: 15px;
-
-    }
-
-
-
-    .uses-card p {
-
-        color: #555;
-
-        line-height: 28px;
-
-    }
-
-
-    .info-section {
-
-        width: 90%;
-        margin: auto;
-
-        display: grid;
-
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 40px;
-
-        padding: 70px 0;
-
-    }
-
-
-
-    .info-box {
-
-        background: #fff;
-
-        border: 2px solid #ddd;
-
-        border-radius: 20px;
-
-        padding: 35px;
-
-        transition: .4s;
-
-    }
-
-
-
-    .info-box:hover {
-
-        box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
-
-    }
-
-
-
-    .info-box h1 {
-
-        text-align: center;
-
-        color: #0d6efd;
-
-        margin-bottom: 30px;
-
-    }
-
-
-
-    .info-box p {
-
-        font-size: 18px;
-
-        line-height: 32px;
-
-        color: #555;
-
-    }
-
-
-
-
-    .projects {
-
-        width: 90%;
-
-        margin: auto;
-
-        padding: 70px 0;
-
-    }
-
-
-
-    .projects h1 {
-
-        text-align: center;
-
-        font-size: 45px;
-
-        color: #0d6efd;
-
-        margin-bottom: 50px;
-
-    }
-
-
-
-    .project-grid {
-
-        display: grid;
-
-        grid-template-columns: repeat(3, 1fr);
-
-        gap: 30px;
-
-    }
-
-
-
-    .project-card {
-
-        background: #fff;
-
-        border: 2px solid #ddd;
-
-        border-radius: 15px;
-
-        padding: 30px;
-
-        text-align: center;
-
-        transition: .4s;
-
-    }
-
-
-
-    .project-card:hover {
-
-        transform: translateY(-10px);
-
-        box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
-
-    }
-
-
-
-    .project-card h2 {
-
-        color: #0d6efd;
-
-        margin-bottom: 15px;
-
-    }
-
-
-
-    .project-card p {
-
-        color: #555;
-
-        line-height: 28px;
-
-    }
-
-
-
-
-    .faq-section {
-
-        width: 90%;
-
-        margin: auto;
-
-        padding: 70px 0;
-
-    }
-
-
-
-    .faq-section h1 {
-
-        text-align: center;
-
-        font-size: 45px;
-
-        color: #0d6efd;
-
-        margin-bottom: 50px;
-
-    }
-
-
-
-    .faq {
-
-        width: 850px;
-
-        margin: 20px auto;
-
-        background: #fff;
-
-        border: 2px solid #ddd;
-
-        border-radius: 12px;
-
-        overflow: hidden;
-
-    }
-
-
-
-    .question {
-
-        display: flex;
-
-        justify-content: space-between;
-
-        align-items: center;
-
-        padding: 20px 25px;
-
-        font-size: 20px;
-
-        font-weight: 600;
-
-        cursor: pointer;
-
-    }
-
-
-
-    .answer {
-
-        display: none;
-
-        padding: 20px 25px;
-
-        border-top: 1px solid #ddd;
-
-        color: #555;
-
-        line-height: 30px;
-
-    }
-
-
-
-    .faq.active .answer {
-
-        display: block;
-
-    }
-
-
-
-    .btn {
-
-        width: 35px;
-
-        height: 35px;
-
-        border: none;
-
-        border-radius: 50%;
-
-        background: #0d6efd;
-
-        color: white;
-
-        font-size: 22px;
-
-        cursor: pointer;
-
-    }
-
-
-    footer {
-
-        background: #111;
-
-        color: white;
-
-        margin-top: 80px;
-
-    }
-
-
-
-    .footer-container {
-
-        width: 90%;
-
-        margin: auto;
-
-        display: grid;
-
-        grid-template-columns: repeat(4, 1fr);
-
-        gap: 40px;
-
-        padding: 60px 0;
-
-    }
-
-
-
-    .footer-box h2 {
-
-        color: #0d6efd;
-
-        margin-bottom: 20px;
-
-    }
-
-
-
-    .footer-box p {
-
-        color: #ddd;
-
-        line-height: 28px;
-
-        margin: 10px 0;
-
-    }
-
-
-
-    .footer-box p:hover {
-
-        color: #0d6efd;
-
-        cursor: pointer;
-
     }
-
-
-
-    .copyright {
-
-        border-top: 1px solid #333;
 
-        text-align: center;
-
-        padding: 20px;
-
+    body.dark {
+        background: #121212;
+        color: #fff;
     }
-
-
 
-    .copyright p {
-
-        color: #bbb;
-
+    body.dark nav {
+        background: #1b1b1b;
     }
-
-
-
 
     body.dark .card,
     body.dark .feature-card,
     body.dark .uses-card,
-    body.dark .info-box,
     body.dark .project-card,
+    body.dark .info-box,
     body.dark .faq {
-
-        background: #222;
-
-        border-color: #555;
-
-        color: white;
-
+        background: #1f1f1f;
+        border-color: #444;
+        color: #fff;
     }
 
-
-
+    body.dark .hero-text p,
     body.dark .intro p,
     body.dark .why p,
     body.dark .card p,
@@ -1103,523 +582,336 @@
     body.dark .project-card p,
     body.dark .info-box p,
     body.dark .answer {
-
         color: #ddd;
-
     }
-
-
 
     body.dark footer {
-
         background: #000;
-
     }
 
+    body.dark .footer-box p {
+        color: #ccc;
+    }
 
-    @media(max-width:768px) {
+    body.dark .footer-box p:hover {
+        color: #0d6efd;
+    }
+
+    @media (max-width:768px) {
 
 
         nav {
-
             padding: 15px 20px;
-
+            height: 80px;
         }
 
+        .logo {
+            font-size: 26px;
+        }
 
         #btn {
-
             display: block;
-
             background: none;
-
             border: none;
-
-            color: white;
-
+            color: #fff;
             font-size: 32px;
-
             cursor: pointer;
-
         }
 
-
-
         .menu {
-
             position: absolute;
-
             top: 80px;
-
             left: 0;
-
             width: 100%;
-
             background: #111;
 
             display: flex;
-
             flex-direction: column;
-
             align-items: center;
-
             gap: 20px;
 
             max-height: 0;
-
             overflow: hidden;
-
-            transition: .4s;
-
+            transition: .5s;
         }
-
-
 
         .menu.show {
-
-            max-height: 600px;
-
+            max-height: 700px;
             padding: 20px 0;
-
         }
-
-
 
         .menu a {
-
-            font-size: 17px;
-
+            font-size: 18px;
         }
+
+        #themeBtn {
+            margin-top: 10px;
+        }
+
 
         .hero {
-
             flex-direction: column;
-
-            padding: 120px 20px 40px;
-
+            padding: 120px 20px 50px;
             text-align: center;
-
-            gap: 30px;
-
+            gap: 35px;
         }
 
+        .hero-image {
+            order: 1;
+        }
 
+        .hero-text {
+            order: 2;
+        }
 
         .hero-image img {
-
             width: 100%;
-
         }
-
-
 
         .hero-text h1 {
-
-            font-size: 40px;
-
+            font-size: 42px;
         }
-
-
 
         .hero-text h2 {
-
-            font-size: 25px;
-
+            font-size: 28px;
         }
-
-
 
         .hero-text p {
-
             font-size: 16px;
-
             line-height: 30px;
-
         }
-
-
 
         .hero-btn {
-
             flex-direction: column;
-
+            gap: 15px;
         }
-
-
 
         .btn1,
         .btn2 {
-
             width: 100%;
-
         }
 
         .intro {
-
-            width: 90%;
-
+            width: 92%;
             padding: 40px 0;
-
         }
-
-
 
         .intro h1 {
-
             font-size: 32px;
-
         }
 
-
-
         .intro p {
-
             font-size: 16px;
-
             line-height: 30px;
-
         }
 
         .points {
-
-            width: 90%;
-
+            width: 92%;
         }
-
-
 
         .points h1 {
-
             font-size: 32px;
-
         }
-
-
 
         .card-box {
-
             grid-template-columns: 1fr;
-
+            gap: 20px;
         }
 
-
-
         .card {
+            width: 100%;
+        }
 
-            padding: 25px;
+        .card h2 {
+            font-size: 24px;
+        }
 
+        .card p {
+            font-size: 16px;
         }
 
         .why {
-
-            width: 90%;
-
+            width: 92%;
+            padding: 50px 0;
         }
-
-
 
         .why h1 {
-
             font-size: 32px;
-
         }
-
-
 
         .why p {
-
             font-size: 16px;
-
             line-height: 30px;
-
         }
-
-
 
         .why ul {
-
+            width: 100%;
             padding-left: 20px;
-
         }
-
-
 
         .why ul li {
-
-            font-size: 17px;
-
+            font-size: 18px;
         }
-
-
-        .image-section {
-
-            width: 90%;
-
-            flex-direction: column;
-
-            padding: 30px 0;
-
-        }
-
-
-
-        .image-box img {
-
-            height: auto;
-
-        }
-
 
         .features {
-
-            width: 90%;
-
+            width: 92%;
+            padding: 50px 0;
         }
-
-
 
         .features h1 {
-
             font-size: 32px;
-
         }
-
-
 
         .feature-grid {
-
             grid-template-columns: 1fr;
-
+            gap: 20px;
         }
 
-
-
         .feature-card {
+            width: 100%;
+        }
 
-            padding: 25px;
+        .feature-card h2 {
+            font-size: 24px;
+        }
 
+        .feature-card p {
+            font-size: 16px;
         }
 
         .uses {
-
-            width: 90%;
-
+            width: 92%;
+            padding: 50px 0;
         }
-
-
 
         .uses h1 {
-
             font-size: 32px;
-
         }
-
-
 
         .uses-grid {
-
             grid-template-columns: 1fr;
-
+            gap: 20px;
         }
 
-
-
         .uses-card {
+            width: 100%;
+        }
 
-            padding: 25px;
+        .uses-card h2 {
+            font-size: 24px;
+        }
 
+        .uses-card p {
+            font-size: 16px;
         }
 
         .info-section {
-
-            width: 90%;
-
+            width: 92%;
             grid-template-columns: 1fr;
-
+            gap: 25px;
         }
-
-
 
         .info-box {
-
-            padding: 25px;
-
+            width: 100%;
         }
-
-
 
         .info-box h1 {
-
-            font-size: 28px;
-
+            font-size: 30px;
         }
-
-
 
         .info-box p {
-
             font-size: 16px;
-
         }
-
-
-
-
-
-        /* PROJECTS */
-
 
         .projects {
-
-            width: 90%;
-
+            width: 92%;
+            padding: 50px 0;
         }
-
-
 
         .projects h1 {
-
             font-size: 32px;
-
         }
-
-
 
         .project-grid {
-
             grid-template-columns: 1fr;
-
+            gap: 20px;
         }
 
-
-
         .project-card {
+            width: 100%;
+        }
 
-            padding: 25px;
+        .project-card h2 {
+            font-size: 24px;
+        }
 
+        .project-card p {
+            font-size: 16px;
         }
 
         .faq-section {
-
-            width: 90%;
-
+            width: 92%;
         }
-
-
 
         .faq-section h1 {
-
             font-size: 32px;
-
         }
-
-
 
         .faq {
-
             width: 100%;
-
         }
-
-
 
         .question {
-
-            font-size: 16px;
-
-            padding: 15px;
-
+            font-size: 17px;
+            padding: 18px;
         }
-
-
 
         .answer {
-
             font-size: 15px;
-
+            line-height: 28px;
         }
-
 
         .footer-container {
-
-            width: 90%;
-
             grid-template-columns: 1fr;
-
             text-align: center;
-
-            padding: 40px 0;
-
+            gap: 30px;
         }
-
-
 
         .footer-box h2 {
-
-            font-size: 24px;
-
+            font-size: 26px;
         }
-
-
 
         .footer-box p {
-
-            font-size: 15px;
-
+            font-size: 16px;
         }
-
-
 
         #scrollTop {
-
             width: 50px;
-
             height: 50px;
-
-            right: 15px;
-
-            bottom: 15px;
-
             font-size: 20px;
-
+            right: 15px;
+            bottom: 15px;
         }
-
 
     }
 </style>
 <header>
     <nav>
-
         <div class="logo">code<span>learn</span></div>
-
         <button id="btn">☰</button>
-
         <div class="menu" id="menu">
-
             <a href="index.html">Home</a>
-
-            <a href="code2html.html">html</a>
-
-            <a href="code3html.html">css</a>
-
+            <a href="code2html.html">HTML</a>
+            <a href="code3html.html">CSS</a>
             <a href="code4html.html">JavaScript</a>
-
-            <a href="code5html.html">php</a>
-
-             <a href="code6html.html">react</a>
-
-            <a href="code7html.html">c++</a>
-
-            <a href="code8html.html">c</a>
-
-            <a href="code9html.html">phython</a>
-
-             <a href="code10html.html">java</a>
-
-            <button id="themeBtn">🌙 </button>
-
+            <a href="code5html.html">PHP</a>
+            <a href="code6html.html">React</a>
+            <a href="code7html.html">C++</a>
+            <a href="code8html.html">Python</a>
+            <a href="code9html.html">c</a>
+            <a href="code10html.html">java</a>
+            <button id="themeBtn">🌙</button>
         </div>
-
     </nav>
 </header>
 
@@ -1640,10 +932,6 @@
 
         </div>
 
-
-
-
-
         <div class="hero-text">
 
 
@@ -1651,9 +939,6 @@
 
 
             <h2>JavaScript Library For UI Development</h2>
-
-
-
             <p>
 
                 React is a popular JavaScript library used to
@@ -1665,10 +950,6 @@
 
             </p>
 
-
-
-
-
             <div class="hero-btn">
 
 
@@ -1678,38 +959,22 @@
 
                 </button>
 
-
-
                 <button class="btn2">
 
                     Watch Video
 
                 </button>
 
-
-
             </div>
-
-
-
-
         </div>
 
-
-
     </section>
-
 
     <section class="intro">
 
 
         <h1>1. Introduction</h1>
-
-
-
         <p>
-
-
             React is an open-source JavaScript library created
             by Facebook for building modern user interfaces.
 
@@ -1720,20 +985,7 @@
 
         </p>
 
-
-
     </section>
-
-
-
-
-
-
-
-
-
-    <!-- KEY FEATURES -->
-
 
     <section class="points">
 
@@ -1743,43 +995,18 @@
 
 
         <div class="card-box">
-
-
-
-
-
-
             <div class="card">
-
-
                 <h2>Components</h2>
-
-
                 <p>
-
                     React applications are built using reusable
                     and independent components.
 
                 </p>
 
-
             </div>
-
-
-
-
-
-
-
-
             <div class="card">
-
-
                 <h2>Virtual DOM</h2>
-
-
                 <p>
-
                     React uses Virtual DOM to improve website
                     performance and speed.
 
@@ -1787,60 +1014,24 @@
 
 
             </div>
-
-
-
-
-
-
-
-
             <div class="card">
-
-
                 <h2>Reusable Code</h2>
-
-
                 <p>
 
                     Components can be reused multiple times
                     to save development time.
-
                 </p>
-
-
             </div>
-
-
-
-
-
-
-
-
             <div class="card">
 
-
                 <h2>Fast Performance</h2>
-
-
                 <p>
-
                     React creates fast and responsive user
                     interfaces.
-
                 </p>
 
-
             </div>
-
-
-
-
-
         </div>
-
-
     </section>
 
     <section class="why">
@@ -1848,11 +1039,7 @@
 
         <h1>3. Why Learn React?</h1>
 
-
-
-
         <p>
-
 
             React is one of the most popular frontend
             technologies used by companies worldwide.
@@ -1864,11 +1051,7 @@
 
         </p>
 
-
-
-
         <ul>
-
 
             <li>Create Modern User Interfaces</li>
 
@@ -1896,9 +1079,6 @@
 
 
         </ul>
-
-
-
     </section>
 
     <section class="features">
@@ -1931,7 +1111,6 @@
 
     </section>
 
-
     <section class="why">
 
         <h1>5. How React Works?</h1>
@@ -1957,14 +1136,6 @@
         </ul>
 
     </section>
-
-
-
-
-
-
-
-    <!-- USES OF REACT -->
 
     <section class="uses">
 
@@ -2012,7 +1183,6 @@
         </div>
 
     </section>
-    <!-- ADVANTAGES & DISADVANTAGES -->
 
     <section class="info-section">
 
@@ -2030,7 +1200,6 @@
 
         </div>
 
-
         <div class="info-box">
 
             <h1>Disadvantages of React</h1>
@@ -2046,15 +1215,6 @@
         </div>
 
     </section>
-
-
-
-
-
-
-
-    <!-- REACT PROJECTS -->
-
 
     <section class="projects">
 
@@ -2098,20 +1258,9 @@
                 <h2>Dashboard</h2>
                 <p>Build an interactive admin dashboard with charts and data.</p>
             </div>
-
-
         </div>
 
     </section>
-
-
-
-
-
-
-
-    <!-- CAREER SECTION -->
-
 
     <section class="intro">
 
@@ -2135,7 +1284,6 @@
 
         <h1>9. Frequently Asked Questions</h1>
 
-
         <div class="faq">
 
             <div class="question">
@@ -2148,9 +1296,6 @@
             </div>
 
         </div>
-
-
-
         <div class="faq">
 
             <div class="question">
@@ -2163,8 +1308,6 @@
             </div>
 
         </div>
-
-
 
         <div class="faq">
 
@@ -2179,8 +1322,6 @@
 
         </div>
 
-
-
         <div class="faq">
 
             <div class="question">
@@ -2193,8 +1334,6 @@
             </div>
 
         </div>
-
-
 
         <div class="faq">
 
@@ -2209,8 +1348,6 @@
 
         </div>
 
-
-
         <div class="faq">
 
             <div class="question">
@@ -2223,8 +1360,6 @@
             </div>
 
         </div>
-
-
 
         <div class="faq">
 
@@ -2239,8 +1374,6 @@
 
         </div>
 
-
-
         <div class="faq">
 
             <div class="question">
@@ -2254,8 +1387,6 @@
 
         </div>
 
-
-
         <div class="faq">
 
             <div class="question">
@@ -2268,9 +1399,6 @@
             </div>
 
         </div>
-
-
-
         <div class="faq">
 
             <div class="question">
@@ -2287,16 +1415,7 @@
 
     </section>
 
-
-
-
-
-
-
-    <!-- FOOTER -->
-
     <footer>
-
 
         <div class="footer-container">
 
@@ -2312,9 +1431,6 @@
 
             </div>
 
-
-
-
             <div class="footer-box">
 
                 <h2>Quick Links</h2>
@@ -2327,9 +1443,6 @@
 
             </div>
 
-
-
-
             <div class="footer-box">
 
                 <h2>React Topics</h2>
@@ -2341,10 +1454,6 @@
                 <p>React Router</p>
 
             </div>
-
-
-
-
             <div class="footer-box">
 
                 <h2>Practice Projects</h2>
@@ -2359,9 +1468,6 @@
 
 
         </div>
-
-
-
         <div class="copyright">
 
             <p>
@@ -2373,156 +1479,86 @@
 
     </footer>
 
+<script>
 
+    const btn = document.getElementById("btn");
+    const menu = document.getElementById("menu");
 
+    btn.addEventListener("click", function () {
+        menu.classList.toggle("show");
+    });
 
+    const faqs = document.querySelectorAll(".faq");
 
+    faqs.forEach(function (faq) {
 
+        const question = faq.querySelector(".question");
+        const button = faq.querySelector(".btn");
 
+        question.addEventListener("click", function () {
 
-    <script>
+            faq.classList.toggle("active");
 
-
-        const btn = document.getElementById("btn");
-        const menu = document.getElementById("menu");
-
-
-        btn.onclick = function () {
-
-            menu.classList.toggle("show");
-
-        };
-
-
-
-
-
-        document.querySelectorAll(".btn").forEach(function (button) {
-
-
-            button.onclick = function () {
-
-
-                let faq = this.parentElement.parentElement;
-
-
-                faq.classList.toggle("active");
-
-
-
-                if (faq.classList.contains("active")) {
-
-                    this.innerHTML = "-";
-
-                } else {
-
-                    this.innerHTML = "+";
-
-                }
-
-
-            };
-
+            if (faq.classList.contains("active")) {
+                button.innerHTML = "−";
+            } else {
+                button.innerHTML = "+";
+            }
 
         });
 
+    });
+
+    const themeBtn = document.getElementById("themeBtn");
+
+    themeBtn.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark");
+
+        if (document.body.classList.contains("dark")) {
+            themeBtn.innerHTML = "☀️";
+        } else {
+            themeBtn.innerHTML = "🌙";
+        }
+
+    });
 
 
+    const progressBar = document.getElementById("progress-bar");
+    const scrollTopBtn = document.getElementById("scrollTop");
 
+    window.addEventListener("scroll", function () {
 
+        const scrollTop = document.documentElement.scrollTop;
 
+        const scrollHeight =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
 
-        const themeBtn = document.getElementById("themeBtn");
+        const progress = (scrollTop / scrollHeight) * 100;
 
+        progressBar.style.width = progress + "%";
 
-        themeBtn.onclick = function () {
+        if (scrollTop > 300) {
+            scrollTopBtn.style.display = "block";
+        } else {
+            scrollTopBtn.style.display = "none";
+        }
 
+    });
 
-            document.body.classList.toggle("dark");
+    scrollTopBtn.addEventListener("click", function () {
 
+        window.scrollTo({
 
-
-            if (document.body.classList.contains("dark")) {
-
-                themeBtn.innerHTML = "☀️";
-
-            } else {
-
-                themeBtn.innerHTML = "🌙";
-
-            }
-
-
-        };
-
-
-
-
-
-
-
-        const progressBar = document.getElementById("progress-bar");
-
-        const scrollTopBtn = document.getElementById("scrollTop");
-
-
-
-        window.addEventListener("scroll", function () {
-
-
-            let scroll = document.documentElement.scrollTop;
-
-
-            let height =
-                document.documentElement.scrollHeight -
-                document.documentElement.clientHeight;
-
-
-
-            let progress = (scroll / height) * 100;
-
-
-            progressBar.style.width = progress + "%";
-
-
-
-            if (scroll > 300) {
-
-                scrollTopBtn.style.display = "block";
-
-            } else {
-
-                scrollTopBtn.style.display = "none";
-
-            }
-
+            top: 0,
+            behavior: "smooth"
 
         });
 
+    });
 
-
-
-
-
-
-        scrollTopBtn.onclick = function () {
-
-
-            window.scrollTo({
-
-                top: 0,
-
-                behavior: "smooth"
-
-            });
-
-
-        };
-
-
-    </script>
-
-
+</script>
 </body>
 
 </html>

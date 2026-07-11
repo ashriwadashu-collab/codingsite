@@ -2,3009 +2,1801 @@
 <html lang="en">
 
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-<title>Learn Java</title>
-
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-
-<link rel="stylesheet" href="css.css">
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <title>Learn Java</title>
 </head>
 <style>
-    /* ==========================
-   GLOBAL CSS
-========================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Poppins",sans-serif;
-    scroll-behavior:smooth;
-}
-
-
-body{
-    background:#ffffff;
-    color:#222;
-    line-height:1.7;
-}
-
-
-/* ==========================
-   NAVBAR
-========================== */
-
-
-nav{
-
-    position:fixed;
-    top:0;
-    left:0;
-
-    width:100%;
-    height:80px;
-
-    background:#111;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:0 80px;
-
-    z-index:1000;
-
-}
-
-
-
-.logo{
-
-    font-size:30px;
-    font-weight:700;
-    color:#fff;
-
-}
-
-
-
-.logo span{
-
-    color:#0d6efd;
-
-}
-
-
-
-
-.menu{
-
-    display:flex;
-    align-items:center;
-    gap:30px;
-
-}
-
-
-
-.menu a{
-
-    text-decoration:none;
-    color:#fff;
-
-    font-size:18px;
-
-    transition:.3s;
-
-}
-
-
-
-.menu a:hover{
-
-    color:#0d6efd;
-
-}
-
-
-
-#btn{
-
-    display:none;
-
-}
-
-
-
-#themeBtn{
-
-    border:none;
-
-    background:none;
-
-    color:white;
-
-    font-size:22px;
-
-    cursor:pointer;
-
-}
-
-
-
-
-
-
-/* ==========================
-   HERO SECTION
-========================== */
-
-
-.hero{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:140px 80px 70px;
-
-    gap:60px;
-
-}
-
-
-
-
-.hero-image{
-
-    flex:1;
-
-}
-
-
-
-.hero-image img{
-
-    width:100%;
-
-    border-radius:20px;
-
-}
-
-
-
-
-.hero-text{
-
-    flex:1;
-
-}
-
-
-
-
-.hero-text h1{
-
-    font-size:65px;
-
-    margin-bottom:15px;
-
-}
-
-
-
-.hero-text h1 span{
-
-    color:#0d6efd;
-
-}
-
-
-
-
-.hero-text h2{
-
-    font-size:35px;
-
-    color:#ff3b3b;
-
-    margin-bottom:20px;
-
-}
-
-
-
-
-.hero-text p{
-
-    font-size:18px;
-
-    color:#555;
-
-    margin-bottom:30px;
-
-    line-height:32px;
-
-}
-
-
-
-
-.hero-btn{
-
-    display:flex;
-
-    gap:20px;
-
-}
-
-
-
-
-
-.btn1,
-.btn2{
-
-
-    padding:15px 35px;
-
-    border:none;
-
-    border-radius:10px;
-
-    cursor:pointer;
-
-    font-size:18px;
-
-    transition:.3s;
-
-}
-
-
-
-
-.btn1{
-
-    background:#111;
-
-    color:#fff;
-
-}
-
-
-
-.btn2{
-
-    background:#0d6efd;
-
-    color:#fff;
-
-}
-
-
-
-
-.btn1:hover,
-.btn2:hover{
-
-    transform:translateY(-5px);
-
-}
-
-
-
-
-
-/* ==========================
-   INTRODUCTION
-========================== */
-
-
-.intro{
-
-    width:90%;
-
-    margin:auto;
-
-    padding:50px 0;
-
-    text-align:center;
-
-}
-
-
-
-
-.intro h1{
-
-    font-size:42px;
-
-    color:#0d6efd;
-
-    margin-bottom:25px;
-
-}
-
-
-
-
-.intro p{
-
-    font-size:19px;
-
-    line-height:35px;
-
-    color:#444;
-
-}
-
-/* ==========================
-   KEY POINTS
-========================== */
-
-
-.points{
-
-    width:90%;
-
-    margin:auto;
-
-    padding:40px 0;
-
-}
-
-
-
-
-.points h1{
-
-    text-align:center;
-
-    font-size:42px;
-
-    color:#0d6efd;
-
-    margin-bottom:50px;
-
-}
-
-
-
-
-
-.card-box{
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:25px;
-
-}
-
-
-
-
-
-.card{
-
-    background:#fff;
-
-    border:2px solid #ddd;
-
-    border-radius:15px;
-
-    padding:30px;
-
-    text-align:center;
-
-    transition:.4s;
-
-}
-
-
-
-
-
-.card:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
-
-}
-
-
-
-
-
-.card h2{
-
-    margin-bottom:15px;
-
-    color:#0d6efd;
-
-}
-
-
-
-
-
-.card p{
-
-    color:#555;
-
-    line-height:28px;
-
-}
-
-
-
-
-
-
-
-/* ==========================
-   WHY LEARN JAVA
-========================== */
-
-
-.why{
-
-    width:90%;
-
-    margin:auto;
-
-    padding:70px 0;
-
-}
-
-
-
-
-.why h1{
-
-    text-align:center;
-
-    font-size:42px;
-
-    color:#0d6efd;
-
-    margin-bottom:30px;
-
-}
-
-
-
-
-.why p{
-
-    text-align:center;
-
-    font-size:19px;
-
-    line-height:34px;
-
-    color:#555;
-
-    margin-bottom:40px;
-
-}
-
-
-
-
-.why ul{
-
-    width:700px;
-
-    margin:auto;
-
-}
-
-
-
-
-.why ul li{
-
-    font-size:20px;
-
-    margin:15px 0;
-
-}
-
-
-
-
-
-
-
-
-/* ==========================
-   JAVA FEATURES
-========================== */
-
-
-.features{
-
-    width:90%;
-
-    margin:auto;
-
-    padding:60px 0;
-
-}
-
-
-
-
-.features h1{
-
-    text-align:center;
-
-    font-size:42px;
-
-    color:#0d6efd;
-
-    margin-bottom:50px;
-
-}
-
-
-
-
-
-.feature-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:25px;
-
-}
-
-
-
-
-.feature-card{
-
-    background:#fff;
-
-    border:2px solid #ddd;
-
-    border-radius:15px;
-
-    padding:30px;
-
-    text-align:center;
-
-    transition:.4s;
-
-}
-
-
-
-
-
-.feature-card:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:0 15px 30px rgba(0,0,0,.12);
-
-}
-
-
-
-
-
-.feature-card h2{
-
-    color:#0d6efd;
-
-    margin-bottom:15px;
-
-}
-
-
-
-
-
-.feature-card p{
-
-    color:#555;
-
-    line-height:28px;
-
-}
-
-
-
-
-
-
-
-
-/* ==========================
-   USES OF JAVA
-========================== */
-
-
-.uses{
-
-    width:90%;
-
-    margin:auto;
-
-    padding:60px 0;
-
-}
-
-
-
-
-
-.uses h1{
-
-    text-align:center;
-
-    font-size:42px;
-
-    color:#0d6efd;
-
-    margin-bottom:50px;
-
-}
-
-
-
-
-
-.uses-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:25px;
-
-}
-
-
-
-
-
-.uses-card{
-
-    border:2px solid #ddd;
-
-    border-radius:15px;
-
-    padding:30px;
-
-    transition:.4s;
-
-}
-
-
-
-
-.uses-card:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:0 10px 25px rgba(0,0,0,.12);
-
-}
-
-
-
-
-
-.uses-card h2{
-
-    color:#0d6efd;
-
-    margin-bottom:15px;
-
-}
-
-
-
-
-
-.uses-card p{
-
-    color:#555;
-
-    line-height:28px;
-
-}
-
-
-
-.info-section{
-
-    width:90%;
-
-    margin:80px auto;
-
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:40px;
-
-}
-
-
-
-
-
-.info-box{
-
-    border:2px solid #ddd;
-
-    border-radius:20px;
-
-    padding:35px;
-
-    transition:.4s;
-
-}
-
-
-
-
-
-.info-box:hover{
-
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
-
-}
-
-
-
-
-
-.info-box h1{
-
-    text-align:center;
-
-    color:#0d6efd;
-
-    margin-bottom:30px;
-
-}
-
-
-
-
-
-.info-box p{
-
-    font-size:18px;
-
-    margin:15px 0;
-
-    color:#555;
-
-}
-
-
-.projects{
-
-    width:90%;
-
-    margin:auto;
-
-    padding:60px 0;
-
-}
-
-
-
-
-
-.projects h1{
-
-    text-align:center;
-
-    font-size:42px;
-
-    color:#0d6efd;
-
-    margin-bottom:50px;
-
-}
-
-
-
-
-
-.project-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:30px;
-
-}
-
-
-
-
-
-.project-card{
-
-    border:2px solid #ddd;
-
-    border-radius:15px;
-
-    padding:30px;
-
-    text-align:center;
-
-    transition:.4s;
-
-}
-
-
-
-
-
-.project-card:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:0 15px 30px rgba(0,0,0,.12);
-
-}
-
-
-
-
-
-.project-card h2{
-
-    color:#0d6efd;
-
-    margin-bottom:15px;
-
-}
-
-
-
-
-
-.project-card p{
-
-    color:#555;
-
-    line-height:28px;
-
-}
-
-
-
-.faq-section{
-
-    width:90%;
-
-    margin:80px auto;
-
-}
-
-
-
-
-
-.faq-section h1{
-
-    text-align:center;
-
-    font-size:42px;
-
-    color:#0d6efd;
-
-    margin-bottom:50px;
-
-}
-
-
-
-
-
-.faq{
-
-    width:850px;
-
-    margin:20px auto;
-
-    border:2px solid #ddd;
-
-    border-radius:12px;
-
-    overflow:hidden;
-
-    background:#fff;
-
-    transition:.3s;
-
-}
-
-
-
-
-
-.faq:hover{
-
-    box-shadow:0 10px 25px rgba(0,0,0,.12);
-
-}
-
-
-
-
-
-.question{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:18px 25px;
-
-    cursor:pointer;
-
-    font-size:20px;
-
-    font-weight:600;
-
-}
-
-
-
-
-
-.answer{
-
-    display:none;
-
-    padding:20px 25px;
-
-    border-top:1px solid #ddd;
-
-    line-height:30px;
-
-    color:#555;
-
-}
-
-
-
-
-
-.faq.active .answer{
-
-    display:block;
-
-}
-
-
-
-
-
-.btn{
-
-    width:35px;
-
-    height:35px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:#0d6efd;
-
-    color:#fff;
-
-    font-size:22px;
-
-    cursor:pointer;
-
-}
-
-
-footer{
-
-    background:#111;
-
-    color:#fff;
-
-    margin-top:80px;
-
-}
-
-
-
-
-.footer-container{
-
-    width:90%;
-
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:40px;
-
-    padding:60px 0;
-
-}
-
-
-
-
-
-.footer-box h2{
-
-    margin-bottom:20px;
-
-    color:#0d6efd;
-
-}
-
-
-
-
-
-.footer-box p{
-
-    margin:12px 0;
-
-    color:#ddd;
-
-    line-height:28px;
-
-}
-
-
-
-
-
-.footer-box p:hover{
-
-    color:#0d6efd;
-
-    cursor:pointer;
-
-}
-
-
-
-
-
-.copyright{
-
-    border-top:1px solid #333;
-
-    text-align:center;
-
-    padding:20px;
-
-}
-
-
-
-
-
-.copyright p{
-
-    color:#bbb;
-
-}
-
-
-#progress-bar{
-
-    position:fixed;
-
-    top:0;
-
-    left:0;
-
-    width:0%;
-
-    height:5px;
-
-    background:#0d6efd;
-
-    z-index:9999;
-
-}
-
-
-
-#scrollTop{
-
-    position:fixed;
-
-    right:25px;
-
-    bottom:25px;
-
-
-    width:55px;
-
-    height:55px;
-
-
-    border:none;
-
-    border-radius:50%;
-
-
-    background:#0d6efd;
-
-    color:#fff;
-
-
-    font-size:22px;
-
-    cursor:pointer;
-
-
-    display:none;
-
-
-    transition:.3s;
-
-}
-
-
-
-
-
-#scrollTop:hover{
-
-    transform:translateY(-8px);
-
-}
-
-
-
-body.dark{
-
-    background:#121212;
-
-    color:#fff;
-
-}
-
-
-
-
-
-body.dark nav{
-
-    background:#1b1b1b;
-
-}
-
-
-
-
-
-body.dark .card,
-body.dark .feature-card,
-body.dark .uses-card,
-body.dark .project-card,
-body.dark .info-box,
-body.dark .faq{
-
-
-    background:#1f1f1f;
-
-    border-color:#444;
-
-    color:#fff;
-
-}
-
-
-
-
-
-body.dark .answer,
-body.dark .card p,
-body.dark .feature-card p,
-body.dark .uses-card p,
-body.dark .project-card p,
-body.dark .info-box p,
-body.dark .intro p,
-body.dark .why p{
-
-
-    color:#ddd;
-
-}
-
-
-
-
-
-body.dark footer{
-
-    background:#000;
-
-}
-
-
-
-
-
-body.dark .footer-box p{
-
-    color:#ccc;
-
-}
-
-
-
-@media (max-width:768px){
-
-
-
-nav{
-
-    padding:15px 20px;
-
-}
-
-
-#btn{
-
-    display:block;
-
-    background:none;
-
-    border:none;
-
-    color:#fff;
-
-    font-size:32px;
-
-    cursor:pointer;
-
-}
-
-
-
-
-
-.menu{
-
-    position:absolute;
-
-    top:80px;
-
-    left:0;
-
-    width:100%;
-
-    background:#111;
-
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:20px;
-
-
-    max-height:0;
-
-    overflow:hidden;
-
-    transition:.5s;
-
-}
-
-
-
-
-
-.menu.show{
-
-    max-height:700px;
-
-    padding:20px 0;
-
-}
-
-
-
-
-
-.menu a{
-
-    font-size:18px;
-
-}
-
-
-
-
-
-#themeBtn{
-
-    margin-top:10px;
-
-}
-
-
-
-.hero{
-
-    flex-direction:column;
-
-    padding:120px 20px 40px;
-
-    text-align:center;
-
-}
-
-
-
-
-
-.hero-image{
-
-    order:1;
-
-}
-
-
-
-
-
-.hero-text{
-
-    order:2;
-
-}
-
-
-
-
-
-.hero-text h1{
-
-    font-size:40px;
-
-}
-
-
-
-
-
-.hero-text h2{
-
-    font-size:26px;
-
-}
-
-
-
-
-
-.hero-text p{
-
-    font-size:16px;
-
-    line-height:30px;
-
-}
-
-.hero-btn{
-
-    flex-direction:column;
-
-}
-
-.btn1,
-.btn2{
-
-    width:100%;
-
-}
-
-
-.intro{
-
-    width:92%;
-
-}
-
-
-.intro h1{
-
-    font-size:32px;
-
-}
-
-.intro p{
-
-    font-size:16px;
-
-    line-height:30px;
-
-}
-
-
-
-
-
-
-
-
-
-.points{
-
-    width:92%;
-
-}
-
-.points h1{
-
-    font-size:32px;
-
-}
-.card-box{
-
-    grid-template-columns:1fr;
-
-    gap:20px;
-
-}
-
-.card{
-
-    width:100%;
-
-}
-
-.why{
-
-    width:92%;
-
-}
-.why h1{
-
-    font-size:32px;
-
-}
-.why p{
-
-    font-size:16px;
-
-    line-height:30px;
-
-}
-
-.why ul{
-
-    width:100%;
-
-    padding-left:20px;
-
-}
-.why ul li{
-
-    font-size:18px;
-
-}
-
-.features{
-
-    width:92%;
-
-    padding:50px 0;
-
-}
-.features h1{
-
-    font-size:32px;
-
-}
-.feature-grid{
-
-    grid-template-columns:1fr;
-
-    gap:20px;
-
-}
-
-.feature-card{
-
-    width:100%;
-
-}
-
-.feature-card h2{
-
-    font-size:24px;
-
-}
-
-.feature-card p{
-
-    font-size:16px;
-
-}
-
-.uses{
-
-    width:92%;
-
-    padding:50px 0;
-
-}
-
-.uses h1{
-
-    font-size:32px;
-
-}
-
-.uses-grid{
-
-    grid-template-columns:1fr;
-
-    gap:20px;
-
-}
-
-.uses-card{
-
-    width:100%;
-
-}
-
-.uses-card h2{
-
-    font-size:24px;
-
-}
-
-.uses-card p{
-
-    font-size:16px;
-
-}
-
-.info-section{
-
-    width:92%;
-
-    grid-template-columns:1fr;
-
-    gap:25px;
-
-}
-.info-box{
-
-    width:100%;
-
-}
-.info-box h1{
-
-    font-size:30px;
-
-}
-
-.info-box p{
-
-    font-size:16px;
-
-}
-
-.projects{
-
-    width:92%;
-
-    padding:50px 0;
-
-}
-
-.projects h1{
-
-    font-size:32px;
-
-}
-
-.project-grid{
-
-    grid-template-columns:1fr;
-
-    gap:20px;
-
-}
-
-.project-card{
-
-    width:100%;
-
-}
-
-.project-card h2{
-
-    font-size:24px;
-
-}
-
-.project-card p{
-
-    font-size:16px;
-
-}
-
-.faq-section{
-
-    width:92%;
-
-}
-
-.faq-section h1{
-
-    font-size:32px;
-
-}
-
-.faq{
-
-    width:100%;
-
-}
-.question{
-
-    font-size:17px;
-
-    padding:18px;
-
-}
-
-.answer{
-
-    font-size:15px;
-
-    line-height:28px;
-
-}
-
-.footer-container{
-
-    grid-template-columns:1fr;
-
-    text-align:center;
-
-    gap:30px;
-
-}
-
-.footer-box h2{
-
-    font-size:26px;
-
-}
-
-.footer-box p{
-
-    font-size:16px;
-
-}
-
-
-#scrollTop{
-
-    width:50px;
-
-    height:50px;
-
-    font-size:20px;
-
-    right:15px;
-
-    bottom:15px;
-
-}
-
-
-
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background: #ffffff;
+        color: #222;
+        line-height: 1.7;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: #111;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 80px;
+        z-index: 1000;
+    }
+
+    .logo {
+        font-size: 30px;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .logo span {
+        color: #0d6efd;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .menu a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 18px;
+        transition: .3s;
+    }
+
+    .menu a:hover {
+        color: #0d6efd;
+    }
+
+    #btn {
+        display: none;
+    }
+
+    #themeBtn {
+        border: none;
+        background: none;
+        color: #fff;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 140px 80px 70px;
+        gap: 60px;
+    }
+
+    .hero-image {
+        flex: 1;
+    }
+
+    .hero-image img {
+        width: 80%;
+        border-radius: 20px;
+    }
+
+    .hero-text {
+        flex: 1;
+    }
+
+    .hero-text h1 {
+        font-size: 65px;
+        margin-bottom: 15px;
+    }
+
+    .hero-text h1 span {
+        color: #0d6efd;
+    }
+
+    .hero-text h2 {
+        font-size: 35px;
+        color: #ff3b3b;
+        margin-bottom: 20px;
+    }
+
+    .hero-text p {
+        font-size: 18px;
+        color: #555;
+        line-height: 32px;
+        margin-bottom: 30px;
+    }
+
+    .hero-btn {
+        display: flex;
+        gap: 20px;
+    }
+
+    .btn1,
+    .btn2 {
+        padding: 15px 35px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: .3s;
+    }
+
+    .btn1 {
+        background: #111;
+        color: #fff;
+    }
+
+    .btn2 {
+        background: #0d6efd;
+        color: #fff;
+    }
+
+    .btn1:hover,
+    .btn2:hover {
+        transform: translateY(-5px);
+    }
+
+    .intro {
+        width: 90%;
+        margin: auto;
+        padding: 50px 0;
+        text-align: center;
+    }
+
+    .intro h1 {
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 25px;
+    }
+
+    .intro p {
+        font-size: 19px;
+        color: #444;
+        line-height: 35px;
+    }
+
+    .points {
+        width: 90%;
+        margin: auto;
+        padding: 50px 0;
+    }
+
+    .points h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .card-box {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .card {
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: .4s;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
+    }
+
+    .card h2 {
+        color: #0d6efd;
+        margin-bottom: 15px;
+        font-size: 26px;
+    }
+
+    .card p {
+        color: #555;
+        line-height: 28px;
+        font-size: 17px;
+    }
+
+    .why {
+        width: 90%;
+        margin: auto;
+        padding: 70px 0;
+    }
+
+    .why h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 30px;
+    }
+
+    .why p {
+        text-align: center;
+        font-size: 19px;
+        color: #555;
+        line-height: 34px;
+        margin-bottom: 40px;
+    }
+
+    .why ul {
+        width: 700px;
+        margin: auto;
+    }
+
+    .why ul li {
+        font-size: 20px;
+        margin: 15px 0;
+    }
+
+    .features {
+        width: 90%;
+        margin: auto;
+        padding: 60px 0;
+    }
+
+    .features h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .feature-card {
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: .4s;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .12);
+    }
+
+    .feature-card h2 {
+        color: #0d6efd;
+        margin-bottom: 15px;
+        font-size: 26px;
+    }
+
+    .feature-card p {
+        color: #555;
+        line-height: 28px;
+        font-size: 17px;
+    }
+
+    .uses {
+        width: 90%;
+        margin: auto;
+        padding: 60px 0;
+    }
+
+    .uses h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .uses-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .uses-card {
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        padding: 30px;
+        transition: .4s;
+    }
+
+    .uses-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+    }
+
+    .uses-card h2 {
+        color: #0d6efd;
+        margin-bottom: 15px;
+        font-size: 25px;
+    }
+
+    .uses-card p {
+        color: #555;
+        line-height: 28px;
+        font-size: 17px;
+    }
+
+    .info-section {
+        width: 90%;
+        margin: 80px auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .info-box {
+        border: 2px solid #ddd;
+        border-radius: 20px;
+        padding: 35px;
+        transition: .4s;
+        background: #fff;
+    }
+
+    .info-box:hover {
+        box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
+    }
+
+    .info-box h1 {
+        text-align: center;
+        color: #0d6efd;
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+
+    .info-box p {
+        font-size: 18px;
+        color: #555;
+        margin: 15px 0;
+        line-height: 30px;
+    }
+
+    .projects {
+        width: 90%;
+        margin: auto;
+        padding: 60px 0;
+    }
+
+    .projects h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .project-card {
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: .4s;
+    }
+
+    .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .12);
+    }
+
+    .project-card h2 {
+        color: #0d6efd;
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+
+    .project-card p {
+        color: #555;
+        font-size: 17px;
+        line-height: 28px;
+    }
+
+    .faq-section {
+        width: 90%;
+        margin: 80px auto;
+    }
+
+    .faq-section h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .faq {
+        width: 850px;
+        margin: 20px auto;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fff;
+        transition: .3s;
+    }
+
+    .faq:hover {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+    }
+
+    .question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 25px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .answer {
+        display: none;
+        padding: 20px 25px;
+        border-top: 1px solid #ddd;
+        color: #555;
+        line-height: 30px;
+        font-size: 17px;
+    }
+
+    .faq.active .answer {
+        display: block;
+    }
+
+    .btn {
+        width: 35px;
+        height: 35px;
+        border: none;
+        border-radius: 50%;
+        background: #0d6efd;
+        color: #fff;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    footer {
+        background: #111;
+        color: #fff;
+        margin-top: 80px;
+    }
+
+    .footer-container {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        padding: 60px 0;
+    }
+
+    .footer-box h2 {
+        color: #0d6efd;
+        margin-bottom: 20px;
+        font-size: 28px;
+    }
+
+    .footer-box p {
+        color: #ddd;
+        margin: 12px 0;
+        line-height: 28px;
+        transition: .3s;
+        cursor: pointer;
+    }
+
+    .footer-box p:hover {
+        color: #0d6efd;
+    }
+
+    .copyright {
+        border-top: 1px solid #333;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .copyright p {
+        color: #bbb;
+        font-size: 16px;
+    }
+
+    #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 5px;
+        background: #0d6efd;
+        z-index: 9999;
+    }
+
+    #scrollTop {
+        position: fixed;
+        right: 25px;
+        bottom: 25px;
+
+        width: 55px;
+        height: 55px;
+
+        border: none;
+        border-radius: 50%;
+
+        background: #0d6efd;
+        color: #fff;
+
+        font-size: 22px;
+        cursor: pointer;
+
+        display: none;
+
+        transition: .3s;
+    }
+
+    #scrollTop:hover {
+        transform: translateY(-8px);
+    }
+
+    body.dark {
+        background: #121212;
+        color: #fff;
+    }
+
+    body.dark nav {
+        background: #1b1b1b;
+    }
+
+    body.dark .card,
+    body.dark .feature-card,
+    body.dark .uses-card,
+    body.dark .project-card,
+    body.dark .info-box,
+    body.dark .faq {
+        background: #1f1f1f;
+        border-color: #444;
+        color: #fff;
+    }
+
+    body.dark .hero-text p,
+    body.dark .intro p,
+    body.dark .why p,
+    body.dark .card p,
+    body.dark .feature-card p,
+    body.dark .uses-card p,
+    body.dark .project-card p,
+    body.dark .info-box p,
+    body.dark .answer {
+        color: #ddd;
+    }
+
+    body.dark footer {
+        background: #000;
+    }
+
+    body.dark .footer-box p {
+        color: #ccc;
+    }
+
+    body.dark .footer-box p:hover {
+        color: #0d6efd;
+    }
+
+    @media (max-width:768px) {
+
+
+        nav {
+            padding: 15px 20px;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 26px;
+        }
+
+        #btn {
+            display: block;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 32px;
+            cursor: pointer;
+        }
+
+        .menu {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: #111;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+
+            max-height: 0;
+            overflow: hidden;
+            transition: .5s;
+        }
+
+        .menu.show {
+            max-height: 700px;
+            padding: 20px 0;
+        }
+
+        .menu a {
+            font-size: 18px;
+        }
+
+        #themeBtn {
+            margin-top: 10px;
+        }
+
+
+        .hero {
+            flex-direction: column;
+            padding: 120px 20px 50px;
+            text-align: center;
+            gap: 35px;
+        }
+
+        .hero-image {
+            order: 1;
+        }
+
+        .hero-text {
+            order: 2;
+        }
+
+        .hero-image img {
+            width: 100%;
+        }
+
+        .hero-text h1 {
+            font-size: 42px;
+        }
+
+        .hero-text h2 {
+            font-size: 28px;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            line-height: 30px;
+        }
+
+        .hero-btn {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn1,
+        .btn2 {
+            width: 100%;
+        }
+
+        .intro {
+            width: 92%;
+            padding: 40px 0;
+        }
+
+        .intro h1 {
+            font-size: 32px;
+        }
+
+        .intro p {
+            font-size: 16px;
+            line-height: 30px;
+        }
+
+        .points {
+            width: 92%;
+        }
+
+        .points h1 {
+            font-size: 32px;
+        }
+
+        .card-box {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            width: 100%;
+        }
+
+        .card h2 {
+            font-size: 24px;
+        }
+
+        .card p {
+            font-size: 16px;
+        }
+
+        .why {
+            width: 92%;
+            padding: 50px 0;
+        }
+
+        .why h1 {
+            font-size: 32px;
+        }
+
+        .why p {
+            font-size: 16px;
+            line-height: 30px;
+        }
+
+        .why ul {
+            width: 100%;
+            padding-left: 20px;
+        }
+
+        .why ul li {
+            font-size: 18px;
+        }
+
+        .features {
+            width: 92%;
+            padding: 50px 0;
+        }
+
+        .features h1 {
+            font-size: 32px;
+        }
+
+        .feature-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .feature-card {
+            width: 100%;
+        }
+
+        .feature-card h2 {
+            font-size: 24px;
+        }
+
+        .feature-card p {
+            font-size: 16px;
+        }
+
+        .uses {
+            width: 92%;
+            padding: 50px 0;
+        }
+
+        .uses h1 {
+            font-size: 32px;
+        }
+
+        .uses-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .uses-card {
+            width: 100%;
+        }
+
+        .uses-card h2 {
+            font-size: 24px;
+        }
+
+        .uses-card p {
+            font-size: 16px;
+        }
+
+        .info-section {
+            width: 92%;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .info-box {
+            width: 100%;
+        }
+
+        .info-box h1 {
+            font-size: 30px;
+        }
+
+        .info-box p {
+            font-size: 16px;
+        }
+
+        .projects {
+            width: 92%;
+            padding: 50px 0;
+        }
+
+        .projects h1 {
+            font-size: 32px;
+        }
+
+        .project-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .project-card {
+            width: 100%;
+        }
+
+        .project-card h2 {
+            font-size: 24px;
+        }
+
+        .project-card p {
+            font-size: 16px;
+        }
+
+        .faq-section {
+            width: 92%;
+        }
+
+        .faq-section h1 {
+            font-size: 32px;
+        }
+
+        .faq {
+            width: 100%;
+        }
+
+        .question {
+            font-size: 17px;
+            padding: 18px;
+        }
+
+        .answer {
+            font-size: 15px;
+            line-height: 28px;
+        }
+
+        .footer-container {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 30px;
+        }
+
+        .footer-box h2 {
+            font-size: 26px;
+        }
+
+        .footer-box p {
+            font-size: 16px;
+        }
+
+        #scrollTop {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            right: 15px;
+            bottom: 15px;
+        }
+
+    }
 </style>
 <header>
     <nav>
-
         <div class="logo">code<span>learn</span></div>
-
         <button id="btn">☰</button>
-
         <div class="menu" id="menu">
-
             <a href="index.html">Home</a>
-
-            <a href="code2html.html">html</a>
-
-            <a href="code3html.html">css</a>
-
+            <a href="code2html.html">HTML</a>
+            <a href="code3html.html">CSS</a>
             <a href="code4html.html">JavaScript</a>
-
-            <a href="code5html.html">php</a>
-
-             <a href="code6html.html">react</a>
-
-            <a href="code7html.html">c++</a>
-
-            <a href="code8html.html">c</a>
-
-            <a href="code9html.html">phython</a>
-
-             <a href="code10html.html">java</a>
-
-            <button id="themeBtn">🌙 </button>
-
+            <a href="code5html.html">PHP</a>
+            <a href="code6html.html">React</a>
+            <a href="code7html.html">C++</a>
+            <a href="code8html.html">Python</a>
+            <a href="code9html.html">c</a>
+            <a href="code10html.html">java</a>
+            <button id="themeBtn">🌙</button>
         </div>
-
     </nav>
 </header>
 <body>
-<div id="progress-bar"></div>
+    <div id="progress-bar"></div>
 
 
-<button id="scrollTop">
-↑
-</button>
+    <button id="scrollTop">
+        ↑
+    </button>
 
+    <section class="hero">
 
+        <div class="hero-image">
 
 
-<section class="hero">
+            <img src="images/ic5.jpg" alt="Java">
 
 
+        </div>
 
-<div class="hero-image">
+        <div class="hero-text">
 
 
-<img src="images/ic5.jpg" alt="Java">
+            <h1>
+                Learn <span>Java</span>
+            </h1>
 
+            <h2>
+                Object Oriented Programming Language
+            </h2>
 
-</div>
+            <p>
 
+                Java is a powerful programming language used for creating
+                desktop applications, web applications, Android apps and
+                enterprise software. It is famous for security, speed and
+                platform independence.
 
+            </p>
 
+            <div class="hero-btn">
 
 
-<div class="hero-text">
+                <button class="btn1">
+                    Start Learning
+                </button>
 
 
-<h1>
-Learn <span>Java</span>
-</h1>
+                <button class="btn2">
+                    Watch Video
+                </button>
 
 
+            </div>
 
-<h2>
-Object Oriented Programming Language
-</h2>
 
 
+        </div>
 
+    </section>
 
-<p>
+    <section class="intro">
 
-Java is a powerful programming language used for creating
-desktop applications, web applications, Android apps and
-enterprise software. It is famous for security, speed and
-platform independence.
 
-</p>
+        <h1>
+            1. Introduction
+        </h1>
 
+        <p>
 
+            Java is a high-level, object-oriented programming language
+            created by Sun Microsystems. It is widely used for software
+            development, Android applications, web development and
+            large enterprise systems.
 
+        </p>
 
-<div class="hero-btn">
+    </section>
+    <section class="points">
 
 
-<button class="btn1">
-Start Learning
-</button>
+        <h1>
+            2. Key Points
+        </h1>
 
+        <div class="card-box">
 
-<button class="btn2">
-Watch Video
-</button>
+            <div class="card">
 
+                <h2>
+                    Object Oriented
+                </h2>
 
-</div>
+                <p>
+                    Java follows object-oriented programming concepts like
+                    classes, objects, inheritance and polymorphism.
+                </p>
 
+            </div>
+            <div class="card">
 
+                <h2>
+                    Platform Independent
+                </h2>
 
-</div>
+                <p>
+                    Java runs on different operating systems with the help of
+                    Java Virtual Machine (JVM).
+                </p>
 
+            </div>
 
+            <div class="card">
 
-</section>
+                <h2>
+                    Secure Language
+                </h2>
 
-<section class="intro">
+                <p>
+                    Java provides strong security features and is widely used
+                    for reliable software development.
+                </p>
 
+            </div>
+            <div class="card">
 
-<h1>
-1. Introduction
-</h1>
+                <h2>
+                    Easy to Learn
+                </h2>
 
+                <p>
+                    Java syntax is simple and beginner friendly for learning
+                    programming concepts.
+                </p>
 
+            </div>
 
-<p>
+        </div>
+    </section>
 
-Java is a high-level, object-oriented programming language
-created by Sun Microsystems. It is widely used for software
-development, Android applications, web development and
-large enterprise systems.
+    <section class="why">
 
-</p>
 
+        <h1>
+            3. Why Learn Java?
+        </h1>
 
+        <p>
 
-</section>
-<section class="points">
+            Learning Java helps you understand programming concepts,
+            object-oriented development and software building.
+            It is one of the most popular languages used by developers.
 
+        </p>
 
-<h1>
-2. Key Points
-</h1>
+        <ul>
+            <li>
+                Build Android Applications
+            </li>
 
 
+            <li>
+                Create Desktop Software
+            </li>
 
-<div class="card-box">
 
+            <li>
+                Develop Web Applications
+            </li>
 
 
-<div class="card">
+            <li>
+                Learn Object Oriented Programming
+            </li>
 
-<h2>
-Object Oriented
-</h2>
 
-<p>
-Java follows object-oriented programming concepts like
-classes, objects, inheritance and polymorphism.
-</p>
+            <li>
+                Work With Enterprise Systems
+            </li>
 
-</div>
 
+            <li>
+                Develop Backend Applications
+            </li>
 
 
+            <li>
+                Create Real World Projects
+            </li>
 
-<div class="card">
 
-<h2>
-Platform Independent
-</h2>
+            <li>
+                Improve Programming Skills
+            </li>
 
-<p>
-Java runs on different operating systems with the help of
-Java Virtual Machine (JVM).
-</p>
 
-</div>
 
-<div class="card">
+        </ul>
 
-<h2>
-Secure Language
-</h2>
+    </section>
 
-<p>
-Java provides strong security features and is widely used
-for reliable software development.
-</p>
+    <section class="features">
 
-</div>
 
+        <h1>
+            4. Java Features
+        </h1>
 
+        <div class="feature-grid">
 
 
+            <div class="feature-card">
 
-<div class="card">
+                <h2>
+                    Simple
+                </h2>
 
-<h2>
-Easy to Learn
-</h2>
+                <p>
+                    Java has a clear syntax which makes it easier to learn
+                    and understand programming.
+                </p>
 
-<p>
-Java syntax is simple and beginner friendly for learning
-programming concepts.
-</p>
+            </div>
+            <div class="feature-card">
 
-</div>
+                <h2>
+                    Portable
+                </h2>
 
+                <p>
+                    Java programs can run on different platforms using JVM
+                    technology.
+                </p>
 
+            </div>
 
-</div>
+            <div class="feature-card">
 
+                <h2>
+                    Multithreading
+                </h2>
 
-</section>
+                <p>
+                    Java supports multiple tasks running at the same time
+                    for better performance.
+                </p>
 
-<section class="why">
+            </div>
 
+            <div class="feature-card">
 
-<h1>
-3. Why Learn Java?
-</h1>
+                <h2>
+                    High Performance
+                </h2>
 
+                <p>
+                    Java provides fast execution with the help of compiler
+                    and JVM optimization.
+                </p>
 
+            </div>
 
-<p>
+        </div>
 
-Learning Java helps you understand programming concepts,
-object-oriented development and software building.
-It is one of the most popular languages used by developers.
+    </section>
 
-</p>
+    <section class="uses">
+        <h1>
+            5. Uses of Java
+        </h1>
 
+        <div class="uses-grid">
+            <div class="uses-card">
 
+                <h2>
+                    Android Apps
+                </h2>
 
+                <p>
+                    Java is widely used for developing Android mobile
+                    applications.
+                </p>
 
-<ul>
+            </div>
 
+            <div class="uses-card">
 
-<li>
-Build Android Applications
-</li>
+                <h2>
+                    Web Development
+                </h2>
 
+                <p>
+                    Java is used to create secure and scalable web
+                    applications.
+                </p>
 
-<li>
-Create Desktop Software
-</li>
+            </div>
 
+            <div class="uses-card">
 
-<li>
-Develop Web Applications
-</li>
+                <h2>
+                    Desktop Applications
+                </h2>
 
+                <p>
+                    Java helps developers build desktop software for
+                    different platforms.
+                </p>
 
-<li>
-Learn Object Oriented Programming
-</li>
+            </div>
 
+            <div class="uses-card">
 
-<li>
-Work With Enterprise Systems
-</li>
+                <h2>
+                    Enterprise Software
+                </h2>
 
+                <p>
+                    Large companies use Java for banking and business
+                    applications.
+                </p>
 
-<li>
-Develop Backend Applications
-</li>
+            </div>
+            <div class="uses-card">
 
+                <h2>
+                    Game Development
+                </h2>
 
-<li>
-Create Real World Projects
-</li>
+                <p>
+                    Java can be used to create simple and powerful games.
+                </p>
 
+            </div>
 
-<li>
-Improve Programming Skills
-</li>
+            <div class="uses-card">
 
+                <h2>
+                    Cloud Applications
+                </h2>
 
+                <p>
+                    Java is used for building reliable cloud based
+                    applications.
+                </p>
 
-</ul>
+            </div>
+        </div>
 
 
+    </section>
 
-</section>
+    <section class="info-section">
 
-<section class="features">
+        <div class="info-box">
 
 
-<h1>
-4. Java Features
-</h1>
+            <h1>
+                Advantages of Java
+            </h1>
 
-<div class="feature-grid">
 
+            <p>
+                ✔ Platform Independent
+            </p>
 
-<div class="feature-card">
 
-<h2>
-Simple
-</h2>
+            <p>
+                ✔ Object Oriented Language
+            </p>
 
-<p>
-Java has a clear syntax which makes it easier to learn
-and understand programming.
-</p>
 
-</div>
+            <p>
+                ✔ Secure and Reliable
+            </p>
 
 
+            <p>
+                ✔ Large Community Support
+            </p>
 
 
+            <p>
+                ✔ Easy Memory Management
+            </p>
 
 
-<div class="feature-card">
+            <p>
+                ✔ Supports Multithreading
+            </p>
 
-<h2>
-Portable
-</h2>
 
-<p>
-Java programs can run on different platforms using JVM
-technology.
-</p>
+            <p>
+                ✔ Good Performance
+            </p>
 
-</div>
 
 
+        </div>
 
+        <div class="info-box">
 
 
+            <h1>
+                Disadvantages of Java
+            </h1>
 
-<div class="feature-card">
 
-<h2>
-Multithreading
-</h2>
+            <p>
+                ✖ More Memory Usage
+            </p>
 
-<p>
-Java supports multiple tasks running at the same time
-for better performance.
-</p>
 
-</div>
+            <p>
+                ✖ Slower Than Some Languages
+            </p>
 
 
+            <p>
+                ✖ Complex Syntax for Beginners
+            </p>
 
 
+            <p>
+                ✖ Requires JVM Installation
+            </p>
 
 
-<div class="feature-card">
+            <p>
+                ✖ More Code Compared to Some Languages
+            </p>
 
-<h2>
-High Performance
-</h2>
 
-<p>
-Java provides fast execution with the help of compiler
-and JVM optimization.
-</p>
+            <p>
+                ✖ High Resource Consumption
+            </p>
 
-</div>
 
+            <p>
+                ✖ Learning Advanced Concepts Takes Time
+            </p>
 
+        </div>
 
 
-</div>
 
+    </section>
 
+    <section class="projects">
 
-</section>
 
-<section class="uses">
+        <h1>
+            6. Practice Projects
+        </h1>
 
+        <div class="project-grid">
+            <div class="project-card">
 
-<h1>
-5. Uses of Java
-</h1>
+                <h2>
+                    Calculator App
+                </h2>
 
+                <p>
+                    Create a basic calculator using Java programming.
+                </p>
 
+            </div>
 
-<div class="uses-grid">
+            <div class="project-card">
 
+                <h2>
+                    Bank Management System
+                </h2>
 
+                <p>
+                    Build a simple banking system using Java concepts.
+                </p>
 
+            </div>
 
+            <div class="project-card">
 
-<div class="uses-card">
+                <h2>
+                    Student Management System
+                </h2>
 
-<h2>
-Android Apps
-</h2>
+                <p>
+                    Manage student records using Java and OOP concepts.
+                </p>
 
-<p>
-Java is widely used for developing Android mobile
-applications.
-</p>
+            </div>
 
-</div>
+            <div class="project-card">
 
+                <h2>
+                    Library Management System
+                </h2>
 
+                <p>
+                    Create a system to manage books and users.
+                </p>
 
+            </div>
 
+            <div class="project-card">
 
+                <h2>
+                    Chat Application
+                </h2>
 
-<div class="uses-card">
+                <p>
+                    Develop a simple communication application using Java.
+                </p>
 
-<h2>
-Web Development
-</h2>
+            </div>
 
-<p>
-Java is used to create secure and scalable web
-applications.
-</p>
+            <div class="project-card">
 
-</div>
+                <h2>
+                    Game Project
+                </h2>
 
+                <p>
+                    Create beginner level games using Java programming.
+                </p>
 
+            </div>
+        </div>
 
+    </section>
 
 
+    <section class="faq-section">
 
-<div class="uses-card">
 
-<h2>
-Desktop Applications
-</h2>
+        <h1>
+            7. Frequently Asked Questions
+        </h1>
 
-<p>
-Java helps developers build desktop software for
-different platforms.
-</p>
+        <div class="faq">
 
-</div>
 
+            <div class="question">
 
+                What is Java?
 
+                <button class="btn">
+                    +
+                </button>
 
+            </div>
 
 
-<div class="uses-card">
+            <div class="answer">
 
-<h2>
-Enterprise Software
-</h2>
+                Java is a high-level, object-oriented programming language
+                used to create applications, software and web solutions.
 
-<p>
-Large companies use Java for banking and business
-applications.
-</p>
+            </div>
 
-</div>
 
+        </div>
 
+        <div class="faq">
 
 
+            <div class="question">
 
+                What is the full form of Java?
 
-<div class="uses-card">
+                <button class="btn">
+                    +
+                </button>
 
-<h2>
-Game Development
-</h2>
+            </div>
 
-<p>
-Java can be used to create simple and powerful games.
-</p>
+            <div class="answer">
 
-</div>
+                Java does not have any official full form. It is a
+                programming language name.
 
+            </div>
 
 
+        </div>
 
+        <div class="faq">
 
 
-<div class="uses-card">
+            <div class="question">
 
-<h2>
-Cloud Applications
-</h2>
+                Who created Java?
 
-<p>
-Java is used for building reliable cloud based
-applications.
-</p>
+                <button class="btn">
+                    +
+                </button>
 
-</div>
+            </div>
 
 
+            <div class="answer">
 
+                Java was created by James Gosling and his team at
+                Sun Microsystems.
 
+            </div>
+        </div>
+        <div class="faq">
 
-</div>
 
+            <div class="question">
 
-</section>
+                What are Java features?
 
-<section class="info-section">
+                <button class="btn">
+                    +
+                </button>
 
+            </div>
+            <div class="answer">
 
+                Java features include object-oriented programming,
+                platform independence, security, portability and
+                multithreading.
 
-<div class="info-box">
+            </div>
 
 
-<h1>
-Advantages of Java
-</h1>
+        </div>
 
+        <div class="faq">
 
-<p>
-✔ Platform Independent
-</p>
 
+            <div class="question">
 
-<p>
-✔ Object Oriented Language
-</p>
+                What is JVM?
 
+                <button class="btn">
+                    +
+                </button>
 
-<p>
-✔ Secure and Reliable
-</p>
+            </div>
+            <div class="answer">
 
+                JVM (Java Virtual Machine) runs Java programs and helps
+                Java achieve platform independence.
 
-<p>
-✔ Large Community Support
-</p>
+            </div>
 
 
-<p>
-✔ Easy Memory Management
-</p>
+        </div>
+        <div class="faq">
+            <div class="question">
 
+                What is OOP in Java?
 
-<p>
-✔ Supports Multithreading
-</p>
+                <button class="btn">
+                    +
+                </button>
 
+            </div>
 
-<p>
-✔ Good Performance
-</p>
 
+            <div class="answer">
 
+                OOP means Object Oriented Programming which uses
+                classes and objects to build programs.
 
-</div>
+            </div>
 
 
+        </div>
 
+        <div class="faq">
+            <div class="question">
 
+                Is Java easy to learn?
 
-<div class="info-box">
+                <button class="btn">
+                    +
+                </button>
 
+            </div>
+            <div class="answer">
 
-<h1>
-Disadvantages of Java
-</h1>
+                Java is beginner friendly and becomes easier with
+                regular practice.
 
+            </div>
 
-<p>
-✖ More Memory Usage
-</p>
 
+        </div>
 
-<p>
-✖ Slower Than Some Languages
-</p>
+        <div class="faq">
+            <div class="question">
 
+                Where is Java used?
 
-<p>
-✖ Complex Syntax for Beginners
-</p>
+                <button class="btn">
+                    +
+                </button>
 
+            </div>
+            <div class="answer">
 
-<p>
-✖ Requires JVM Installation
-</p>
+                Java is used in Android apps, web applications,
+                enterprise software and desktop applications.
 
+            </div>
 
-<p>
-✖ More Code Compared to Some Languages
-</p>
 
+        </div>
+    </section>
 
-<p>
-✖ High Resource Consumption
-</p>
+    <footer>
 
+        <div class="footer-container">
 
-<p>
-✖ Learning Advanced Concepts Takes Time
-</p>
+            <div class="footer-box">
 
 
+                <h2>
+                    Code Learn
+                </h2>
+                <p>
 
-</div>
+                    Learn HTML, CSS, Java, JavaScript, React and many more
+                    programming languages with easy examples.
 
+                </p>
+            </div>
 
+            <div class="footer-box">
+                <h2>
+                    Quick Links
+                </h2>
+                <p>
+                    Home
+                </p>
+                <p>
+                    HTML
+                </p>
+                <p>
+                    CSS
+                </p>
+                <p>
+                    Java
+                </p>
+                <p>
+                    React
+                </p>
 
-</section>
 
-<section class="projects">
+            </div>
+            <div class="footer-box">
 
 
-<h1>
-6. Practice Projects
-</h1>
+                <h2>
+                    Topics
+                </h2>
+                <p>
+                    OOP Concepts
+                </p>
+                <p>
+                    Classes & Objects
+                </p>
+                <p>
+                    Inheritance
+                </p>
+                <p>
+                    Arrays
+                </p>
+                <p>
+                    Exception Handling
+                </p>
+            </div>
 
+            <div class="footer-box">
 
 
-<div class="project-grid">
+                <h2>
+                    Contact
+                </h2>
 
 
+                <p>
+                    Email : support@codelearn.com
+                </p>
 
 
+                <p>
+                    Phone : +91 9876543210
+                </p>
 
-<div class="project-card">
 
-<h2>
-Calculator App
-</h2>
-
-<p>
-Create a basic calculator using Java programming.
-</p>
-
-</div>
-
-
-
-
-
-
-<div class="project-card">
-
-<h2>
-Bank Management System
-</h2>
-
-<p>
-Build a simple banking system using Java concepts.
-</p>
-
-</div>
-
-
-
-
-
-
-<div class="project-card">
-
-<h2>
-Student Management System
-</h2>
-
-<p>
-Manage student records using Java and OOP concepts.
-</p>
-
-</div>
-
-
-
-
-
-
-<div class="project-card">
-
-<h2>
-Library Management System
-</h2>
-
-<p>
-Create a system to manage books and users.
-</p>
-
-</div>
-
-
-
-
-
-
-<div class="project-card">
-
-<h2>
-Chat Application
-</h2>
-
-<p>
-Develop a simple communication application using Java.
-</p>
-
-</div>
-
-
-
-
-
-
-<div class="project-card">
-
-<h2>
-Game Project
-</h2>
-
-<p>
-Create beginner level games using Java programming.
-</p>
-
-</div>
-
-
-
-
-</div>
-
-
-
-</section>
-
-
-<section class="faq-section">
-
-
-<h1>
-7. Frequently Asked Questions
-</h1>
-
-
-
-
-
-<div class="faq">
-
-
-<div class="question">
-
-What is Java?
-
-<button class="btn">
-+
-</button>
-
-</div>
-
-
-<div class="answer">
-
-Java is a high-level, object-oriented programming language
-used to create applications, software and web solutions.
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="faq">
-
-
-<div class="question">
-
-What is the full form of Java?
-
-<button class="btn">
-+
-</button>
-
-</div>
-
-
-<div class="answer">
-
-Java does not have any official full form. It is a
-programming language name.
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="faq">
-
-
-<div class="question">
-
-Who created Java?
-
-<button class="btn">
-+
-</button>
-
-</div>
-
-
-<div class="answer">
-
-Java was created by James Gosling and his team at
-Sun Microsystems.
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="faq">
-
-
-<div class="question">
-
-What are Java features?
-
-<button class="btn">
-+
-</button>
-
-</div>
-
-
-<div class="answer">
-
-Java features include object-oriented programming,
-platform independence, security, portability and
-multithreading.
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="faq">
-
-
-<div class="question">
-
-What is JVM?
-
-<button class="btn">
-+
-</button>
-
-</div>
-
-
-<div class="answer">
-
-JVM (Java Virtual Machine) runs Java programs and helps
-Java achieve platform independence.
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="faq">
-
-
-<div class="question">
-
-What is OOP in Java?
-
-<button class="btn">
-+
-</button>
-
-</div>
-
-
-<div class="answer">
-
-OOP means Object Oriented Programming which uses
-classes and objects to build programs.
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="faq">
-
-
-<div class="question">
-
-Is Java easy to learn?
-
-<button class="btn">
-+
-</button>
-
-</div>
-
-
-<div class="answer">
-
-Java is beginner friendly and becomes easier with
-regular practice.
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="faq">
-
-
-<div class="question">
-
-Where is Java used?
-
-<button class="btn">
-+
-</button>
-
-</div>
-
-
-<div class="answer">
-
-Java is used in Android apps, web applications,
-enterprise software and desktop applications.
-
-</div>
-
-
-</div>
-
-
-
-
-
-</section>
-
-<footer>
-
-
-
-<div class="footer-container">
-
-<div class="footer-box">
-
-
-<h2>
-Code Learn
-</h2>
-
-
-<p>
-
-Learn HTML, CSS, Java, JavaScript, React and many more
-programming languages with easy examples.
-
-</p>
-
-
-</div>
-
-<div class="footer-box">
-
-
-<h2>
-Quick Links
-</h2>
-
-
-<p>
-Home
-</p>
-
-
-<p>
-HTML
-</p>
-
-
-<p>
-CSS
-</p>
-
-
-<p>
-Java
-</p>
-
-
-<p>
-React
-</p>
-
-
-</div>
-
-
-<div class="footer-box">
-
-
-<h2>
-Topics
-</h2>
-
-
-<p>
-OOP Concepts
-</p>
-
-
-<p>
-Classes & Objects
-</p>
-
-
-<p>
-Inheritance
-</p>
-
-
-<p>
-Arrays
-</p>
-
-
-<p>
-Exception Handling
-</p>
-
-
-</div>
-
-<div class="footer-box">
-
-
-<h2>
-Contact
-</h2>
-
-
-<p>
-Email : support@codelearn.com
-</p>
-
-
-<p>
-Phone : +91 9876543210
-</p>
-
-
-<p>
-India
-</p>
-
-
-</div>
-
-</div>
-
-<div class="copyright">
-
-
-<p>
-© 2026 Code Learn. All Rights Reserved.
-</p>
-
-
-</div>
-
-</footer>
-
-
-
+                <p>
+                    India
+                </p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>
+                © 2026 Code Learn. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
 <script>
 
+    const btn = document.getElementById("btn");
+    const menu = document.getElementById("menu");
 
-const btn = document.getElementById("btn");
+    btn.addEventListener("click", function () {
+        menu.classList.toggle("show");
+    });
 
-const menu = document.getElementById("menu");
+    const faqs = document.querySelectorAll(".faq");
 
+    faqs.forEach(function (faq) {
 
-btn.addEventListener("click", function(){
+        const question = faq.querySelector(".question");
+        const button = faq.querySelector(".btn");
 
-menu.classList.toggle("show");
+        question.addEventListener("click", function () {
 
-});
+            faq.classList.toggle("active");
 
+            if (faq.classList.contains("active")) {
+                button.innerHTML = "−";
+            } else {
+                button.innerHTML = "+";
+            }
 
+        });
 
+    });
 
+    const themeBtn = document.getElementById("themeBtn");
 
-const faqs = document.querySelectorAll(".faq");
+    themeBtn.addEventListener("click", function () {
 
+        document.body.classList.toggle("dark");
 
-faqs.forEach(function(faq){
+        if (document.body.classList.contains("dark")) {
+            themeBtn.innerHTML = "☀️";
+        } else {
+            themeBtn.innerHTML = "🌙";
+        }
 
+    });
 
-const question = faq.querySelector(".question");
 
-const button = faq.querySelector(".btn");
+    const progressBar = document.getElementById("progress-bar");
+    const scrollTopBtn = document.getElementById("scrollTop");
 
+    window.addEventListener("scroll", function () {
 
+        const scrollTop = document.documentElement.scrollTop;
 
-question.addEventListener("click", function(){
+        const scrollHeight =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
 
+        const progress = (scrollTop / scrollHeight) * 100;
 
-faq.classList.toggle("active");
+        progressBar.style.width = progress + "%";
 
+        if (scrollTop > 300) {
+            scrollTopBtn.style.display = "block";
+        } else {
+            scrollTopBtn.style.display = "none";
+        }
 
+    });
 
-if(faq.classList.contains("active")){
+    scrollTopBtn.addEventListener("click", function () {
 
-button.innerHTML="−";
+        window.scrollTo({
 
-}
+            top: 0,
+            behavior: "smooth"
 
-else{
+        });
 
-button.innerHTML="+";
-
-}
-
-
-
-});
-
-
-});
-
-
-
-
-
-
-const themeBtn = document.getElementById("themeBtn");
-
-
-themeBtn.addEventListener("click",function(){
-
-
-document.body.classList.toggle("dark");
-
-
-
-if(document.body.classList.contains("dark")){
-
-themeBtn.innerHTML="☀️";
-
-}
-
-else{
-
-themeBtn.innerHTML="🌙";
-
-}
-
-
-});
-
-
-
-
-
-const progressBar=document.getElementById("progress-bar");
-
-const scrollTopBtn=document.getElementById("scrollTop");
-
-
-
-window.addEventListener("scroll",function(){
-
-
-const scrollTop=document.documentElement.scrollTop;
-
-
-const scrollHeight=
-document.documentElement.scrollHeight -
-document.documentElement.clientHeight;
-
-
-
-const progress=(scrollTop/scrollHeight)*100;
-
-
-
-progressBar.style.width=progress+"%";
-
-
-
-if(scrollTop>300){
-
-scrollTopBtn.style.display="block";
-
-}
-
-else{
-
-scrollTopBtn.style.display="none";
-
-}
-
-
-
-});
-
-
-
-
-
-scrollTopBtn.addEventListener("click",function(){
-
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-
-});
-
-
+    });
 
 </script>
-
-
 </body>
-
 </html>

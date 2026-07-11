@@ -4,1008 +4,917 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn C++</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
+    <title>Learn C++</title>
 </head>
 <style>
-    /*=========================
-  RESET
-=========================*/
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:"Poppins",sans-serif;
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#fff;
-    color:#111;
-    line-height:1.7;
-    overflow-x:hidden;
-}
-
-/*=========================
-  NAVBAR
-=========================*/
-
-nav{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:80px;
-    background:#111;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 80px;
-    z-index:1000;
-}
-
-.logo{
-    font-size:30px;
-    font-weight:700;
-    color:#fff;
-}
-
-.logo span{
-    color:#0d6efd;
-}
-
-.menu{
-    display:flex;
-    align-items:center;
-    gap:30px;
-}
-
-.menu a{
-    text-decoration:none;
-    color:#fff;
-    font-size:18px;
-    transition:.3s;
-}
-
-.menu a:hover{
-    color:#0d6efd;
-}
-
-#btn{
-    display:none;
-}
-
-#themeBtn{
-    border:none;
-    background:none;
-    color:#fff;
-    font-size:22px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-#themeBtn:hover{
-    transform:rotate(25deg);
-}
-
-/*=========================
-  HERO SECTION
-=========================*/
-
-.hero{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:60px;
-    padding:140px 80px 80px;
-}
-
-.hero-image{
-    flex:1;
-    text-align:center;
-}
-
-.hero-image img{
-    width:100%;
-    max-width:500px;
-}
-
-.hero-text{
-    flex:1;
-}
-
-.hero-text h1{
-    font-size:65px;
-    margin-bottom:15px;
-    color:#111;
-}
-
-.hero-text h1 span{
-    color:#0d6efd;
-}
-
-.hero-text h2{
-    color:#ff3b3b;
-    font-size:36px;
-    margin-bottom:20px;
-}
-
-.hero-text p{
-    font-size:19px;
-    color:#555;
-    line-height:34px;
-    margin-bottom:30px;
-}
-
-.hero-btn{
-    display:flex;
-    gap:20px;
-}
-
-.btn1,
-.btn2{
-    padding:15px 35px;
-    border:none;
-    border-radius:10px;
-    font-size:18px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.btn1{
-    background:#111;
-    color:#fff;
-}
-
-.btn2{
-    background:#0d6efd;
-    color:#fff;
-}
-
-.btn1:hover,
-.btn2:hover{
-    transform:translateY(-6px);
-}
-
-/*=========================
-  INTRODUCTION
-=========================*/
-
-.intro{
-    width:90%;
-    margin:auto;
-    padding:60px 0;
-    text-align:center;
-}
-
-.intro h1{
-    font-size:42px;
-    color:#0d6efd;
-    margin-bottom:25px;
-}
-
-.intro p{
-    font-size:19px;
-    color:#555;
-    line-height:34px;
-    max-width:1000px;
-    margin:auto;
-}
-
-
-/*=========================
-  KEY POINTS
-=========================*/
-
-.points{
-    width:90%;
-    margin:auto;
-    padding:60px 0;
-}
-
-.points h1{
-    text-align:center;
-    font-size:42px;
-    color:#0d6efd;
-    margin-bottom:50px;
-}
-
-.card-box{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
-}
-
-.card{
-    background:#fff;
-    border:2px solid #ddd;
-    border-radius:15px;
-    padding:30px;
-    text-align:center;
-    transition:.4s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
-}
-
-.card h2{
-    color:#0d6efd;
-    margin-bottom:15px;
-    font-size:25px;
-}
-
-.card p{
-    color:#555;
-    line-height:28px;
-    font-size:17px;
-}
-
-
-/*=========================
-  WHY LEARN C++
-=========================*/
-
-.why{
-    width:90%;
-    margin:auto;
-    padding:70px 0;
-}
-
-.why h1{
-    text-align:center;
-    font-size:42px;
-    color:#0d6efd;
-    margin-bottom:30px;
-}
-
-.why p{
-    text-align:center;
-    font-size:19px;
-    color:#555;
-    line-height:34px;
-    margin-bottom:35px;
-}
-
-.why ul{
-    width:700px;
-    margin:auto;
-}
-
-.why ul li{
-    font-size:20px;
-    margin:15px 0;
-    color:#222;
-}
-
-/*=========================
-  FEATURES
-=========================*/
-
-.features{
-    width:90%;
-    margin:auto;
-    padding:60px 0;
-}
-
-.features h1{
-    text-align:center;
-    font-size:42px;
-    color:#0d6efd;
-    margin-bottom:50px;
-}
-
-.feature-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
-}
-
-.feature-card{
-    background:#fff;
-    border:2px solid #ddd;
-    border-radius:15px;
-    padding:30px;
-    text-align:center;
-    transition:.4s;
-}
-
-.feature-card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
-}
-
-.feature-card h2{
-    color:#0d6efd;
-    margin-bottom:15px;
-    font-size:24px;
-}
-
-.feature-card p{
-    color:#555;
-    line-height:28px;
-}
-
-
-/*=========================
-  USES
-=========================*/
-
-.uses{
-    width:90%;
-    margin:auto;
-    padding:60px 0;
-}
-
-.uses h1{
-    text-align:center;
-    font-size:42px;
-    color:#0d6efd;
-    margin-bottom:50px;
-}
-
-.uses-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-}
-
-.uses-card{
-    background:#fff;
-    border:2px solid #ddd;
-    border-radius:15px;
-    padding:30px;
-    transition:.4s;
-}
-
-.uses-card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
-}
-
-.uses-card h2{
-    color:#0d6efd;
-    margin-bottom:15px;
-    font-size:24px;
-}
-
-.uses-card p{
-    color:#555;
-    line-height:28px;
-}
-
-
-/*=========================
-  ADVANTAGES &
-  DISADVANTAGES
-=========================*/
-
-.info-section{
-    width:90%;
-    margin:80px auto;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:40px;
-}
-
-.info-box{
-    background:#fff;
-    border:2px solid #ddd;
-    border-radius:20px;
-    padding:35px;
-    transition:.4s;
-}
-
-.info-box:hover{
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
-}
-
-.info-box h1{
-    text-align:center;
-    color:#0d6efd;
-    margin-bottom:25px;
-    font-size:32px;
-}
-
-.info-box p{
-    font-size:18px;
-    color:#555;
-    margin:15px 0;
-    line-height:30px;
-}
-
-
-/*=========================
-  IMAGE SECTION
-=========================*/
-
-.image-section{
-    width:90%;
-    margin:70px auto;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:40px;
-}
-
-.image-box img{
-    width:100%;
-    height:350px;
-    object-fit:cover;
-    border-radius:20px;
-    transition:.4s;
-}
-
-.image-box img:hover{
-    transform:scale(1.03);
-}
-
-/*=========================
-  PROJECTS
-=========================*/
-
-.projects{
-    width:90%;
-    margin:auto;
-    padding:60px 0;
-}
-
-.projects h1{
-    text-align:center;
-    font-size:42px;
-    color:#0d6efd;
-    margin-bottom:50px;
-}
-
-.project-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:30px;
-}
-
-.project-card{
-    background:#fff;
-    border:2px solid #ddd;
-    border-radius:15px;
-    padding:30px;
-    text-align:center;
-    transition:.4s;
-}
-
-.project-card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 15px 35px rgba(0,0,0,.12);
-}
-
-.project-card h2{
-    color:#0d6efd;
-    margin-bottom:15px;
-    font-size:24px;
-}
-
-.project-card p{
-    color:#555;
-    line-height:28px;
-}
-
-
-/*=========================
-  FAQ SECTION
-=========================*/
-
-.faq-section{
-    width:90%;
-    margin:80px auto;
-}
-
-.faq-section h1{
-    text-align:center;
-    font-size:42px;
-    color:#0d6efd;
-    margin-bottom:50px;
-}
-
-.faq{
-    width:850px;
-    margin:20px auto;
-    background:#fff;
-    border:2px solid #ddd;
-    border-radius:15px;
-    overflow:hidden;
-    transition:.3s;
-}
-
-.faq:hover{
-    box-shadow:0 10px 25px rgba(0,0,0,.12);
-}
-
-.question{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 25px;
-    font-size:20px;
-    font-weight:600;
-    cursor:pointer;
-}
-
-.answer{
-    display:none;
-    padding:20px 25px;
-    border-top:1px solid #ddd;
-    line-height:30px;
-    color:#555;
-}
-
-.faq.active .answer{
-    display:block;
-}
-
-.btn{
-    width:35px;
-    height:35px;
-    border:none;
-    border-radius:50%;
-    background:#0d6efd;
-    color:#fff;
-    font-size:22px;
-    cursor:pointer;
-}
-
-
-/*=========================
-  FOOTER
-=========================*/
-
-footer{
-    width:100%;
-    background:#111;
-    color:#fff;
-    margin-top:80px;
-}
-
-.footer-container{
-    width:90%;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:40px;
-    padding:60px 0;
-}
-
-.footer-box h2{
-    color:#0d6efd;
-    margin-bottom:20px;
-    font-size:26px;
-}
-
-.footer-box p{
-    color:#ddd;
-    margin:12px 0;
-    line-height:28px;
-    transition:.3s;
-    cursor:pointer;
-}
-
-.footer-box p:hover{
-    color:#0d6efd;
-}
-
-
-/*=========================
-  COPYRIGHT
-=========================*/
-
-.copyright{
-    width:100%;
-    border-top:1px solid #333;
-    text-align:center;
-    padding:20px;
-}
-
-.copyright p{
-    color:#bbb;
-    font-size:16px;
-}
-
-/*=========================
-  DARK MODE
-=========================*/
-
-body.dark{
-    background:#121212;
-    color:#fff;
-}
-
-body.dark nav{
-    background:#1b1b1b;
-}
-
-body.dark .hero-text h1{
-    color:#fff;
-}
-
-body.dark .hero-text p,
-body.dark .intro p,
-body.dark .why p,
-body.dark .card p,
-body.dark .feature-card p,
-body.dark .uses-card p,
-body.dark .project-card p,
-body.dark .info-box p,
-body.dark .answer{
-    color:#ddd;
-}
-
-body.dark .why ul li{
-    color:#fff;
-}
-
-body.dark .card,
-body.dark .feature-card,
-body.dark .uses-card,
-body.dark .project-card,
-body.dark .info-box,
-body.dark .faq{
-    background:#1f1f1f;
-    border-color:#444;
-    color:#fff;
-}
-
-body.dark .answer{
-    border-top:1px solid #444;
-}
-
-body.dark footer{
-    background:#000;
-}
-
-body.dark .footer-box p{
-    color:#ccc;
-}
-
-body.dark .footer-box p:hover{
-    color:#0d6efd;
-}
-
-
-/*=========================
-  PROGRESS BAR
-=========================*/
-
-#progress-bar{
-    position:fixed;
-    top:0;
-    left:0;
-    width:0%;
-    height:5px;
-    background:#0d6efd;
-    z-index:9999;
-}
-
-
-/*=========================
-  SCROLL TO TOP BUTTON
-=========================*/
-
-#scrollTop{
-    position:fixed;
-    right:25px;
-    bottom:25px;
-    width:55px;
-    height:55px;
-    border:none;
-    border-radius:50%;
-    background:#0d6efd;
-    color:#fff;
-    font-size:22px;
-    cursor:pointer;
-    display:none;
-    transition:.3s;
-    z-index:999;
-}
-
-#scrollTop:hover{
-    transform:translateY(-8px);
-    box-shadow:0 10px 20px rgba(0,0,0,.25);
-}
-
-/*=========================
-  MOBILE RESPONSIVE
-=========================*/
-
-@media (max-width:768px){
-
-/* Navbar */
-
-nav{
-    height:70px;
-    padding:0 20px;
-}
-
-.logo{
-    font-size:24px;
-}
-
-#btn{
-    display:block;
-    background:none;
-    border:none;
-    color:#fff;
-    font-size:30px;
-    cursor:pointer;
-}
-
-.menu{
-    position:absolute;
-    top:70px;
-    left:0;
-    width:100%;
-    background:#111;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:20px;
-    max-height:0;
-    overflow:hidden;
-    transition:.4s;
-}
-
-.menu.show{
-    max-height:650px;
-    padding:25px 0;
-}
-
-.menu a{
-    font-size:17px;
-}
-
-
-/* Hero */
-
-.hero{
-    flex-direction:column;
-    text-align:center;
-    padding:110px 20px 50px;
-    gap:30px;
-}
-
-.hero-image img{
-    width:100%;
-    max-width:350px;
-}
-
-.hero-text h1{
-    font-size:40px;
-}
-
-.hero-text h2{
-    font-size:25px;
-}
-
-.hero-text p{
-    font-size:16px;
-    line-height:28px;
-}
-
-.hero-btn{
-    flex-direction:column;
-    gap:15px;
-}
-
-.btn1,
-.btn2{
-    width:100%;
-}
-
-
-/* Sections */
-
-.intro,
-.points,
-.why,
-.features,
-.uses,
-.projects,
-.faq-section{
-    width:90%;
-    padding:40px 0;
-}
-
-.intro h1,
-.points h1,
-.why h1,
-.features h1,
-.uses h1,
-.projects h1,
-.faq-section h1{
-    font-size:30px;
-}
-
-.intro p,
-.why p{
-    font-size:16px;
-    line-height:28px;
-}
-
-
-/* Cards */
-
-.card-box,
-.feature-grid,
-.uses-grid,
-.project-grid{
-    grid-template-columns:1fr;
-}
-
-.card,
-.feature-card,
-.uses-card,
-.project-card{
-    padding:25px;
-}
-
-
-/* List */
-
-.why ul{
-    width:100%;
-    padding-left:20px;
-}
-
-.why ul li{
-    font-size:16px;
-    margin:10px 0;
-}
-
-
-/* Images */
-
-.image-section{
-    width:90%;
-    margin:40px auto;
-    grid-template-columns:1fr;
-}
-
-.image-box img{
-    height:auto;
-}
-
-
-/* Info */
-
-.info-section{
-    width:90%;
-    margin:40px auto;
-    grid-template-columns:1fr;
-    gap:25px;
-}
-
-.info-box{
-    padding:25px;
-}
-
-.info-box h1{
-    font-size:25px;
-}
-
-.info-box p{
-    font-size:16px;
-    line-height:28px;
-}
-
-
-/* FAQ */
-
-.faq{
-    width:100%;
-}
-
-.question{
-    font-size:16px;
-    padding:15px;
-}
-
-.answer{
-    padding:15px;
-    font-size:15px;
-}
-
-
-/* Footer */
-
-footer{
-    width:100%;
-    margin-top:50px;
-}
-
-.footer-container{
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    padding:40px 20px;
-    gap:30px;
-}
-
-.footer-box{
-    width:100%;
-    text-align:center;
-}
-
-.footer-box h2{
-    font-size:22px;
-}
-
-.footer-box p{
-    font-size:15px;
-    line-height:26px;
-    word-break:break-word;
-}
-
-.copyright{
-    padding:15px;
-}
-
-.copyright p{
-    font-size:14px;
-}
-
-
-/* Scroll Button */
-
-#scrollTop{
-    width:45px;
-    height:45px;
-    right:15px;
-    bottom:15px;
-    font-size:18px;
-}
-
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background: #ffffff;
+        color: #222;
+        line-height: 1.7;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: #111;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 80px;
+        z-index: 1000;
+    }
+
+    .logo {
+        font-size: 30px;
+        font-weight: 700;
+        color: #fff;
+    }
+
+    .logo span {
+        color: #0d6efd;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .menu a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 18px;
+        transition: .3s;
+    }
+
+    .menu a:hover {
+        color: #0d6efd;
+    }
+
+    #btn {
+        display: none;
+    }
+
+    #themeBtn {
+        border: none;
+        background: none;
+        color: #fff;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 140px 80px 70px;
+        gap: 60px;
+    }
+
+    .hero-image {
+        flex: 1;
+    }
+
+    .hero-image img {
+        width: 80%;
+        border-radius: 20px;
+    }
+
+    .hero-text {
+        flex: 1;
+    }
+
+    .hero-text h1 {
+        font-size: 65px;
+        margin-bottom: 15px;
+    }
+
+    .hero-text h1 span {
+        color: #0d6efd;
+    }
+
+    .hero-text h2 {
+        font-size: 35px;
+        color: #ff3b3b;
+        margin-bottom: 20px;
+    }
+
+    .hero-text p {
+        font-size: 18px;
+        color: #555;
+        line-height: 32px;
+        margin-bottom: 30px;
+    }
+
+    .hero-btn {
+        display: flex;
+        gap: 20px;
+    }
+
+    .btn1,
+    .btn2 {
+        padding: 15px 35px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: .3s;
+    }
+
+    .btn1 {
+        background: #111;
+        color: #fff;
+    }
+
+    .btn2 {
+        background: #0d6efd;
+        color: #fff;
+    }
+
+    .btn1:hover,
+    .btn2:hover {
+        transform: translateY(-5px);
+    }
+
+    .intro {
+        width: 90%;
+        margin: auto;
+        padding: 50px 0;
+        text-align: center;
+    }
+
+    .intro h1 {
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 25px;
+    }
+
+    .intro p {
+        font-size: 19px;
+        color: #444;
+        line-height: 35px;
+    }
+
+    .points {
+        width: 90%;
+        margin: auto;
+        padding: 50px 0;
+    }
+
+    .points h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .card-box {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .card {
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: .4s;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
+    }
+
+    .card h2 {
+        color: #0d6efd;
+        margin-bottom: 15px;
+        font-size: 26px;
+    }
+
+    .card p {
+        color: #555;
+        line-height: 28px;
+        font-size: 17px;
+    }
+
+    .why {
+        width: 90%;
+        margin: auto;
+        padding: 70px 0;
+    }
+
+    .why h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 30px;
+    }
+
+    .why p {
+        text-align: center;
+        font-size: 19px;
+        color: #555;
+        line-height: 34px;
+        margin-bottom: 40px;
+    }
+
+    .why ul {
+        width: 700px;
+        margin: auto;
+    }
+
+    .why ul li {
+        font-size: 20px;
+        margin: 15px 0;
+    }
+
+    .features {
+        width: 90%;
+        margin: auto;
+        padding: 60px 0;
+    }
+
+    .features h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+    }
+
+    .feature-card {
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: .4s;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .12);
+    }
+
+    .feature-card h2 {
+        color: #0d6efd;
+        margin-bottom: 15px;
+        font-size: 26px;
+    }
+
+    .feature-card p {
+        color: #555;
+        line-height: 28px;
+        font-size: 17px;
+    }
+
+    .uses {
+        width: 90%;
+        margin: auto;
+        padding: 60px 0;
+    }
+
+    .uses h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .uses-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    .uses-card {
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        padding: 30px;
+        transition: .4s;
+    }
+
+    .uses-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+    }
+
+    .uses-card h2 {
+        color: #0d6efd;
+        margin-bottom: 15px;
+        font-size: 25px;
+    }
+
+    .uses-card p {
+        color: #555;
+        line-height: 28px;
+        font-size: 17px;
+    }
+
+    .info-section {
+        width: 90%;
+        margin: 80px auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .info-box {
+        border: 2px solid #ddd;
+        border-radius: 20px;
+        padding: 35px;
+        transition: .4s;
+        background: #fff;
+    }
+
+    .info-box:hover {
+        box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
+    }
+
+    .info-box h1 {
+        text-align: center;
+        color: #0d6efd;
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+
+    .info-box p {
+        font-size: 18px;
+        color: #555;
+        margin: 15px 0;
+        line-height: 30px;
+    }
+
+    .projects {
+        width: 90%;
+        margin: auto;
+        padding: 60px 0;
+    }
+
+    .projects h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .project-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .project-card {
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+        transition: .4s;
+    }
+
+    .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .12);
+    }
+
+    .project-card h2 {
+        color: #0d6efd;
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+
+    .project-card p {
+        color: #555;
+        font-size: 17px;
+        line-height: 28px;
+    }
+
+    .faq-section {
+        width: 90%;
+        margin: 80px auto;
+    }
+
+    .faq-section h1 {
+        text-align: center;
+        font-size: 42px;
+        color: #0d6efd;
+        margin-bottom: 50px;
+    }
+
+    .faq {
+        width: 850px;
+        margin: 20px auto;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fff;
+        transition: .3s;
+    }
+
+    .faq:hover {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+    }
+
+    .question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 25px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .answer {
+        display: none;
+        padding: 20px 25px;
+        border-top: 1px solid #ddd;
+        color: #555;
+        line-height: 30px;
+        font-size: 17px;
+    }
+
+    .faq.active .answer {
+        display: block;
+    }
+
+    .btn {
+        width: 35px;
+        height: 35px;
+        border: none;
+        border-radius: 50%;
+        background: #0d6efd;
+        color: #fff;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    footer {
+        background: #111;
+        color: #fff;
+        margin-top: 80px;
+    }
+
+    .footer-container {
+        width: 90%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        padding: 60px 0;
+    }
+
+    .footer-box h2 {
+        color: #0d6efd;
+        margin-bottom: 20px;
+        font-size: 28px;
+    }
+
+    .footer-box p {
+        color: #ddd;
+        margin: 12px 0;
+        line-height: 28px;
+        transition: .3s;
+        cursor: pointer;
+    }
+
+    .footer-box p:hover {
+        color: #0d6efd;
+    }
+
+    .copyright {
+        border-top: 1px solid #333;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .copyright p {
+        color: #bbb;
+        font-size: 16px;
+    }
+
+    #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 5px;
+        background: #0d6efd;
+        z-index: 9999;
+    }
+
+    #scrollTop {
+        position: fixed;
+        right: 25px;
+        bottom: 25px;
+
+        width: 55px;
+        height: 55px;
+
+        border: none;
+        border-radius: 50%;
+
+        background: #0d6efd;
+        color: #fff;
+
+        font-size: 22px;
+        cursor: pointer;
+
+        display: none;
+
+        transition: .3s;
+    }
+
+    #scrollTop:hover {
+        transform: translateY(-8px);
+    }
+
+    body.dark {
+        background: #121212;
+        color: #fff;
+    }
+
+    body.dark nav {
+        background: #1b1b1b;
+    }
+
+    body.dark .card,
+    body.dark .feature-card,
+    body.dark .uses-card,
+    body.dark .project-card,
+    body.dark .info-box,
+    body.dark .faq {
+        background: #1f1f1f;
+        border-color: #444;
+        color: #fff;
+    }
+
+    body.dark .hero-text p,
+    body.dark .intro p,
+    body.dark .why p,
+    body.dark .card p,
+    body.dark .feature-card p,
+    body.dark .uses-card p,
+    body.dark .project-card p,
+    body.dark .info-box p,
+    body.dark .answer {
+        color: #ddd;
+    }
+
+    body.dark footer {
+        background: #000;
+    }
+
+    body.dark .footer-box p {
+        color: #ccc;
+    }
+
+    body.dark .footer-box p:hover {
+        color: #0d6efd;
+    }
+
+    @media (max-width:768px) {
+
+
+        nav {
+            padding: 15px 20px;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 26px;
+        }
+
+        #btn {
+            display: block;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 32px;
+            cursor: pointer;
+        }
+
+        .menu {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: #111;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+
+            max-height: 0;
+            overflow: hidden;
+            transition: .5s;
+        }
+
+        .menu.show {
+            max-height: 700px;
+            padding: 20px 0;
+        }
+
+        .menu a {
+            font-size: 18px;
+        }
+
+        #themeBtn {
+            margin-top: 10px;
+        }
+
+
+        .hero {
+            flex-direction: column;
+            padding: 120px 20px 50px;
+            text-align: center;
+            gap: 35px;
+        }
+
+        .hero-image {
+            order: 1;
+        }
+
+        .hero-text {
+            order: 2;
+        }
+
+        .hero-image img {
+            width: 100%;
+        }
+
+        .hero-text h1 {
+            font-size: 42px;
+        }
+
+        .hero-text h2 {
+            font-size: 28px;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            line-height: 30px;
+        }
+
+        .hero-btn {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn1,
+        .btn2 {
+            width: 100%;
+        }
+
+        .intro {
+            width: 92%;
+            padding: 40px 0;
+        }
+
+        .intro h1 {
+            font-size: 32px;
+        }
+
+        .intro p {
+            font-size: 16px;
+            line-height: 30px;
+        }
+
+        .points {
+            width: 92%;
+        }
+
+        .points h1 {
+            font-size: 32px;
+        }
+
+        .card-box {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            width: 100%;
+        }
+
+        .card h2 {
+            font-size: 24px;
+        }
+
+        .card p {
+            font-size: 16px;
+        }
+
+        .why {
+            width: 92%;
+            padding: 50px 0;
+        }
+
+        .why h1 {
+            font-size: 32px;
+        }
+
+        .why p {
+            font-size: 16px;
+            line-height: 30px;
+        }
+
+        .why ul {
+            width: 100%;
+            padding-left: 20px;
+        }
+
+        .why ul li {
+            font-size: 18px;
+        }
+
+        .features {
+            width: 92%;
+            padding: 50px 0;
+        }
+
+        .features h1 {
+            font-size: 32px;
+        }
+
+        .feature-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .feature-card {
+            width: 100%;
+        }
+
+        .feature-card h2 {
+            font-size: 24px;
+        }
+
+        .feature-card p {
+            font-size: 16px;
+        }
+
+        .uses {
+            width: 92%;
+            padding: 50px 0;
+        }
+
+        .uses h1 {
+            font-size: 32px;
+        }
+
+        .uses-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .uses-card {
+            width: 100%;
+        }
+
+        .uses-card h2 {
+            font-size: 24px;
+        }
+
+        .uses-card p {
+            font-size: 16px;
+        }
+
+        .info-section {
+            width: 92%;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .info-box {
+            width: 100%;
+        }
+
+        .info-box h1 {
+            font-size: 30px;
+        }
+
+        .info-box p {
+            font-size: 16px;
+        }
+
+        .projects {
+            width: 92%;
+            padding: 50px 0;
+        }
+
+        .projects h1 {
+            font-size: 32px;
+        }
+
+        .project-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .project-card {
+            width: 100%;
+        }
+
+        .project-card h2 {
+            font-size: 24px;
+        }
+
+        .project-card p {
+            font-size: 16px;
+        }
+
+        .faq-section {
+            width: 92%;
+        }
+
+        .faq-section h1 {
+            font-size: 32px;
+        }
+
+        .faq {
+            width: 100%;
+        }
+
+        .question {
+            font-size: 17px;
+            padding: 18px;
+        }
+
+        .answer {
+            font-size: 15px;
+            line-height: 28px;
+        }
+
+        .footer-container {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 30px;
+        }
+
+        .footer-box h2 {
+            font-size: 26px;
+        }
+
+        .footer-box p {
+            font-size: 16px;
+        }
+
+        #scrollTop {
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            right: 15px;
+            bottom: 15px;
+        }
+
+    }
 </style>
-   <header>
+<header>
     <nav>
-
         <div class="logo">code<span>learn</span></div>
-
         <button id="btn">☰</button>
-
         <div class="menu" id="menu">
-
             <a href="index.html">Home</a>
-
-            <a href="code2html.html">html</a>
-
-            <a href="code3html.html">css</a>
-
+            <a href="code2html.html">HTML</a>
+            <a href="code3html.html">CSS</a>
             <a href="code4html.html">JavaScript</a>
-
-            <a href="code5html.html">php</a>
-
-             <a href="code6html.html">react</a>
-
-            <a href="code7html.html">c++</a>
-
-            <a href="code8html.html">c</a>
-
-            <a href="code9html.html">phython</a>
-
-             <a href="code10html.html">java</a>
-
-            <button id="themeBtn">🌙 </button>
-
+            <a href="code5html.html">PHP</a>
+            <a href="code6html.html">React</a>
+            <a href="code7html.html">C++</a>
+            <a href="code8html.html">Python</a>
+            <a href="code9html.html">c</a>
+            <a href="code10html.html">java</a>
+            <button id="themeBtn">🌙</button>
         </div>
-
     </nav>
 </header>
+
 <body>
 
     <div id="progress-bar"></div>
@@ -1119,8 +1028,6 @@ footer{
 
     </section>
 
-
-
     <section class="why">
 
         <h1>3. Why Learn C++?</h1>
@@ -1155,8 +1062,6 @@ footer{
         </ul>
 
     </section>
-
-
 
     <section class="features">
 
@@ -1213,615 +1118,584 @@ footer{
     </section>
     <section class="why">
 
-    <h1>5. How C++ Works?</h1>
+        <h1>5. How C++ Works?</h1>
 
-    <p>
-        C++ programs are first written by the programmer, then compiled
-        into machine code using a compiler. After successful compilation,
-        the executable program runs on the computer.
-    </p>
+        <p>
+            C++ programs are first written by the programmer, then compiled
+            into machine code using a compiler. After successful compilation,
+            the executable program runs on the computer.
+        </p>
 
-    <ul>
+        <ul>
 
-        <li>Write C++ Source Code</li>
+            <li>Write C++ Source Code</li>
 
-        <li>Compile the Program</li>
+            <li>Compile the Program</li>
 
-        <li>Fix Compilation Errors</li>
+            <li>Fix Compilation Errors</li>
 
-        <li>Generate Executable File</li>
+            <li>Generate Executable File</li>
 
-        <li>Run the Program</li>
+            <li>Run the Program</li>
 
-        <li>Display Output</li>
+            <li>Display Output</li>
 
-    </ul>
+        </ul>
 
-</section>
+    </section>
 
+    <section class="uses">
 
+        <h1>6. Uses of C++</h1>
 
-<section class="uses">
+        <div class="uses-grid">
 
-    <h1>6. Uses of C++</h1>
+            <div class="uses-card">
 
-    <div class="uses-grid">
+                <h2>Game Development</h2>
 
-        <div class="uses-card">
+                <p>
+                    C++ is widely used to create high-performance
+                    games and game engines.
+                </p>
 
-            <h2>Game Development</h2>
+            </div>
 
-            <p>
-                C++ is widely used to create high-performance
-                games and game engines.
-            </p>
+            <div class="uses-card">
+
+                <h2>Desktop Applications</h2>
+
+                <p>
+                    Build powerful desktop software for Windows,
+                    Linux and macOS.
+                </p>
+
+            </div>
+
+            <div class="uses-card">
+
+                <h2>Operating Systems</h2>
+
+                <p>
+                    Many operating system components are
+                    developed using C++.
+                </p>
+
+            </div>
+
+            <div class="uses-card">
+
+                <h2>Embedded Systems</h2>
+
+                <p>
+                    C++ is used in embedded devices,
+                    robotics and microcontrollers.
+                </p>
+
+            </div>
+
+            <div class="uses-card">
+
+                <h2>Competitive Programming</h2>
+
+                <p>
+                    Most competitive programmers prefer
+                    C++ because of its speed and STL.
+                </p>
+
+            </div>
+
+            <div class="uses-card">
+
+                <h2>Software Development</h2>
+
+                <p>
+                    C++ is used to build fast, reliable
+                    and large-scale software applications.
+                </p>
+
+            </div>
 
         </div>
 
-        <div class="uses-card">
+    </section>
 
-            <h2>Desktop Applications</h2>
+    <section class="info-section">
 
-            <p>
-                Build powerful desktop software for Windows,
-                Linux and macOS.
-            </p>
+        <div class="info-box">
 
-        </div>
+            <h1>Advantages of C++</h1>
 
-        <div class="uses-card">
+            <p>✔ Fast Execution Speed</p>
 
-            <h2>Operating Systems</h2>
+            <p>✔ Object-Oriented Programming</p>
 
-            <p>
-                Many operating system components are
-                developed using C++.
-            </p>
+            <p>✔ Powerful Standard Library (STL)</p>
 
-        </div>
+            <p>✔ Cross Platform Support</p>
 
-        <div class="uses-card">
+            <p>✔ High Performance Applications</p>
 
-            <h2>Embedded Systems</h2>
+            <p>✔ Memory Management Control</p>
 
-            <p>
-                C++ is used in embedded devices,
-                robotics and microcontrollers.
-            </p>
+            <p>✔ Widely Used in Industry</p>
 
         </div>
 
-        <div class="uses-card">
+        <div class="info-box">
 
-            <h2>Competitive Programming</h2>
+            <h1>Disadvantages of C++</h1>
 
-            <p>
-                Most competitive programmers prefer
-                C++ because of its speed and STL.
-            </p>
+            <p>✖ Difficult for Beginners</p>
 
-        </div>
+            <p>✖ Manual Memory Management</p>
 
-        <div class="uses-card">
+            <p>✖ Complex Syntax</p>
 
-            <h2>Software Development</h2>
+            <p>✖ Longer Development Time</p>
 
-            <p>
-                C++ is used to build fast, reliable
-                and large-scale software applications.
-            </p>
+            <p>✖ More Chances of Bugs</p>
+
+            <p>✖ Pointer Errors Can Occur</p>
+
+            <p>✖ Requires Good Programming Knowledge</p>
 
         </div>
 
-    </div>
+    </section>
 
-</section>
+    <section class="projects">
 
+        <h1>7. C++ Practice Projects</h1>
 
+        <div class="project-grid">
 
-<section class="info-section">
+            <div class="project-card">
 
-    <div class="info-box">
+                <h2>Calculator</h2>
 
-        <h1>Advantages of C++</h1>
+                <p>
+                    Create a simple calculator using C++ operators
+                    and user input.
+                </p>
 
-        <p>✔ Fast Execution Speed</p>
+            </div>
 
-        <p>✔ Object-Oriented Programming</p>
+            <div class="project-card">
 
-        <p>✔ Powerful Standard Library (STL)</p>
+                <h2>Student Management</h2>
 
-        <p>✔ Cross Platform Support</p>
+                <p>
+                    Build a program to store and manage
+                    student records.
+                </p>
 
-        <p>✔ High Performance Applications</p>
+            </div>
 
-        <p>✔ Memory Management Control</p>
+            <div class="project-card">
 
-        <p>✔ Widely Used in Industry</p>
+                <h2>Bank Management</h2>
 
-    </div>
+                <p>
+                    Develop a banking system with deposit,
+                    withdrawal and balance features.
+                </p>
 
+            </div>
 
+            <div class="project-card">
 
-    <div class="info-box">
+                <h2>Library System</h2>
 
-        <h1>Disadvantages of C++</h1>
+                <p>
+                    Create a library management system
+                    for books and students.
+                </p>
 
-        <p>✖ Difficult for Beginners</p>
+            </div>
 
-        <p>✖ Manual Memory Management</p>
+            <div class="project-card">
 
-        <p>✖ Complex Syntax</p>
+                <h2>Employee Management</h2>
 
-        <p>✖ Longer Development Time</p>
+                <p>
+                    Store employee details and manage
+                    records using C++.
+                </p>
 
-        <p>✖ More Chances of Bugs</p>
+            </div>
 
-        <p>✖ Pointer Errors Can Occur</p>
+            <div class="project-card">
 
-        <p>✖ Requires Good Programming Knowledge</p>
+                <h2>Quiz Application</h2>
 
-    </div>
+                <p>
+                    Build a multiple-choice quiz program
+                    with score calculation.
+                </p>
 
-</section>
-
-<section class="projects">
-
-    <h1>7. C++ Practice Projects</h1>
-
-    <div class="project-grid">
-
-        <div class="project-card">
-
-            <h2>Calculator</h2>
-
-            <p>
-                Create a simple calculator using C++ operators
-                and user input.
-            </p>
-
-        </div>
-
-        <div class="project-card">
-
-            <h2>Student Management</h2>
-
-            <p>
-                Build a program to store and manage
-                student records.
-            </p>
+            </div>
 
         </div>
 
-        <div class="project-card">
+    </section>
 
-            <h2>Bank Management</h2>
+    <section class="intro">
 
-            <p>
-                Develop a banking system with deposit,
-                withdrawal and balance features.
-            </p>
+        <h1>8. C++ Career Opportunities</h1>
 
-        </div>
+        <p>
 
-        <div class="project-card">
+            C++ developers can work as Software Developers,
+            Game Developers, System Programmers, Embedded
+            Engineers and Application Developers.
 
-            <h2>Library System</h2>
+            C++ is widely used in software companies,
+            gaming industries, robotics, finance and
+            operating system development.
 
-            <p>
-                Create a library management system
-                for books and students.
-            </p>
+        </p>
 
-        </div>
+    </section>
 
-        <div class="project-card">
+    <section class="faq-section">
 
-            <h2>Employee Management</h2>
+        <h1>9. Frequently Asked Questions</h1>
 
-            <p>
-                Store employee details and manage
-                records using C++.
-            </p>
+        <div class="faq">
 
-        </div>
+            <div class="question">
 
-        <div class="project-card">
+                What is C++?
 
-            <h2>Quiz Application</h2>
+                <button class="btn">+</button>
 
-            <p>
-                Build a multiple-choice quiz program
-                with score calculation.
-            </p>
+            </div>
+
+            <div class="answer">
+
+                C++ is a powerful object-oriented programming language used for software development.
+
+            </div>
 
         </div>
 
-    </div>
+        <div class="faq">
 
-</section>
+            <div class="question">
 
+                Who developed C++?
 
+                <button class="btn">+</button>
 
-<section class="intro">
+            </div>
 
-    <h1>8. C++ Career Opportunities</h1>
+            <div class="answer">
 
-    <p>
+                C++ was developed by Bjarne Stroustrup.
 
-        C++ developers can work as Software Developers,
-        Game Developers, System Programmers, Embedded
-        Engineers and Application Developers.
-
-        C++ is widely used in software companies,
-        gaming industries, robotics, finance and
-        operating system development.
-
-    </p>
-
-</section>
-
-
-
-<section class="faq-section">
-
-    <h1>9. Frequently Asked Questions</h1>
-
-    <div class="faq">
-
-        <div class="question">
-
-            What is C++?
-
-            <button class="btn">+</button>
+            </div>
 
         </div>
 
-        <div class="answer">
+        <div class="faq">
 
-            C++ is a powerful object-oriented programming language used for software development.
+            <div class="question">
 
-        </div>
+                Is C++ easy to learn?
 
-    </div>
+                <button class="btn">+</button>
 
+            </div>
 
+            <div class="answer">
 
-    <div class="faq">
+                Yes, beginners can learn C++ with regular practice.
 
-        <div class="question">
-
-            Who developed C++?
-
-            <button class="btn">+</button>
+            </div>
 
         </div>
 
-        <div class="answer">
+        <div class="faq">
 
-            C++ was developed by Bjarne Stroustrup.
+            <div class="question">
 
-        </div>
+                What is C++ mainly used for?
 
-    </div>
+                <button class="btn">+</button>
 
+            </div>
 
+            <div class="answer">
 
-    <div class="faq">
+                It is used for software, games, operating systems and high-performance applications.
 
-        <div class="question">
-
-            Is C++ easy to learn?
-
-            <button class="btn">+</button>
+            </div>
 
         </div>
 
-        <div class="answer">
+        <div class="faq">
 
-            Yes, beginners can learn C++ with regular practice.
+            <div class="question">
 
-        </div>
+                Is C++ object-oriented?
 
-    </div>
+                <button class="btn">+</button>
 
+            </div>
 
+            <div class="answer">
 
-    <div class="faq">
+                Yes, C++ fully supports Object-Oriented Programming (OOP).
 
-        <div class="question">
-
-            What is C++ mainly used for?
-
-            <button class="btn">+</button>
+            </div>
 
         </div>
 
-        <div class="answer">
+        <div class="faq">
 
-            It is used for software, games, operating systems and high-performance applications.
+            <div class="question">
 
-        </div>
+                Can I build games using C++?
 
-    </div>
+                <button class="btn">+</button>
 
+            </div>
 
+            <div class="answer">
 
-    <div class="faq">
+                Yes, C++ is one of the best languages for game development.
 
-        <div class="question">
-
-            Is C++ object-oriented?
-
-            <button class="btn">+</button>
+            </div>
 
         </div>
 
-        <div class="answer">
+        <div class="faq">
 
-            Yes, C++ fully supports Object-Oriented Programming (OOP).
+            <div class="question">
 
-        </div>
+                Is C++ faster than many other languages?
 
-    </div>
+                <button class="btn">+</button>
 
+            </div>
 
+            <div class="answer">
 
-    <div class="faq">
+                Yes, C++ offers excellent speed and performance.
 
-        <div class="question">
-
-            Can I build games using C++?
-
-            <button class="btn">+</button>
+            </div>
 
         </div>
 
-        <div class="answer">
+        <div class="faq">
 
-            Yes, C++ is one of the best languages for game development.
+            <div class="question">
 
-        </div>
+                What is STL in C++?
 
-    </div>
+                <button class="btn">+</button>
 
+            </div>
 
+            <div class="answer">
 
-    <div class="faq">
+                STL (Standard Template Library) provides ready-made data structures and algorithms.
 
-        <div class="question">
-
-            Is C++ faster than many other languages?
-
-            <button class="btn">+</button>
+            </div>
 
         </div>
 
-        <div class="answer">
+        <div class="faq">
 
-            Yes, C++ offers excellent speed and performance.
+            <div class="question">
 
-        </div>
+                Can C++ connect with databases?
 
-    </div>
+                <button class="btn">+</button>
 
+            </div>
 
+            <div class="answer">
 
-    <div class="faq">
+                Yes, C++ can connect with databases using different libraries.
 
-        <div class="question">
-
-            What is STL in C++?
-
-            <button class="btn">+</button>
+            </div>
 
         </div>
 
-        <div class="answer">
-
-            STL (Standard Template Library) provides ready-made data structures and algorithms.
-
-        </div>
-
-    </div>
 
 
+        <div class="faq">
 
-    <div class="faq">
+            <div class="question">
 
-        <div class="question">
+                Why should I learn C++?
 
-            Can C++ connect with databases?
+                <button class="btn">+</button>
 
-            <button class="btn">+</button>
+            </div>
 
-        </div>
+            <div class="answer">
 
-        <div class="answer">
+                C++ builds strong programming fundamentals and opens many career opportunities.
 
-            Yes, C++ can connect with databases using different libraries.
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
+    <footer>
 
+        <div class="footer-container">
 
-    <div class="faq">
+            <div class="footer-box">
 
-        <div class="question">
+                <h2>Code Learn</h2>
 
-            Why should I learn C++?
+                <p>
+                    Learn HTML, CSS, JavaScript, PHP, React,
+                    C++, Python and many more programming
+                    languages with easy tutorials.
+                </p>
 
-            <button class="btn">+</button>
+            </div>
 
-        </div>
+            <div class="footer-box">
 
-        <div class="answer">
+                <h2>Quick Links</h2>
 
-            C++ builds strong programming fundamentals and opens many career opportunities.
+                <p>Home</p>
 
-        </div>
+                <p>HTML</p>
 
-    </div>
+                <p>CSS</p>
 
-</section>
+                <p>JavaScript</p>
 
+                <p>C++</p>
 
+            </div>
 
-<footer>
+            <div class="footer-box">
 
-    <div class="footer-container">
+                <h2>C++ Topics</h2>
 
-        <div class="footer-box">
+                <p>Variables</p>
 
-            <h2>Code Learn</h2>
+                <p>Functions</p>
 
-            <p>
-                Learn HTML, CSS, JavaScript, PHP, React,
-                C++, Python and many more programming
-                languages with easy tutorials.
-            </p>
+                <p>Loops</p>
 
-        </div>
+                <p>Classes</p>
 
-        <div class="footer-box">
+                <p>Pointers</p>
 
-            <h2>Quick Links</h2>
+            </div>
 
-            <p>Home</p>
+            <div class="footer-box">
 
-            <p>HTML</p>
+                <h2>Contact</h2>
 
-            <p>CSS</p>
+                <p>Email : support@codelearn.com</p>
 
-            <p>JavaScript</p>
+                <p>Phone : +91 9876543210</p>
 
-            <p>C++</p>
+                <p>India</p>
 
-        </div>
-
-        <div class="footer-box">
-
-            <h2>C++ Topics</h2>
-
-            <p>Variables</p>
-
-            <p>Functions</p>
-
-            <p>Loops</p>
-
-            <p>Classes</p>
-
-            <p>Pointers</p>
+            </div>
 
         </div>
 
-        <div class="footer-box">
+        <div class="copyright">
 
-            <h2>Contact</h2>
-
-            <p>Email : support@codelearn.com</p>
-
-            <p>Phone : +91 9876543210</p>
-
-            <p>India</p>
+            <p>© 2026 Code Learn. All Rights Reserved.</p>
 
         </div>
 
-    </div>
-
-    <div class="copyright">
-
-        <p>© 2026 Code Learn. All Rights Reserved.</p>
-
-    </div>
-
-</footer>
+    </footer>
 </body>
+
 <script>
+
     const btn = document.getElementById("btn");
-const menu = document.getElementById("menu");
+    const menu = document.getElementById("menu");
 
-btn.addEventListener("click", function () {
-    menu.classList.toggle("show");
-});
+    btn.addEventListener("click", function () {
+        menu.classList.toggle("show");
+    });
 
+    const faqs = document.querySelectorAll(".faq");
 
+    faqs.forEach(function (faq) {
 
-const faqs = document.querySelectorAll(".faq");
+        const question = faq.querySelector(".question");
+        const button = faq.querySelector(".btn");
 
-faqs.forEach(function (faq) {
+        question.addEventListener("click", function () {
 
-    const question = faq.querySelector(".question");
-    const button = faq.querySelector(".btn");
+            faq.classList.toggle("active");
 
-    question.addEventListener("click", function () {
+            if (faq.classList.contains("active")) {
+                button.innerHTML = "−";
+            } else {
+                button.innerHTML = "+";
+            }
 
-        faq.classList.toggle("active");
+        });
 
-        if (faq.classList.contains("active")) {
-            button.innerHTML = "−";
+    });
+
+    const themeBtn = document.getElementById("themeBtn");
+
+    themeBtn.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark");
+
+        if (document.body.classList.contains("dark")) {
+            themeBtn.innerHTML = "☀️";
         } else {
-            button.innerHTML = "+";
+            themeBtn.innerHTML = "🌙";
         }
 
     });
 
-});
 
+    const progressBar = document.getElementById("progress-bar");
+    const scrollTopBtn = document.getElementById("scrollTop");
 
+    window.addEventListener("scroll", function () {
 
-const themeBtn = document.getElementById("themeBtn");
+        const scrollTop = document.documentElement.scrollTop;
 
-themeBtn.addEventListener("click", function () {
+        const scrollHeight =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
 
-    document.body.classList.toggle("dark");
+        const progress = (scrollTop / scrollHeight) * 100;
 
-    if (document.body.classList.contains("dark")) {
-        themeBtn.innerHTML = "☀️";
-    } else {
-        themeBtn.innerHTML = "🌙";
-    }
+        progressBar.style.width = progress + "%";
 
-});
-
-
-
-const progressBar = document.getElementById("progress-bar");
-const scrollTopBtn = document.getElementById("scrollTop");
-
-window.addEventListener("scroll", function () {
-
-    const scrollTop = document.documentElement.scrollTop;
-
-    const scrollHeight =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
-
-    const progress = (scrollTop / scrollHeight) * 100;
-
-    progressBar.style.width = progress + "%";
-
-    if (scrollTop > 300) {
-        scrollTopBtn.style.display = "block";
-    } else {
-        scrollTopBtn.style.display = "none";
-    }
-
-});
-
-
-
-scrollTopBtn.addEventListener("click", function () {
-
-    window.scrollTo({
-
-        top: 0,
-        behavior: "smooth"
+        if (scrollTop > 300) {
+            scrollTopBtn.style.display = "block";
+        } else {
+            scrollTopBtn.style.display = "none";
+        }
 
     });
 
-});
+    scrollTopBtn.addEventListener("click", function () {
+
+        window.scrollTo({
+
+            top: 0,
+            behavior: "smooth"
+
+        });
+
+    });
+
 </script>
+
 </html>
